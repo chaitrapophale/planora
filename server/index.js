@@ -11,7 +11,7 @@ app.use(cors());
 app.use(express.json({ limit: '10mb' }));
 
 // Health check endpoint
-app.get('/api/health', (req, res) => {
+const handleHealth = (req, res) => {
   res.json({
     status: 'ok',
     service: 'Planora GenAI Backend',
@@ -20,10 +20,12 @@ app.get('/api/health', (req, res) => {
     hasApiKey: CONFIG.HAS_API_KEY,
     environmentConfigured: CONFIG.HAS_API_KEY
   });
-});
+};
+app.get('/api/health', handleHealth);
+app.get('/health', handleHealth);
 
 // Conversational and Action Proposal Endpoint
-app.post('/api/ai/chat', async (req, res) => {
+const handleChat = async (req, res) => {
   try {
     const { message, history, eventContext, currentScreen } = req.body;
 
@@ -50,10 +52,12 @@ app.post('/api/ai/chat', async (req, res) => {
       details: err.message
     });
   }
-});
+};
+app.post('/api/ai/chat', handleChat);
+app.post('/ai/chat', handleChat);
 
 // Dedicated Full Event Plan Synthesis Endpoint
-app.post('/api/ai/plan', async (req, res) => {
+const handlePlan = async (req, res) => {
   try {
     const { prompt, eventContext } = req.body;
     const planPrompt = prompt || `Generate a comprehensive production blueprint for ${eventContext?.activeEvent?.name || 'our event'}.`;
@@ -73,22 +77,30 @@ app.post('/api/ai/plan', async (req, res) => {
       details: err.message
     });
   }
-});
+};
+app.post('/api/ai/plan', handlePlan);
+app.post('/ai/plan', handlePlan);
 
 // Action Validation Endpoint
-app.post('/api/ai/validate-action', (req, res) => {
+const handleValidateAction = (req, res) => {
   const { action } = req.body;
   const validation = validateProposedAction(action);
   res.json(validation);
-});
+};
+app.post('/api/ai/validate-action', handleValidateAction);
+app.post('/ai/validate-action', handleValidateAction);
 
-// Start Express server
+// Start Express server locally if not in Vercel serverless environment
 const PORT = CONFIG.PORT;
-app.listen(PORT, () => {
-  console.log(`====================================================`);
-  console.log(` Planora GenAI Backend Server active on port ${PORT}`);
-  console.log(` Provider: ${CONFIG.PROVIDER_NAME} | Model: ${CONFIG.AI_MODEL}`);
-  console.log(` Gemini API Key Configured: ${CONFIG.HAS_API_KEY ? 'YES (Live LLM Connected)' : 'NO (Local fallback active)'}`);
-  console.log(` Health check: http://localhost:${PORT}/api/health`);
-  console.log(`====================================================`);
-});
+if (!process.env.VERCEL) {
+  app.listen(PORT, () => {
+    console.log(`====================================================`);
+    console.log(` Planora GenAI Backend Server active on port ${PORT}`);
+    console.log(` Provider: ${CONFIG.PROVIDER_NAME} | Model: ${CONFIG.AI_MODEL}`);
+    console.log(` Gemini API Key Configured: ${CONFIG.HAS_API_KEY ? 'YES (Live LLM Connected)' : 'NO (Local fallback active)'}`);
+    console.log(` Health check: http://localhost:${PORT}/api/health`);
+    console.log(`====================================================`);
+  });
+}
+
+export default app;

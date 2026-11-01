@@ -70,6 +70,9 @@ export async function callGeminiAssistant({
 
   const candidateModels = Array.from(new Set([
     AI_MODEL,
+    'gemini-2.5-flash',
+    'gemini-2.0-flash',
+    'gemini-1.5-flash',
     'gemini-3-flash-preview',
     'gemini-3.5-flash',
     'gemini-3.8-flash'

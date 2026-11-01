@@ -57,7 +57,7 @@ export const Settings = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label className="block text-xs font-bold text-tertiary uppercase mb-1">Director Full Name</label>
-              <input 
+              <input
                 type="text"
                 value={formData.organizerName || ''}
                 onChange={(e) => setFormData({ ...formData, organizerName: e.target.value })}
@@ -67,7 +67,7 @@ export const Settings = () => {
 
             <div>
               <label className="block text-xs font-bold text-tertiary uppercase mb-1">Production Agency / Studio</label>
-              <input 
+              <input
                 type="text"
                 value={formData.agencyName || ''}
                 onChange={(e) => setFormData({ ...formData, agencyName: e.target.value })}
@@ -79,7 +79,7 @@ export const Settings = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label className="block text-xs font-bold text-tertiary uppercase mb-1">Official Email Address</label>
-              <input 
+              <input
                 type="email"
                 value={formData.email || ''}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
@@ -89,7 +89,7 @@ export const Settings = () => {
 
             <div>
               <label className="block text-xs font-bold text-tertiary uppercase mb-1">Emergency Dispatch Contact</label>
-              <input 
+              <input
                 type="text"
                 value={formData.phone || ''}
                 onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
@@ -153,49 +153,6 @@ export const Settings = () => {
           </div>
         </section>
 
-        {/* SECTION 2.5: GENAI ASSISTANT & LLM STATUS */}
-        <section className="bg-surface-container-lowest p-5 rounded-xl border border-surface-container-highest shadow-sm space-y-4">
-          <div className="flex items-center justify-between border-b border-surface-container-highest pb-3">
-            <div className="flex items-center gap-2">
-              <span className="material-symbols-outlined text-primary-container">auto_awesome</span>
-              <h2 className="font-headline-sm text-base font-bold text-tertiary">GenAI Assistant &amp; LLM Provider</h2>
-            </div>
-            <span className="bg-primary-fixed text-on-primary-fixed text-[10px] font-bold px-2 py-0.5 rounded-full uppercase">
-              Google Gemini
-            </span>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
-            <div className="p-3 rounded-lg bg-surface-container-low border border-surface-container-highest space-y-1">
-              <span className="text-[10px] uppercase font-bold text-secondary block">Provider &amp; Model</span>
-              <p className="font-bold text-tertiary">Google Gemini (gemini-2.5-flash)</p>
-              <p className="text-[11px] text-on-surface-variant">Low latency, structured JSON schemas, multimodal planning reasoning.</p>
-            </div>
-
-            <div className="p-3 rounded-lg bg-surface-container-low border border-surface-container-highest space-y-1">
-              <span className="text-[10px] uppercase font-bold text-secondary block">Backend Security Architecture</span>
-              <p className="font-bold text-primary">Secure Express Backend Proxy (:3001)</p>
-              <p className="text-[11px] text-on-surface-variant">API keys remain secured in server environment variables and are never exposed to browser.</p>
-            </div>
-          </div>
-
-          <div className="p-3 rounded-lg bg-surface-container border border-surface-container-highest space-y-2 text-xs">
-            <div className="flex items-center justify-between">
-              <span className="font-bold text-tertiary">Environment Configuration:</span>
-              <span className="text-[11px] font-mono text-outline">.env</span>
-            </div>
-            <div className="bg-surface-container-lowest p-2.5 rounded font-mono text-[11px] text-tertiary space-y-1 border border-surface-container-highest/60">
-              <p className="text-secondary font-semibold"># Configure in your project root .env:</p>
-              <p>GEMINI_API_KEY=your_gemini_api_key_here</p>
-              <p>AI_MODEL=gemini-2.5-flash</p>
-              <p>PORT=3001</p>
-            </div>
-            <p className="text-[11px] text-on-surface-variant">
-              When no API key is specified, Planora automatically runs in intelligent local preview mode so all screens and proposal approval workflows remain functional.
-            </p>
-          </div>
-        </section>
-
         {/* SECTION 3: OPERATIONAL NOTIFICATION TOGGLES */}
         <section className="bg-surface-container-lowest p-5 rounded-xl border border-surface-container-highest shadow-sm space-y-4">
           <div className="flex items-center gap-2 border-b border-surface-container-highest pb-3">
@@ -213,7 +170,7 @@ export const Settings = () => {
                   Notify agency director when committed vendor payments exceed 90% of category target
                 </span>
               </div>
-              <input 
+              <input
                 type="checkbox"
                 checked={formData.emailNotifications}
                 onChange={(e) => setFormData({ ...formData, emailNotifications: e.target.checked })}
@@ -230,7 +187,7 @@ export const Settings = () => {
                   Send high-priority SMS alert to shift leads when schedule drift exceeds 15 minutes
                 </span>
               </div>
-              <input 
+              <input
                 type="checkbox"
                 checked={formData.liveSmsAlerts}
                 onChange={(e) => setFormData({ ...formData, liveSmsAlerts: e.target.checked })}
@@ -247,7 +204,7 @@ export const Settings = () => {
                   Automatically sync event creation and live timeline alterations to persistent storage
                 </span>
               </div>
-              <input 
+              <input
                 type="checkbox"
                 checked={formData.autoSaveDrafts}
                 onChange={(e) => setFormData({ ...formData, autoSaveDrafts: e.target.checked })}
