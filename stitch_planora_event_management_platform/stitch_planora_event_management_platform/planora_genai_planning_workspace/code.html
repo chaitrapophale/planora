@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Planora - GenAI Event Planning Workspace</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Newsreader & Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS with Forms & Container Queries -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "error-container": "#ffdad6",
+            "on-secondary-fixed": "#341005",
+            "on-secondary-container": "#794737",
+            "surface-container-lowest": "#ffffff",
+            "tertiary-fixed": "#ffdcc6",
+            "inverse-surface": "#362f29",
+            "background": "#fff8f4",
+            "on-primary-fixed-variant": "#274e3c",
+            "on-primary-container": "#88b29b",
+            "on-primary": "#ffffff",
+            "outline-variant": "#c1c8c2",
+            "on-secondary-fixed-variant": "#693a2b",
+            "on-surface": "#201a15",
+            "surface-container-highest": "#ede0d6",
+            "on-primary-fixed": "#002114",
+            "on-tertiary-fixed": "#2b1708",
+            "surface": "#fff8f4",
+            "tertiary-fixed-dim": "#e5bfa8",
+            "primary": "#032f1e",
+            "on-background": "#201a15",
+            "primary-fixed-dim": "#a5d0b8",
+            "secondary": "#855140",
+            "surface-variant": "#ede0d6",
+            "surface-container-high": "#f3e6dc",
+            "on-error-container": "#93000a",
+            "primary-fixed": "#c0edd3",
+            "on-surface-variant": "#414844",
+            "error": "#ba1a1a",
+            "secondary-fixed-dim": "#fab7a1",
+            "surface-tint": "#3f6653",
+            "outline": "#717973",
+            "on-tertiary": "#ffffff",
+            "primary-container": "#1d4533",
+            "surface-container-low": "#fef1e7",
+            "on-secondary": "#ffffff",
+            "on-tertiary-container": "#c5a18b",
+            "on-error": "#ffffff",
+            "inverse-on-surface": "#fceee4",
+            "on-tertiary-fixed-variant": "#5b412f",
+            "tertiary": "#392313",
+            "tertiary-container": "#513827",
+            "secondary-container": "#feb9a4",
+            "inverse-primary": "#a5d0b8",
+            "surface-bright": "#fff8f4",
+            "secondary-fixed": "#ffdbd0",
+            "surface-container": "#f9ece2",
+            "surface-dim": "#e4d8ce"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "margin-mobile": "1rem",
+            "space-xl": "2.5rem",
+            "space-md": "1rem",
+            "gutter-mobile": "1rem",
+            "space-xs": "0.25rem",
+            "gutter": "1.5rem",
+            "margin": "2rem",
+            "space-sm": "0.5rem",
+            "space-lg": "1.5rem"
+          },
+          "fontFamily": {
+            "body-sm": ["Plus Jakarta Sans"],
+            "title-sm": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "display-lg-mobile": ["Newsreader"],
+            "title-lg": ["Plus Jakarta Sans"],
+            "headline-lg": ["Newsreader"],
+            "body-md": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Newsreader"],
+            "headline-md": ["Newsreader"],
+            "title-md": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "display-lg": ["Newsreader"],
+            "headline-sm": ["Newsreader"]
+          },
+          "fontSize": {
+            "body-sm": ["12px", { "lineHeight": "18px", "fontWeight": "400" }],
+            "title-sm": ["14px", { "lineHeight": "20px", "fontWeight": "600" }],
+            "body-lg": ["16px", { "lineHeight": "26px", "fontWeight": "400" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "display-lg-mobile": ["34px", { "lineHeight": "42px", "letterSpacing": "-0.01em", "fontWeight": "500" }],
+            "title-lg": ["18px", { "lineHeight": "26px", "fontWeight": "700" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "body-md": ["14px", { "lineHeight": "22px", "fontWeight": "400" }],
+            "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+            "title-md": ["16px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.06em", "fontWeight": "700" }],
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "500" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .hide-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .hide-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="bg-surface-container font-body-md text-on-surface antialiased h-full flex flex-col justify-between selection:bg-secondary-container selection:text-tertiary">
+<!-- TOP APP BAR / WORKSPACE HEADER -->
+<header class="sticky top-0 z-40 bg-surface-container-lowest border-b border-surface-container-highest px-margin-mobile py-2.5 shadow-sm">
+<div class="flex items-center justify-between gap-2">
+<!-- Back & Title -->
+<div class="flex items-center gap-2 min-w-0">
+<button aria-label="Go Back" class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-surface-container transition-colors text-primary active:scale-95">
+<span class="material-symbols-outlined text-[20px]">arrow_back</span>
+</button>
+<div class="flex flex-col truncate">
+<div class="flex items-center gap-1.5">
+<h1 class="font-headline-sm text-headline-sm text-primary tracking-tight font-semibold leading-tight truncate">AI Planning Partner</h1>
+<span class="w-2 h-2 rounded-full bg-primary-container animate-pulse flex-shrink-0"></span>
+</div>
+<div class="flex items-center gap-1 mt-0.5">
+<span class="inline-flex items-center px-1.5 py-0.5 rounded-lg bg-surface-container text-tertiary text-label-sm font-label-sm border border-surface-container-highest truncate">
+<span class="material-symbols-outlined text-[12px] mr-1 text-primary-container">event</span>
+              TechSpark Fest 2025
+            </span>
+</div>
+</div>
+</div>
+<!-- Primary Action -->
+<div class="flex items-center gap-1.5 flex-shrink-0">
+<button class="inline-flex items-center gap-1 bg-primary-container text-surface-container-lowest px-2.5 py-1.5 rounded-lg font-label-md text-label-md hover:bg-primary transition-all duration-150 active:scale-95 shadow-sm">
+<span class="material-symbols-outlined text-[15px]">done_all</span>
+<span>Apply Changes</span>
+</button>
+</div>
+</div>
+</header>
+<!-- CHAT & CANVAS SCROLL AREA -->
+<main class="flex-1 overflow-y-auto px-margin-mobile py-space-md space-y-space-md pb-44">
+<!-- User Request Message Bubble -->
+<div class="flex flex-col items-end w-full">
+<div class="flex items-end gap-1.5 max-w-[90%]">
+<div class="bg-surface-container-lowest text-on-surface rounded-xl rounded-tr-none p-3.5 border border-surface-container-highest shadow-sm">
+<div class="flex items-center justify-between gap-2 mb-1">
+<span class="font-label-sm text-label-sm text-secondary font-bold">Event Director</span>
+<span class="font-label-sm text-label-sm text-outline">10:42 AM</span>
+</div>
+<p class="font-body-md text-body-md text-tertiary leading-relaxed">
+            Plan a college cultural festival for 500 people in Mumbai with a budget of ₹2,00,000, taking place in three weeks.
+          </p>
+</div>
+<div class="w-6 h-6 rounded-full bg-secondary text-surface-container-lowest flex items-center justify-center flex-shrink-0 text-[12px] font-bold">
+          ED
+        </div>
+</div>
+</div>
+<!-- AI Response Section: Container Frame -->
+<div class="flex flex-col items-start w-full space-y-space-sm">
+<!-- AI Identity Chip -->
+<div class="flex items-center gap-2 pl-1">
+<div class="w-6 h-6 rounded-lg bg-primary-container text-surface-container-lowest flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[14px]">auto_awesome</span>
+</div>
+<span class="font-label-md text-label-md text-primary font-bold tracking-tight">Planora Intelligence</span>
+<span class="bg-secondary-container/60 text-tertiary-container px-2 py-0.5 rounded-full text-label-sm font-label-sm font-semibold">
+          v2.4 Ready
+        </span>
+</div>
+<!-- Algorithmic Disclaimer Notice -->
+<div class="w-full bg-secondary-container/30 border-l-4 border-primary-container p-3 rounded-r-lg border border-surface-container-highest/60 text-tertiary">
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-primary-container text-[18px] flex-shrink-0 mt-0.5">info</span>
+<p class="font-body-sm text-body-sm text-on-surface leading-tight">
+<strong class="font-label-md text-primary-container">Note:</strong> Cost values are algorithmic estimates based on Mumbai vendor averages. Please confirm vendor quotes prior to stage lockout.
+          </p>
+</div>
+</div>
+<!-- Section A: Concept & Theme -->
+<section class="w-full bg-surface-container-lowest rounded-xl border border-surface-container-highest p-4 shadow-sm relative overflow-hidden">
+<div class="absolute -right-6 -bottom-6 w-24 h-24 bg-surface-container rounded-full opacity-60 pointer-events-none"></div>
+<div class="flex items-center justify-between pb-2 border-b border-surface-container-highest/70">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container text-[20px]">palette</span>
+<span class="font-label-sm text-label-sm text-secondary font-bold">SECTION A • CORE IDENTITY</span>
+</div>
+<span class="material-symbols-outlined text-outline text-[18px]">verified</span>
+</div>
+<div class="pt-3">
+<h2 class="font-headline-sm text-headline-sm text-tertiary font-bold tracking-tight">
+            Neon Heritage: Fusion of Traditional Art &amp; Digital Beats
+          </h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1.5 leading-relaxed">
+            High-contrast visual juxtaposition pairing classical Warli artwork with programmable RGB LED mapping and regional electronic percussion showcases.
+          </p>
+<div class="mt-3 flex flex-wrap gap-1.5">
+<span class="inline-flex items-center gap-1 bg-surface-container text-primary-container px-2.5 py-1 rounded-lg text-label-sm font-label-sm border border-surface-container-highest">
+<span class="material-symbols-outlined text-[13px]">groups</span> 500 Capacity
+            </span>
+<span class="inline-flex items-center gap-1 bg-surface-container text-primary-container px-2.5 py-1 rounded-lg text-label-sm font-label-sm border border-surface-container-highest">
+<span class="material-symbols-outlined text-[13px]">location_on</span> Mumbai Metro
+            </span>
+<span class="inline-flex items-center gap-1 bg-surface-container text-primary-container px-2.5 py-1 rounded-lg text-label-sm font-label-sm border border-surface-container-highest">
+<span class="material-symbols-outlined text-[13px]">hourglass_top</span> 21 Days Prep
+            </span>
+</div>
+</div>
+</section>
+<!-- Section B: Budget Breakdown -->
+<section class="w-full bg-surface-container-lowest rounded-xl border border-surface-container-highest p-4 shadow-sm">
+<div class="flex items-center justify-between pb-2 border-b border-surface-container-highest/70">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container text-[20px]">payments</span>
+<span class="font-label-sm text-label-sm text-secondary font-bold">SECTION B • FISCAL MODEL</span>
+</div>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-label-sm font-label-sm bg-surface-container text-primary-container font-bold border border-primary-container/20">
+            ₹1,95,000 / ₹2,00,000
+          </span>
+</div>
+<div class="pt-3">
+<!-- Summary Progress Bar -->
+<div class="w-full bg-surface-container-highest h-2 rounded-full overflow-hidden flex mb-3">
+<div class="bg-primary-container h-full" style="width: 33%" title="Sound &amp; Stage (33%)"></div>
+<div class="bg-secondary h-full" style="width: 30%" title="Catering (30%)"></div>
+<div class="bg-secondary-container h-full" style="width: 13%" title="Trophies (13%)"></div>
+<div class="bg-tertiary-container h-full" style="width: 13%" title="Decor (13%)"></div>
+<div class="bg-primary-fixed-dim h-full" style="width: 10%" title="Reserve (10%)"></div>
+</div>
+<!-- Structured Line Items Table -->
+<div class="space-y-2">
+<!-- Row 1 -->
+<div class="flex items-center justify-between py-1.5 px-2 rounded-lg bg-surface-container/50 border border-surface-container-highest/50">
+<div class="flex items-center gap-2 min-w-0">
+<span class="w-2 h-2 rounded-full bg-primary-container flex-shrink-0"></span>
+<span class="font-title-sm text-title-sm text-tertiary truncate">Sound &amp; Stage Lighting</span>
+</div>
+<div class="text-right flex-shrink-0 ml-2">
+<span class="font-title-sm text-title-sm text-primary font-bold">₹65,000</span>
+<span class="font-label-sm text-label-sm text-outline ml-1 font-semibold">33%</span>
+</div>
+</div>
+<!-- Row 2 -->
+<div class="flex items-center justify-between py-1.5 px-2 rounded-lg bg-surface-container/30 border border-surface-container-highest/40">
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary flex-shrink-0"></span>
+<span class="font-title-sm text-title-sm text-tertiary truncate">Catering &amp; Refreshments</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant pl-4">500 pax box meals @ ₹120</span>
+</div>
+<div class="text-right flex-shrink-0 ml-2">
+<span class="font-title-sm text-title-sm text-primary font-bold">₹60,000</span>
+<span class="font-label-sm text-label-sm text-outline ml-1 font-semibold">30%</span>
+</div>
+</div>
+<!-- Row 3 -->
+<div class="flex items-center justify-between py-1.5 px-2 rounded-lg bg-surface-container/50 border border-surface-container-highest/50">
+<div class="flex items-center gap-2 min-w-0">
+<span class="w-2 h-2 rounded-full bg-secondary-container flex-shrink-0"></span>
+<span class="font-title-sm text-title-sm text-tertiary truncate">Trophies, Certificates &amp; Merch</span>
+</div>
+<div class="text-right flex-shrink-0 ml-2">
+<span class="font-title-sm text-title-sm text-primary font-bold">₹25,000</span>
+<span class="font-label-sm text-label-sm text-outline ml-1 font-semibold">13%</span>
+</div>
+</div>
+<!-- Row 4 -->
+<div class="flex items-center justify-between py-1.5 px-2 rounded-lg bg-surface-container/30 border border-surface-container-highest/40">
+<div class="flex items-center gap-2 min-w-0">
+<span class="w-2 h-2 rounded-full bg-tertiary-container flex-shrink-0"></span>
+<span class="font-title-sm text-title-sm text-tertiary truncate">Venue Decor &amp; Registration</span>
+</div>
+<div class="text-right flex-shrink-0 ml-2">
+<span class="font-title-sm text-title-sm text-primary font-bold">₹25,000</span>
+<span class="font-label-sm text-label-sm text-outline ml-1 font-semibold">13%</span>
+</div>
+</div>
+<!-- Row 5 -->
+<div class="flex items-center justify-between py-1.5 px-2 rounded-lg bg-surface-container/50 border border-surface-container-highest/50">
+<div class="flex items-center gap-2 min-w-0">
+<span class="w-2 h-2 rounded-full bg-primary-fixed-dim flex-shrink-0"></span>
+<span class="font-title-sm text-title-sm text-tertiary truncate">Emergency Reserve</span>
+</div>
+<div class="text-right flex-shrink-0 ml-2">
+<span class="font-title-sm text-title-sm text-primary font-bold">₹20,000</span>
+<span class="font-label-sm text-label-sm text-outline ml-1 font-semibold">10%</span>
+</div>
+</div>
+</div>
+<!-- Section B Interactive Buttons -->
+<div class="mt-4 pt-3 border-t border-surface-container-highest grid grid-cols-3 gap-2">
+<button class="bg-primary-container text-surface-container-lowest py-2 px-1 rounded-lg text-label-md font-label-md hover:bg-primary transition-all active:scale-95 text-center flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-[14px]">check</span>
+<span>Accept Allocation</span>
+</button>
+<button class="bg-transparent border border-primary-container text-secondary py-2 px-1 rounded-lg text-label-md font-label-md hover:bg-surface-container transition-all active:scale-95 text-center flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-[14px]">tune</span>
+<span>Modify</span>
+</button>
+<button class="bg-secondary-container/40 text-tertiary py-2 px-1 rounded-lg text-label-md font-label-md hover:bg-secondary-container transition-all active:scale-95 text-center flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-[14px]">table_view</span>
+<span>Export to Budget</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Section C: Preparation Milestones (Urgent Checklist) -->
+<section class="w-full bg-surface-container-lowest rounded-xl border border-surface-container-highest p-4 shadow-sm">
+<div class="flex items-center justify-between pb-2 border-b border-surface-container-highest/70">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container text-[20px]">assignment_turned_in</span>
+<span class="font-label-sm text-label-sm text-secondary font-bold">SECTION C • CRITICAL PATH</span>
+</div>
+<span class="inline-flex items-center gap-1 text-label-sm font-label-sm text-error font-semibold bg-error-container/40 px-2 py-0.5 rounded-full">
+<span class="material-symbols-outlined text-[12px]">schedule</span> 3 Weeks Out
+          </span>
+</div>
+<div class="pt-3 space-y-2.5">
+<!-- Item 1: Complete -->
+<div class="flex items-start gap-2.5 p-2 rounded-lg bg-surface-container/30 border border-surface-container-highest/40">
+<div class="w-5 h-5 rounded-lg bg-primary-container text-surface-container-lowest flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="font-title-sm text-title-sm text-on-surface line-through decoration-outline text-outline truncate">
+                  Book Quad Sound System
+                </span>
+<span class="font-label-sm text-label-sm text-primary font-bold bg-surface-container px-1.5 py-0.5 rounded ml-2">
+                  W-2
+                </span>
+</div>
+<p class="font-body-sm text-body-sm text-outline mt-0.5">Dual subwoofers + outdoor sound console vendor locked.</p>
+</div>
+</div>
+<!-- Item 2: Complete -->
+<div class="flex items-start gap-2.5 p-2 rounded-lg bg-surface-container/30 border border-surface-container-highest/40">
+<div class="w-5 h-5 rounded-lg bg-primary-container text-surface-container-lowest flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="font-title-sm text-title-sm text-on-surface line-through decoration-outline text-outline truncate">
+                  Municipal Sound Permit
+                </span>
+<span class="font-label-sm text-label-sm text-primary font-bold bg-surface-container px-1.5 py-0.5 rounded ml-2">
+                  W-2
+                </span>
+</div>
+<p class="font-body-sm text-body-sm text-outline mt-0.5">Bandstand &amp; open ground clearance application filed.</p>
+</div>
+</div>
+<!-- Item 3: Pending Urgent -->
+<div class="flex items-start gap-2.5 p-2 rounded-lg bg-secondary-container/20 border border-secondary-container/60">
+<div class="w-5 h-5 rounded-lg border-2 border-secondary bg-surface-container-lowest flex items-center justify-center flex-shrink-0 mt-0.5">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="font-title-sm text-title-sm text-tertiary font-bold truncate">
+                  Finalize 8 Judge Honorariums
+                </span>
+<span class="font-label-sm text-label-sm text-error font-bold bg-error-container px-1.5 py-0.5 rounded ml-2">
+                  URGENT
+                </span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary mt-0.5">Confirm travel &amp; hospitality vouchers by Friday evening.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Section D: Rain Contingency Plan -->
+<section class="w-full bg-surface-container-lowest rounded-xl border border-surface-container-highest p-4 shadow-sm relative">
+<div class="flex items-center justify-between pb-2 border-b border-surface-container-highest/70">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">water_drop</span>
+<span class="font-label-sm text-label-sm text-secondary font-bold">SECTION D • RISK MITIGATION</span>
+</div>
+<span class="inline-flex items-center gap-1 text-label-sm font-label-sm text-secondary font-bold bg-secondary-container/50 px-2 py-0.5 rounded-full">
+<span class="material-symbols-outlined text-[13px]">warning</span> Coastal October Risk
+          </span>
+</div>
+<div class="pt-3">
+<div class="p-3 bg-surface-container-high/60 rounded-lg border border-surface-container-highest">
+<h3 class="font-title-sm text-title-sm text-tertiary font-bold flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary-container">alt_route</span>
+              Rain Contingency Protocol
+            </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1.5 leading-relaxed">
+              Shift acoustic stage to <strong class="text-primary font-semibold">Indoor Gym Auditorium (Capacity 450)</strong>. Deploy waterproof tarps for Quad electrical console and stage cabling.
+            </p>
+<div class="mt-2.5 flex items-center gap-2 text-label-sm font-label-sm text-primary-container font-semibold">
+<span class="material-symbols-outlined text-[15px]">timer</span>
+<span>Turnaround execution SLA: 45 minutes</span>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- FIXED FLOATING PROMPT SYSTEM (Above Docked Nav) -->
+<aside class="fixed bottom-16 left-0 w-full z-40 bg-surface-container-lowest/95 backdrop-blur-md border-t border-surface-container-highest py-2 shadow-lg">
+<div class="px-margin-mobile">
+<!-- Context-Aware Follow-Up Prompt Chips -->
+<div class="flex items-center gap-2 overflow-x-auto hide-scrollbar pb-2">
+<button class="flex-shrink-0 inline-flex items-center gap-1 bg-surface-container text-tertiary px-3 py-1.5 rounded-full text-label-sm font-label-sm border border-surface-container-highest hover:bg-secondary-container/40 transition-colors active:scale-95">
+<span class="material-symbols-outlined text-[13px] text-secondary">trending_down</span>
+          Reduce budget by 15%
+        </button>
+<button class="flex-shrink-0 inline-flex items-center gap-1 bg-secondary-container/40 text-tertiary px-3 py-1.5 rounded-full text-label-sm font-label-sm border border-secondary-container hover:bg-secondary-container transition-colors active:scale-95">
+<span class="material-symbols-outlined text-[13px] text-primary-container">umbrella</span>
+          Add rain contingency
+        </button>
+<button class="flex-shrink-0 inline-flex items-center gap-1 bg-surface-container text-tertiary px-3 py-1.5 rounded-full text-label-sm font-label-sm border border-surface-container-highest hover:bg-secondary-container/40 transition-colors active:scale-95">
+<span class="material-symbols-outlined text-[13px] text-secondary">group_add</span>
+          Increase expected attendance to 650
+        </button>
+<button class="flex-shrink-0 inline-flex items-center gap-1 bg-surface-container text-tertiary px-3 py-1.5 rounded-full text-label-sm font-label-sm border border-surface-container-highest hover:bg-secondary-container/40 transition-colors active:scale-95">
+<span class="material-symbols-outlined text-[13px] text-secondary">calendar_today</span>
+          Reorganize event-day schedule
+        </button>
+<button class="flex-shrink-0 inline-flex items-center gap-1 bg-surface-container text-tertiary px-3 py-1.5 rounded-full text-label-sm font-label-sm border border-surface-container-highest hover:bg-secondary-container/40 transition-colors active:scale-95">
+<span class="material-symbols-outlined text-[13px] text-error">priority_high</span>
+          Identify most urgent tasks
+        </button>
+</div>
+<!-- Bottom Prompt Input Bar -->
+<div class="flex items-center gap-2 bg-surface-container-lowest border border-secondary/30 rounded-xl px-3 py-1.5 shadow-sm focus-within:ring-2 focus-within:ring-primary-container focus-within:border-primary-container transition-all">
+<span class="material-symbols-outlined text-outline text-[20px]">smart_toy</span>
+<input class="flex-1 bg-transparent border-0 p-0 font-body-sm text-body-sm text-on-surface placeholder:text-outline focus:ring-0 focus:outline-none" placeholder="Ask Planora to adjust budget, tasks, or logistics..." type="text"/>
+<button aria-label="Audio Prompt" class="w-8 h-8 rounded-lg flex items-center justify-center text-outline hover:text-tertiary transition-colors active:scale-95">
+<span class="material-symbols-outlined text-[18px]">mic</span>
+</button>
+<button aria-label="Send Prompt" class="w-8 h-8 rounded-lg bg-primary-container text-surface-container-lowest flex items-center justify-center hover:bg-primary transition-all duration-150 active:scale-95 shadow-sm">
+<span class="material-symbols-outlined text-[16px]">arrow_upward</span>
+</button>
+</div>
+</div>
+</aside>
+<!-- SHARED BOTTOM NAVIGATION BAR -->
+<!-- Specification adherence: Destination Count 5, labels & icons exact, AI Planner active tab -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 px-space-xs bg-surface dark:bg-inverse-surface border-t border-surface-container-highest dark:border-outline-variant">
+<!-- Tab 1: Overview -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant py-1 px-3 hover:bg-surface-container-low dark:hover:bg-surface-variant transition-colors duration-150 active:scale-95" href="#">
+<span class="material-symbols-outlined text-[20px]">dashboard</span>
+<span class="text-label-sm font-label-sm mt-0.5">Overview</span>
+</a>
+<!-- Tab 2: AI Planner (MANDATORY ACTIVE STATE MATCHING SCREEN INTENT) -->
+<a class="flex flex-col items-center justify-center text-primary dark:text-inverse-primary font-semibold py-1 px-3 rounded-lg bg-surface-container dark:bg-primary-container hover:bg-surface-container-low dark:hover:bg-surface-variant transition-colors duration-150 active:scale-95" href="#">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<span class="text-label-sm font-label-sm mt-0.5">AI Planner</span>
+</a>
+<!-- Tab 3: Schedule -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant py-1 px-3 hover:bg-surface-container-low dark:hover:bg-surface-variant transition-colors duration-150 active:scale-95" href="#">
+<span class="material-symbols-outlined text-[20px]">event_note</span>
+<span class="text-label-sm font-label-sm mt-0.5">Schedule</span>
+</a>
+<!-- Tab 4: Budget -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant py-1 px-3 hover:bg-surface-container-low dark:hover:bg-surface-variant transition-colors duration-150 active:scale-95" href="#">
+<span class="material-symbols-outlined text-[20px]">payments</span>
+<span class="text-label-sm font-label-sm mt-0.5">Budget</span>
+</a>
+<!-- Tab 5: Live Mode -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant py-1 px-3 hover:bg-surface-container-low dark:hover:bg-surface-variant transition-colors duration-150 active:scale-95" href="#">
+<span class="material-symbols-outlined text-[20px]">sensors</span>
+<span class="text-label-sm font-label-sm mt-0.5">Live Mode</span>
+</a>
+</nav>
+</body></html>

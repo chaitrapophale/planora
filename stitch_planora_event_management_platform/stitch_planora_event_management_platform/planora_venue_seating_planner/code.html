@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Planora — Venue &amp; Seating Planner</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts for Newsreader (Serif) & Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "error-container": "#ffdad6",
+            "on-primary-fixed-variant": "#274e3c",
+            "primary": "#032f1e",
+            "surface-container-high": "#f3e6dc",
+            "on-primary": "#ffffff",
+            "tertiary": "#392313",
+            "primary-fixed": "#c0edd3",
+            "on-error": "#ffffff",
+            "on-tertiary-fixed-variant": "#5b412f",
+            "secondary-fixed": "#ffdbd0",
+            "error": "#ba1a1a",
+            "on-secondary-container": "#794737",
+            "surface-container-low": "#fef1e7",
+            "inverse-surface": "#362f29",
+            "outline": "#717973",
+            "on-primary-container": "#88b29b",
+            "on-surface": "#201a15",
+            "inverse-on-surface": "#fceee4",
+            "on-primary-fixed": "#002114",
+            "surface-variant": "#ede0d6",
+            "secondary-container": "#feb9a4",
+            "surface-bright": "#fff8f4",
+            "surface-container": "#f9ece2",
+            "tertiary-fixed": "#ffdcc6",
+            "secondary": "#855140",
+            "inverse-primary": "#a5d0b8",
+            "surface-tint": "#3f6653",
+            "on-background": "#201a15",
+            "tertiary-fixed-dim": "#e5bfa8",
+            "secondary-fixed-dim": "#fab7a1",
+            "on-error-container": "#93000a",
+            "surface-container-highest": "#ede0d6",
+            "surface-dim": "#e4d8ce",
+            "on-tertiary-container": "#c5a18b",
+            "primary-container": "#1d4533",
+            "primary-fixed-dim": "#a5d0b8",
+            "on-secondary": "#ffffff",
+            "surface-container-lowest": "#ffffff",
+            "on-secondary-fixed-variant": "#693a2b",
+            "surface": "#fff8f4",
+            "on-tertiary": "#ffffff",
+            "outline-variant": "#c1c8c2",
+            "on-surface-variant": "#414844",
+            "tertiary-container": "#513827",
+            "on-tertiary-fixed": "#2b1708",
+            "on-secondary-fixed": "#341005",
+            "background": "#fff8f4"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "margin": "2rem",
+            "space-sm": "0.5rem",
+            "space-xl": "2.5rem",
+            "space-lg": "1.5rem",
+            "margin-mobile": "1rem",
+            "space-md": "1rem",
+            "gutter": "1.5rem",
+            "space-xs": "0.25rem",
+            "gutter-mobile": "1rem"
+          },
+          "fontFamily": {
+            "display-lg-mobile": ["Newsreader"],
+            "headline-lg-mobile": ["Newsreader"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "display-lg": ["Newsreader"],
+            "body-md": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "title-md": ["Plus Jakarta Sans"],
+            "title-sm": ["Plus Jakarta Sans"],
+            "headline-lg": ["Newsreader"],
+            "label-md": ["Plus Jakarta Sans"],
+            "headline-sm": ["Newsreader"],
+            "headline-md": ["Newsreader"],
+            "title-lg": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "display-lg-mobile": ["34px", { "lineHeight": "42px", "letterSpacing": "-0.01em", "fontWeight": "500" }],
+            "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "fontWeight": "400" }],
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "500" }],
+            "body-md": ["14px", { "lineHeight": "22px", "fontWeight": "400" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.06em", "fontWeight": "700" }],
+            "body-lg": ["16px", { "lineHeight": "26px", "fontWeight": "400" }],
+            "title-md": ["16px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "title-sm": ["14px", { "lineHeight": "20px", "fontWeight": "600" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+            "title-lg": ["18px", { "lineHeight": "26px", "fontWeight": "700" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    /* Architectural Blueprint & Tactile Grid Accents */
+    .blueprint-grid {
+      background-size: 24px 24px;
+      background-image: 
+        linear-gradient(to right, rgba(94, 49, 34, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(94, 49, 34, 0.05) 1px, transparent 1px);
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      height: 6px;
+      width: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background-color: #ede0d6;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body class="bg-surface-container text-on-surface font-body-md antialiased min-h-full flex flex-col pb-20 md:pb-0">
+<!-- TOP APP BAR (Shared Component) -->
+<header class="sticky top-0 z-40 bg-surface w-full px-margin-mobile md:px-margin flex items-center justify-between h-16 shadow-[0_1px_3px_rgba(94,49,34,0.06)]">
+<!-- Brand Anchor -->
+<div class="flex items-center gap-4">
+<div class="font-headline-sm text-headline-sm font-semibold tracking-tight text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container text-2xl">explore</span>
+<span>Planora</span>
+</div>
+<div class="hidden sm:block h-5 w-[1px] bg-outline-variant/60"></div>
+<!-- Event Context Switcher -->
+<div class="flex items-center gap-2 bg-surface-container-lowest px-3 py-1.5 rounded-lg border border-secondary/20 shadow-xs">
+<span class="flex h-2 w-2 rounded-full bg-primary-container animate-pulse"></span>
+<span class="font-title-sm text-title-sm text-primary font-bold">TechSpark 2025</span>
+<span class="text-secondary/50 text-xs">•</span>
+<span class="font-body-sm text-body-sm text-secondary truncate max-w-[150px] md:max-w-none">St. Xavier's Grand Quad</span>
+<span class="material-symbols-outlined text-sm text-secondary">expand_more</span>
+</div>
+</div>
+<!-- Right Controls / Plan Switcher & Profile -->
+<div class="flex items-center gap-3">
+<!-- Layout Mode Selector -->
+<div class="hidden lg:flex items-center bg-surface-container-high p-1 rounded-lg">
+<button class="px-2.5 py-1 text-label-md font-label-md bg-surface-container-lowest text-primary rounded shadow-xs flex items-center gap-1.5">
+<span class="material-symbols-outlined text-base">architecture</span>
+          Spatial Map
+        </button>
+<button class="px-2.5 py-1 text-label-md font-label-md text-on-surface-variant hover:text-primary transition-colors flex items-center gap-1.5">
+<span class="material-symbols-outlined text-base">table_rows</span>
+          Inventory
+        </button>
+</div>
+<!-- Export Action -->
+<button class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 text-label-md font-label-md bg-transparent border border-primary-container text-secondary rounded hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-base">ios_share</span>
+<span>Export Floorplan PDF</span>
+</button>
+<!-- User Avatar Anchor -->
+<div class="flex items-center gap-2 pl-1">
+<div class="w-9 h-9 rounded-full bg-primary-container text-on-primary flex items-center justify-center font-bold text-xs shadow-xs ring-2 ring-surface-container-lowest" title="Event Director profile photo">
+          ED
+        </div>
+</div>
+</div>
+</header>
+<!-- MAIN VIEWPORT CONTAINER -->
+<main class="flex-1 w-full max-w-[1600px] mx-auto px-margin-mobile md:px-margin py-space-md md:py-space-lg flex flex-col gap-space-lg">
+<!-- SUB-HEADER & QUICK ACTIONS -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-secondary/10 pb-4">
+<div>
+<div class="flex items-center gap-2">
+<span class="text-label-sm font-label-sm text-secondary uppercase tracking-wider">Spatial Logistics &amp; Floor Management</span>
+<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-primary-container text-on-primary">LIVE READY</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-primary tracking-tight mt-1">Venue &amp; Seating Planner</h1>
+</div>
+<!-- Primary Operational CTAs -->
+<div class="flex items-center gap-2.5">
+<button class="sm:hidden px-3 py-2 text-label-md font-label-md bg-transparent border border-primary-container text-secondary rounded">
+<span class="material-symbols-outlined text-base align-middle">ios_share</span>
+          PDF
+        </button>
+<button class="inline-flex items-center gap-2 px-4 py-2 bg-primary-container text-surface-container-lowest text-label-md font-label-md rounded shadow-sm hover:bg-primary transition-all active:scale-95">
+<span class="material-symbols-outlined text-base">add</span>
+<span>+ Add Zone / Furniture</span>
+</button>
+</div>
+</div>
+<!-- AI SPATIAL ADVICE BANNER -->
+<section class="w-full bg-[#f9d2ba]/35 border-l-4 border-primary-container p-4 rounded-r-lg flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 shadow-xs">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary text-2xl mt-0.5">auto_awesome</span>
+<div>
+<h2 class="font-title-sm text-title-sm text-primary font-bold">AI Crowd Flow Warning</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-0.5">
+            East corridor near snack counter may bottleneck during 16:00 break. Recommend widening barrier lane by 1.5m.
+          </p>
+</div>
+</div>
+<div class="flex items-center gap-2 self-end sm:self-auto shrink-0">
+<button class="px-3 py-1.5 text-label-sm font-label-sm bg-secondary-container text-on-secondary-container hover:bg-secondary hover:text-white rounded transition-colors font-semibold shadow-xs">
+          Review Adjustment
+        </button>
+<button class="p-1.5 text-secondary hover:text-primary transition-colors" title="Dismiss advice">
+<span class="material-symbols-outlined text-lg">close</span>
+</button>
+</div>
+</section>
+<!-- CAPACITY & SAFETY TELEMETRY BAR -->
+<section class="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 bg-surface-container-lowest p-3 md:p-4 rounded-lg border border-secondary/15 shadow-xs">
+<!-- Capacity Telemetry -->
+<div class="p-3 bg-surface-container-low rounded border border-secondary/10 flex items-center justify-between">
+<div>
+<span class="text-label-sm font-label-sm text-secondary uppercase">Total Capacity</span>
+<p class="font-headline-sm text-headline-sm text-primary mt-0.5">500 <span class="text-xs font-normal text-on-surface-variant">pax</span></p>
+</div>
+<div class="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">groups</span>
+</div>
+</div>
+<!-- Assigned Telemetry -->
+<div class="p-3 bg-surface-container-low rounded border border-secondary/10 flex items-center justify-between">
+<div>
+<span class="text-label-sm font-label-sm text-secondary uppercase">Assigned Allocation</span>
+<p class="font-headline-sm text-headline-sm text-primary mt-0.5">470 <span class="text-xs font-semibold text-secondary">(94%)</span></p>
+</div>
+<div class="h-10 w-10 rounded-full bg-[#f9d2ba]/70 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined">pie_chart</span>
+</div>
+</div>
+<!-- Emergency Exits -->
+<div class="p-3 bg-surface-container-low rounded border border-secondary/10 flex items-center justify-between">
+<div>
+<span class="text-label-sm font-label-sm text-secondary uppercase">Emergency Exits</span>
+<p class="font-headline-sm text-headline-sm text-primary-container mt-0.5">4 <span class="text-xs font-bold text-primary-container">Cleared</span></p>
+</div>
+<div class="h-10 w-10 rounded-full bg-primary-container/10 flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined">meeting_room</span>
+</div>
+</div>
+<!-- Fire Safety Verified -->
+<div class="p-3 bg-surface-container-low rounded border border-secondary/10 flex items-center justify-between">
+<div>
+<span class="text-label-sm font-label-sm text-secondary uppercase">Extinguisher Points</span>
+<p class="font-headline-sm text-headline-sm text-primary-container mt-0.5">6 <span class="text-xs font-bold text-primary-container">Verified</span></p>
+</div>
+<div class="h-10 w-10 rounded-full bg-primary-container/10 flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined">fire_extinguisher</span>
+</div>
+</div>
+</section>
+<!-- MAIN BENTO WORKSPACE: BLUEPRINT CANVAS & ZONE TELEMETRY -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-space-lg items-start">
+<!-- LEFT: ARCHITECTURAL FLOOR-PLAN MAP (8 cols on XL) -->
+<div class="xl:col-span-8 flex flex-col gap-3">
+<!-- Canvas Frame -->
+<div class="bg-surface-container-lowest rounded-xl border border-secondary/20 shadow-sm overflow-hidden flex flex-col">
+<!-- Blueprint Controls Toolbar -->
+<div class="px-4 py-2.5 bg-surface-container-high/60 border-b border-secondary/15 flex flex-wrap items-center justify-between gap-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-base">layers</span>
+<span class="text-title-sm font-title-sm text-primary font-bold">Grand Quad Spatial Blueprint</span>
+<span class="text-label-sm font-label-sm text-secondary bg-surface-container px-2 py-0.5 rounded border border-secondary/20">Scale 1:50m</span>
+</div>
+<!-- Viewport Tools -->
+<div class="flex items-center gap-1.5">
+<button class="p-1 rounded bg-surface-container-lowest text-secondary border border-secondary/20 hover:text-primary" title="Zoom in">
+<span class="material-symbols-outlined text-lg">zoom_in</span>
+</button>
+<button class="p-1 rounded bg-surface-container-lowest text-secondary border border-secondary/20 hover:text-primary" title="Zoom out">
+<span class="material-symbols-outlined text-lg">zoom_out</span>
+</button>
+<button class="p-1 rounded bg-surface-container-lowest text-secondary border border-secondary/20 hover:text-primary" title="Reset View">
+<span class="material-symbols-outlined text-lg">fit_screen</span>
+</button>
+<div class="h-4 w-[1px] bg-secondary/20 mx-1"></div>
+<button class="flex items-center gap-1 text-label-sm font-label-sm px-2 py-1 rounded bg-surface-container-lowest text-primary border border-secondary/20">
+<span class="material-symbols-outlined text-xs text-primary-container">visibility</span>
+                Evac Routes
+              </button>
+</div>
+</div>
+<!-- Interactive Architectural Blueprint Canvas Area -->
+<div class="relative w-full aspect-[4/3] md:aspect-[16/10] bg-[#fdfaf7] blueprint-grid overflow-hidden select-none p-4 md:p-8 flex items-center justify-center">
+<!-- Quad Perimeter Boundary -->
+<div class="relative w-full h-full max-w-[840px] max-h-[580px] border-2 border-dashed border-secondary/40 rounded-xl p-3 md:p-6 bg-surface/30 flex flex-col justify-between">
+<!-- Perimeter Structural Labels -->
+<span class="absolute top-2 left-4 text-[10px] uppercase font-bold text-secondary/60 tracking-widest">Heritage West Cloister</span>
+<span class="absolute top-2 right-4 text-[10px] uppercase font-bold text-secondary/60 tracking-widest">Chapel East Colonnade</span>
+<span class="absolute bottom-2 left-4 text-[10px] uppercase font-bold text-secondary/60 tracking-widest">Academic Block Entryway</span>
+<!-- NORTH WALL: FIRST AID & EMT STATION + NORTH EXIT -->
+<div class="flex items-start justify-between w-full">
+<!-- North-West EMT Station -->
+<div class="relative z-10 bg-surface-container-lowest border-2 border-primary-container/80 rounded-lg p-2.5 shadow-sm max-w-[190px] flex items-center gap-2.5">
+<div class="h-8 w-8 rounded bg-error-container text-error flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-xl">medical_services</span>
+</div>
+<div>
+<span class="text-[9px] uppercase font-bold text-error tracking-wide">Emergency Hub</span>
+<h3 class="font-title-sm text-title-sm text-primary leading-tight font-bold">EMT Station</h3>
+<p class="text-[11px] text-secondary">Triage 1 &amp; Ambulance Bay</p>
+</div>
+</div>
+<!-- North Emergency Evac Gate -->
+<div class="flex items-center gap-1 bg-surface-container-lowest border border-primary-container px-2 py-1 rounded shadow-xs text-primary-container">
+<span class="material-symbols-outlined text-sm animate-bounce">north</span>
+<span class="text-[10px] font-bold tracking-wider uppercase">Gate 1 Evac</span>
+</div>
+</div>
+<!-- MIDDLE FIELD: STAGE, VIP SEATING & STUDENT FIELD -->
+<div class="my-auto flex flex-col gap-4 w-full">
+<!-- MAIN QUAD STAGE (FRONT) -->
+<div class="mx-auto w-11/12 md:w-3/4 bg-primary-container text-surface-container-lowest rounded-lg p-3 md:p-4 shadow-md border-2 border-primary flex flex-col md:flex-row items-center justify-between gap-3">
+<div class="flex items-center gap-3">
+<div class="p-2 rounded bg-surface-container-lowest/10 text-on-primary">
+<span class="material-symbols-outlined text-2xl">podium</span>
+</div>
+<div>
+<span class="text-[10px] font-bold tracking-wider uppercase text-surface-container-high/80">Platform Level (+1.2m)</span>
+<h3 class="font-headline-sm text-headline-sm text-surface-container-lowest leading-none">Main Quad Stage</h3>
+<p class="text-xs text-surface-container-high/80 mt-1">Keynotes, Tech Spark Panel &amp; Backstage Wing</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="px-2 py-1 bg-surface-container-lowest/20 rounded text-[11px] font-semibold text-surface-container-lowest">Mic Checks (4/4)</span>
+<span class="px-2 py-1 bg-surface-container-lowest/20 rounded text-[11px] font-semibold text-surface-container-lowest">Green Room OK</span>
+</div>
+</div>
+<!-- SEATING AND GENERAL CROWD ROW -->
+<div class="grid grid-cols-12 gap-3 items-center">
+<!-- Left Corridor: Evacuation Route West -->
+<div class="col-span-2 hidden md:flex flex-col items-center justify-center text-primary-container/70 border-r border-dashed border-secondary/20 py-4">
+<span class="material-symbols-outlined text-xl">arrow_back</span>
+<span class="text-[9px] uppercase font-bold tracking-wider mt-1 writing-vertical">West Evac Lane</span>
+</div>
+<!-- VIP / FACULTY SEATING CLUSTER -->
+<div class="col-span-12 md:col-span-8 bg-[#f9d2ba]/40 border-2 border-secondary rounded-lg p-3 shadow-xs">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-secondary text-sm">chair</span>
+<span class="font-title-sm text-title-sm text-tertiary font-bold">VIP &amp; Faculty Seating</span>
+</div>
+<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-secondary text-surface-container-lowest">120 Seats (6 Rows)</span>
+</div>
+<!-- Mini Visual Seats Grid -->
+<div class="grid grid-cols-12 gap-1 py-1">
+<div class="h-2.5 rounded-xs bg-secondary"></div>
+<div class="h-2.5 rounded-xs bg-secondary"></div>
+<div class="h-2.5 rounded-xs bg-secondary"></div>
+<div class="h-2.5 rounded-xs bg-secondary"></div>
+<div class="h-2.5 rounded-xs bg-secondary"></div>
+<div class="h-2.5 rounded-xs bg-secondary"></div>
+<div class="h-2.5 rounded-xs bg-secondary"></div>
+<div class="h-2.5 rounded-xs bg-secondary"></div>
+<div class="h-2.5 rounded-xs bg-secondary"></div>
+<div class="h-2.5 rounded-xs bg-secondary"></div>
+<div class="h-2.5 rounded-xs bg-secondary"></div>
+<div class="h-2.5 rounded-xs bg-secondary"></div>
+</div>
+<div class="flex justify-between items-center text-[10px] text-secondary mt-1">
+<span>Row A-F Reserved</span>
+<span>Stanchion Divider Enforced</span>
+</div>
+</div>
+<!-- Right Corridor: East Food Access Corridor -->
+<div class="col-span-2 hidden md:flex flex-col items-center justify-center text-secondary border-l border-dashed border-secondary/20 py-4">
+<span class="material-symbols-outlined text-xl text-error">warning</span>
+<span class="text-[9px] uppercase font-bold tracking-wider mt-1 text-center text-error leading-tight">East Pinch Point</span>
+</div>
+</div>
+<!-- STUDENT GENERAL STANDING & FOH CONSOLE -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+<!-- Student Standing Area -->
+<div class="md:col-span-2 bg-surface-container-lowest border border-secondary/20 rounded-lg p-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-base">directions_walk</span>
+<span class="font-title-sm text-title-sm text-primary font-bold">Student Standing Enclosure</span>
+</div>
+<span class="text-label-sm font-label-sm text-primary-container font-bold">350 Cap</span>
+</div>
+<p class="text-xs text-secondary mt-1">Perimeter stanchioned. 2 wide aisle paths cleared for entry/exit.</p>
+</div>
+<!-- FOH Sound Console -->
+<div class="bg-surface-container-high border-2 border-primary/40 rounded-lg p-3 flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="text-[9px] uppercase font-bold text-primary">Audio / Visual Hub</span>
+<span class="material-symbols-outlined text-sm text-primary">tune</span>
+</div>
+<p class="font-title-sm text-title-sm text-primary font-bold">FOH Console</p>
+<span class="text-[10px] text-secondary">Acoustic Sweet-Spot Center</span>
+</div>
+</div>
+</div>
+<!-- SOUTH & EAST AMENITIES BAR -->
+<div class="flex items-end justify-between w-full pt-2">
+<!-- South Main Entry -->
+<div class="flex items-center gap-1.5 bg-surface-container-lowest border border-primary-container px-2.5 py-1 rounded shadow-xs text-primary">
+<span class="material-symbols-outlined text-sm text-primary-container">login</span>
+<span class="text-[10px] font-bold tracking-wider uppercase">Gate 3 Main Entry</span>
+</div>
+<!-- East Wing Food & Hydration -->
+<div class="bg-surface-container-lowest border border-secondary/30 rounded-lg p-2.5 flex items-center gap-2.5 shadow-xs">
+<div class="h-8 w-8 rounded bg-[#f9d2ba] text-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-lg">local_cafe</span>
+</div>
+<div>
+<span class="text-[9px] uppercase font-bold text-secondary">East Wing</span>
+<h3 class="font-title-sm text-title-sm text-primary font-bold">Food &amp; Hydration</h3>
+<p class="text-[10px] text-secondary">4 Stalls | 2 Water Refills</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Visual Directional Overlays for Emergency Evacuation Routes -->
+<div class="absolute inset-0 pointer-events-none flex items-center justify-between p-6 opacity-30">
+<span class="material-symbols-outlined text-4xl text-primary-container">west</span>
+<span class="material-symbols-outlined text-4xl text-primary-container">east</span>
+</div>
+</div>
+<!-- Blueprint Status Legend Footer -->
+<div class="px-4 py-2.5 bg-surface-container-lowest border-t border-secondary/15 flex flex-wrap items-center justify-between gap-3 text-xs">
+<div class="flex items-center gap-4 text-secondary">
+<span class="flex items-center gap-1.5">
+<span class="w-3 h-3 rounded-xs bg-primary-container"></span>
+                Key Stage Infrastructure
+              </span>
+<span class="flex items-center gap-1.5">
+<span class="w-3 h-3 rounded-xs bg-[#f9d2ba] border border-secondary/40"></span>
+                Reserved VIP Seating
+              </span>
+<span class="flex items-center gap-1.5">
+<span class="w-3 h-3 rounded-xs bg-surface-container-lowest border border-secondary/40"></span>
+                General Assembly
+              </span>
+<span class="flex items-center gap-1.5 text-error">
+<span class="material-symbols-outlined text-sm">emergency</span>
+                Evac Route
+              </span>
+</div>
+<div class="text-secondary/70 italic text-[11px]">
+              Last updated: 14 mins ago by Site Operations Lead
+            </div>
+</div>
+</div>
+<!-- Venue Layout Image Snapshot Anchor -->
+<div class="bg-surface-container-lowest rounded-xl border border-secondary/15 p-4 flex flex-col md:flex-row items-center gap-4">
+<div class="w-full md:w-48 h-28 rounded-lg overflow-hidden shrink-0 border border-secondary/20 relative">
+<img class="w-full h-full object-cover" data-alt="An expansive architectural view of an outdoor university quadrangle staged for a prestigious technology symposium. Neat rows of mahogany chairs sit on the emerald lawn under soft natural daylight, with a minimalist dark green keynote stage at the far end. Crisp white canopies line the stone cloisters with tasteful directional signage." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjoRZhW6gEpmFRsTDEhY5Yk6PdtLF2aUkZJc5ySwCFsotA14I6Aq7iXFFdbxFoumzjA7YUUwAlttud1jfkLF-LWgm8G7miMWGzKDSIlBHUxvWjf0JPQYZlQy4lGckiCLaFZ83olUIJAxawmd9eupbbtb2dhUFf51ALIb9Ukr93PRlnq07iigNQRzsfjA456MKzexWmlfOoBNPy9jmcbybG0n7xhFDRTc4sfLsXSVHsBOqbiCUX8iw"/>
+<span class="absolute bottom-1 right-1 bg-surface-container-lowest/90 px-1.5 py-0.5 rounded text-[9px] font-bold text-primary">SITE PHOTO</span>
+</div>
+<div class="flex-1">
+<h4 class="font-title-sm text-title-sm text-primary font-bold">St. Xavier's Grand Quadrangle Architectural Specs</h4>
+<p class="font-body-md text-body-md text-secondary mt-1">
+              Historic masonry borders require non-anchored free-standing truss towers. Ground turf load distribution mats deployed across the VIP staging perimeter.
+            </p>
+</div>
+</div>
+</div>
+<!-- RIGHT: ZONE MANAGEMENT TABS & DRILLDOWN CARDS (4 cols on XL) -->
+<div class="xl:col-span-4 flex flex-col gap-4">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-sm text-headline-sm text-primary">Active Zone Operations</h2>
+<span class="text-label-sm font-label-sm text-secondary">3 Zones Active</span>
+</div>
+<!-- ZONE CARD 1: Main Stage & Backstage -->
+<div class="bg-surface-container-lowest rounded-xl border border-secondary/20 p-4 shadow-xs hover:border-primary-container transition-all">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-2.5">
+<div class="h-9 w-9 rounded-lg bg-primary-container text-surface-container-lowest flex items-center justify-center">
+<span class="material-symbols-outlined text-lg">podium</span>
+</div>
+<div>
+<h3 class="font-title-md text-title-md text-primary font-bold">Main Stage &amp; Backstage</h3>
+<span class="text-label-sm font-label-sm text-secondary">PRIMARY ZONE • FRONT</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded text-label-sm font-label-sm bg-primary-container/10 text-primary-container border border-primary-container/20">
+              READY
+            </span>
+</div>
+<div class="mt-3.5 space-y-2 border-t border-secondary/10 pt-3">
+<div class="flex items-center justify-between text-body-sm">
+<span class="flex items-center gap-2 text-on-surface">
+<span class="material-symbols-outlined text-primary-container text-sm">check_circle</span>
+                Green Room hospitality
+              </span>
+<span class="font-semibold text-primary">Prepared</span>
+</div>
+<div class="flex items-center justify-between text-body-sm">
+<span class="flex items-center gap-2 text-on-surface">
+<span class="material-symbols-outlined text-primary-container text-sm">check_circle</span>
+                Wireless handheld mics
+              </span>
+<span class="font-semibold text-primary">4/4 Checked</span>
+</div>
+<div class="flex items-center justify-between text-body-sm">
+<span class="flex items-center gap-2 text-on-surface">
+<span class="material-symbols-outlined text-primary-container text-sm">check_circle</span>
+                Direct podium audio lines
+              </span>
+<span class="font-semibold text-primary">2 Active Lines</span>
+</div>
+</div>
+<div class="mt-4 pt-2 flex items-center justify-between border-t border-secondary/10">
+<button class="text-label-sm font-label-sm text-primary-container hover:text-primary font-bold flex items-center gap-1">
+              Inspect AV Patch
+              <span class="material-symbols-outlined text-xs">arrow_forward</span>
+</button>
+<span class="text-[11px] text-secondary">Assigned Lead: Marcus T.</span>
+</div>
+</div>
+<!-- ZONE CARD 2: VIP Seating Cluster -->
+<div class="bg-surface-container-lowest rounded-xl border border-secondary/20 p-4 shadow-xs hover:border-primary-container transition-all">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-2.5">
+<div class="h-9 w-9 rounded-lg bg-[#f9d2ba] text-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-lg">chair</span>
+</div>
+<div>
+<h3 class="font-title-md text-title-md text-primary font-bold">VIP Seating Cluster</h3>
+<span class="text-label-sm font-label-sm text-secondary">RESTRICTED ACCESS • 120 SEATS</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded text-label-sm font-label-sm bg-secondary-container text-on-secondary-container font-semibold">
+              SETTING UP
+            </span>
+</div>
+<div class="mt-3.5 space-y-2 border-t border-secondary/10 pt-3">
+<div class="flex items-center justify-between text-body-sm">
+<span class="flex items-center gap-2 text-on-surface">
+<span class="material-symbols-outlined text-primary-container text-sm">check_circle</span>
+                Cushioned armchairs
+              </span>
+<span class="font-semibold text-primary">120/120 Arranged</span>
+</div>
+<div class="flex items-center justify-between text-body-sm">
+<span class="flex items-center gap-2 text-on-surface">
+<span class="material-symbols-outlined text-primary-container text-sm">check_circle</span>
+                Row geometry
+              </span>
+<span class="font-semibold text-primary">6 Rows (20/row)</span>
+</div>
+<div class="flex items-center justify-between text-body-sm">
+<span class="flex items-center gap-2 text-secondary">
+<span class="material-symbols-outlined text-secondary text-sm">pending</span>
+                Reserved name placards
+              </span>
+<span class="font-bold text-secondary">Printed (In Transit)</span>
+</div>
+</div>
+<div class="mt-4 pt-2 flex items-center justify-between border-t border-secondary/10">
+<button class="text-label-sm font-label-sm text-primary-container hover:text-primary font-bold flex items-center gap-1">
+              Seat Assignment Roster
+              <span class="material-symbols-outlined text-xs">arrow_forward</span>
+</button>
+<span class="text-[11px] text-secondary">Assigned Lead: Sarah L.</span>
+</div>
+</div>
+<!-- ZONE CARD 3: Food & Hydration Zone -->
+<div class="bg-surface-container-lowest rounded-xl border border-secondary/20 p-4 shadow-xs hover:border-primary-container transition-all">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-2.5">
+<div class="h-9 w-9 rounded-lg bg-surface-container-high text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-lg">local_cafe</span>
+</div>
+<div>
+<h3 class="font-title-md text-title-md text-primary font-bold">Food &amp; Hydration Zone</h3>
+<span class="text-label-sm font-label-sm text-secondary">EAST WING COURTYARD</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded text-label-sm font-label-sm bg-primary-container/10 text-primary-container border border-primary-container/20">
+              VERIFIED
+            </span>
+</div>
+<div class="mt-3.5 space-y-2 border-t border-secondary/10 pt-3">
+<div class="flex items-center justify-between text-body-sm">
+<span class="flex items-center gap-2 text-on-surface">
+<span class="material-symbols-outlined text-primary-container text-sm">check_circle</span>
+                Partner catering stalls
+              </span>
+<span class="font-semibold text-primary">4 Stalls Placed</span>
+</div>
+<div class="flex items-center justify-between text-body-sm">
+<span class="flex items-center gap-2 text-on-surface">
+<span class="material-symbols-outlined text-primary-container text-sm">check_circle</span>
+                Drinking water stations
+              </span>
+<span class="font-semibold text-primary">2 Active Points</span>
+</div>
+<div class="flex items-center justify-between text-body-sm">
+<span class="flex items-center gap-2 text-on-surface">
+<span class="material-symbols-outlined text-primary-container text-sm">check_circle</span>
+                Waste segregation bins
+              </span>
+<span class="font-semibold text-primary">6 Sets Allocated</span>
+</div>
+</div>
+<div class="mt-4 pt-2 flex items-center justify-between border-t border-secondary/10">
+<button class="text-label-sm font-label-sm text-primary-container hover:text-primary font-bold flex items-center gap-1">
+              Sanitation Protocol
+              <span class="material-symbols-outlined text-xs">arrow_forward</span>
+</button>
+<span class="text-[11px] text-secondary">Assigned Lead: Dev K.</span>
+</div>
+</div>
+<!-- Quick Mini Action Widget -->
+<div class="p-3 bg-surface-container rounded-lg border border-secondary/15 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">print</span>
+<span class="text-body-sm font-medium text-primary">Print Zone Wayfinding Placards</span>
+</div>
+<button class="px-2.5 py-1 text-label-sm font-label-sm bg-surface-container-lowest border border-secondary/30 rounded text-primary hover:bg-surface-container-high">
+            Generate
+          </button>
+</div>
+</div>
+</div>
+</main>
+<!-- BOTTOM NAVIGATION BAR (Shared Component) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 px-space-xs bg-surface shadow-[0_-2px_6px_rgba(94,49,34,0.05)] md:hidden">
+<!-- Overview -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-1 px-3 hover:bg-surface-container-low transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-xl">dashboard</span>
+<span class="text-label-sm font-label-sm">Overview</span>
+</a>
+<!-- AI Planner -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-1 px-3 hover:bg-surface-container-low transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-xl">auto_awesome</span>
+<span class="text-label-sm font-label-sm">AI Planner</span>
+</a>
+<!-- Schedule (Active Destination for Venue & Seating Planner spatial orchestration) -->
+<a class="flex flex-col items-center justify-center text-primary font-semibold py-1 px-3 rounded-lg bg-surface-container" href="#">
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">event_note</span>
+<span class="text-label-sm font-label-sm">Schedule</span>
+</a>
+<!-- Budget -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-1 px-3 hover:bg-surface-container-low transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-xl">payments</span>
+<span class="text-label-sm font-label-sm">Budget</span>
+</a>
+<!-- Live Mode -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-1 px-3 hover:bg-surface-container-low transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-xl">sensors</span>
+<span class="text-label-sm font-label-sm">Live Mode</span>
+</a>
+</nav>
+</body></html>

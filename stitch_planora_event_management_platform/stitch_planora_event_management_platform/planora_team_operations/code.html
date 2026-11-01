@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Planora - Team &amp; Operations | TechSpark 2025</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "tertiary-container": "#513827",
+            "error-container": "#ffdad6",
+            "surface-dim": "#e4d8ce",
+            "on-surface": "#201a15",
+            "inverse-on-surface": "#fceee4",
+            "on-tertiary-container": "#c5a18b",
+            "tertiary": "#392313",
+            "on-tertiary-fixed": "#2b1708",
+            "surface-container-high": "#f3e6dc",
+            "on-secondary-fixed": "#341005",
+            "on-tertiary": "#ffffff",
+            "secondary": "#855140",
+            "surface-bright": "#fff8f4",
+            "on-tertiary-fixed-variant": "#5b412f",
+            "on-secondary-fixed-variant": "#693a2b",
+            "primary-fixed": "#c0edd3",
+            "on-error": "#ffffff",
+            "surface": "#fff8f4",
+            "secondary-fixed": "#ffdbd0",
+            "inverse-primary": "#a5d0b8",
+            "primary-container": "#1d4533",
+            "surface-container-low": "#fef1e7",
+            "primary": "#032f1e",
+            "surface-container-highest": "#ede0d6",
+            "surface-tint": "#3f6653",
+            "secondary-fixed-dim": "#fab7a1",
+            "on-primary-fixed": "#002114",
+            "background": "#fff8f4",
+            "on-primary-container": "#88b29b",
+            "on-primary-fixed-variant": "#274e3c",
+            "on-error-container": "#93000a",
+            "secondary-container": "#feb9a4",
+            "on-secondary": "#ffffff",
+            "inverse-surface": "#362f29",
+            "surface-container-lowest": "#ffffff",
+            "on-primary": "#ffffff",
+            "tertiary-fixed-dim": "#e5bfa8",
+            "outline-variant": "#c1c8c2",
+            "surface-container": "#f9ece2",
+            "tertiary-fixed": "#ffdcc6",
+            "on-secondary-container": "#794737",
+            "surface-variant": "#ede0d6",
+            "outline": "#717973",
+            "error": "#ba1a1a",
+            "on-surface-variant": "#414844",
+            "primary-fixed-dim": "#a5d0b8",
+            "on-background": "#201a15"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "margin": "2rem",
+            "gutter-mobile": "1rem",
+            "space-lg": "1.5rem",
+            "margin-mobile": "1rem",
+            "space-xl": "2.5rem",
+            "gutter": "1.5rem",
+            "space-sm": "0.5rem",
+            "space-md": "1rem",
+            "space-xs": "0.25rem"
+          },
+          "fontFamily": {
+            "display-lg-mobile": ["Newsreader"],
+            "headline-lg-mobile": ["Newsreader"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "headline-lg": ["Newsreader"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "title-lg": ["Plus Jakarta Sans"],
+            "headline-sm": ["Newsreader"],
+            "display-lg": ["Newsreader"],
+            "title-md": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "title-sm": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "headline-md": ["Newsreader"]
+          },
+          "fontSize": {
+            "display-lg-mobile": ["34px", { "lineHeight": "42px", "letterSpacing": "-0.01em", "fontWeight": "500" }],
+            "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "fontWeight": "400" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "body-lg": ["16px", { "lineHeight": "26px", "fontWeight": "400" }],
+            "title-lg": ["18px", { "lineHeight": "26px", "fontWeight": "700" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "500" }],
+            "title-md": ["16px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.06em", "fontWeight": "700" }],
+            "title-sm": ["14px", { "lineHeight": "20px", "fontWeight": "600" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "body-md": ["14px", { "lineHeight": "22px", "fontWeight": "400" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .custom-editorial-border {
+      border: 1px solid rgba(94, 49, 34, 0.14);
+    }
+    .custom-green-border {
+      border: 1px solid rgba(29, 69, 51, 0.16);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface antialiased font-body-md text-body-md min-h-screen flex flex-col justify-between selection:bg-secondary-fixed selection:text-tertiary pb-24">
+<!-- TopAppBar Component (from Shared Components JSON) -->
+<header class="w-full px-margin-mobile md:px-margin flex items-center justify-between h-16 bg-surface dark:bg-inverse-surface border-b border-surface-container-highest dark:border-outline-variant sticky top-0 z-40 bg-opacity-95 backdrop-blur-sm">
+<div class="flex items-center gap-3">
+<div class="font-headline-sm text-headline-sm font-semibold tracking-tight text-primary dark:text-inverse-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-2xl" data-icon="explore">explore</span>
+<span>Planora</span>
+</div>
+<!-- Event Switcher Pill -->
+<div class="flex items-center gap-1.5 px-2.5 py-1 bg-surface-container-lowest custom-editorial-border rounded-full shadow-sm">
+<span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+<span class="font-label-md text-label-md text-tertiary font-semibold tracking-tight">TechSpark 2025</span>
+<span class="material-symbols-outlined text-sm text-secondary" data-icon="expand_more">expand_more</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-1.5 rounded-lg text-primary hover:bg-surface-container-high transition-colors" title="Event Switcher details">
+<span class="material-symbols-outlined text-xl" data-icon="hub">hub</span>
+</button>
+<div class="relative">
+<img alt="Event Director profile photo" class="w-9 h-9 rounded-full object-cover border border-primary-container" data-alt="Close-up professional portrait of an event director wearing an olive tailored linen blazer with subtle communications earpiece wire, shot with soft natural window illumination against an editorial warm parchment textured studio wall." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCznLF8tJKRsv7siXkm2vWOzVF8qDkct6fmL-xQa5u2Ez31ZZRtRahesnNM8Xhu4Uid1cTBD3c1mh45fLMIenc0G-UJv2OFF0Lb2Ol39pqsqEtQPWTZ4vSqv-yKBq5sUP8Efg3D_fVIsgWlxPJo8WrNbdt6aKPFcxVz2lcaMOORqJPAsfGLiftwUNQy3gD2w2OysF_4b8XMlV1-jL84sj8twxYOhF8irHFXzZoVgfHNTVeYTrNC0ME"/>
+<span class="absolute bottom-0 right-0 w-2.5 h-2.5 bg-primary-container border-2 border-surface-container-lowest rounded-full"></span>
+</div>
+</div>
+</header>
+<!-- Main Canvas Mobile Layout Container -->
+<main class="w-full max-w-md mx-auto px-margin-mobile pt-5 flex-1 flex flex-col gap-5">
+<!-- Screen Title & Context Action Header -->
+<section class="space-y-3">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-secondary font-bold tracking-widest flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm text-secondary" data-icon="badge">badge</span>
+          INTERNAL CREW &amp; ROLE DISPATCH
+        </span>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm">
+          500 Pax • Mumbai
+        </span>
+</div>
+<div class="flex items-baseline justify-between">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-primary font-semibold tracking-tight">
+          Team &amp; Operations
+        </h1>
+<div class="flex items-center gap-1 text-on-surface-variant font-label-md text-label-md">
+<span class="material-symbols-outlined text-base text-primary-container" data-icon="schedule">schedule</span>
+<span>Shift 02 / 03</span>
+</div>
+</div>
+<!-- Quick Action Controls -->
+<div class="flex items-center gap-2 pt-1">
+<button class="flex-1 inline-flex items-center justify-center gap-1.5 bg-primary-container hover:bg-primary text-surface-container-lowest font-title-sm text-title-sm py-2 px-3 rounded-lg shadow-sm transition duration-150 active:scale-95">
+<span class="material-symbols-outlined text-lg" data-icon="person_add">person_add</span>
+<span>+ Assign Role</span>
+</button>
+<button class="inline-flex items-center justify-center gap-1.5 bg-surface-container-lowest custom-green-border text-primary hover:bg-surface-container font-title-sm text-title-sm py-2 px-3.5 rounded-lg transition duration-150 active:scale-95">
+<span class="material-symbols-outlined text-lg text-primary" data-icon="cell_tower">cell_tower</span>
+<span class="font-semibold">Radio Channel 4</span>
+</button>
+</div>
+</section>
+<!-- Operational Readiness Overview Bar (Bento Metric Card) -->
+<section class="bg-surface-container-lowest rounded-xl p-4 custom-editorial-border space-y-3.5 shadow-sm">
+<div class="flex items-center justify-between pb-1 border-b border-surface-container-highest">
+<div class="flex items-center gap-2">
+<span class="p-1 rounded bg-surface-container text-primary">
+<span class="material-symbols-outlined text-lg" data-icon="shield">shield</span>
+</span>
+<h2 class="font-title-sm text-title-sm text-tertiary">Operational Readiness</h2>
+</div>
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm text-primary font-semibold bg-surface-container px-2 py-0.5 rounded border border-primary-container/20">
+<span class="material-symbols-outlined text-xs" data-icon="check_circle">check_circle</span>
+          SYSTEMS GO
+        </span>
+</div>
+<!-- Key Stat Counters -->
+<div class="grid grid-cols-3 gap-2 text-center py-0.5">
+<div class="bg-surface-container-low p-2 rounded-lg custom-editorial-border">
+<span class="font-headline-sm text-headline-sm font-bold text-primary block leading-none">18</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant block mt-1 leading-tight">Active Crew Ground</span>
+</div>
+<div class="bg-surface-container-low p-2 rounded-lg custom-editorial-border">
+<span class="font-headline-sm text-headline-sm font-bold text-tertiary block leading-none">3</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant block mt-1 leading-tight">Shifts Scheduled</span>
+</div>
+<div class="bg-surface-container-low p-2 rounded-lg custom-editorial-border">
+<span class="font-headline-sm text-headline-sm font-bold text-primary block leading-none">100%</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant block mt-1 leading-tight">Radio Check Done</span>
+</div>
+</div>
+<!-- Role Coverage Metrics -->
+<div class="space-y-2 pt-1">
+<div class="flex justify-between items-center text-label-sm font-label-sm text-tertiary">
+<span>Role Coverage Matrix</span>
+<span class="font-semibold text-primary">Overall 97% Staffed</span>
+</div>
+<!-- Segmented Multi-Color Progress Indicator -->
+<div class="w-full bg-surface-container-high h-2.5 rounded-full overflow-hidden flex">
+<div class="bg-primary-container h-full" style="width: 28%;" title="Security: 100%"></div>
+<div class="bg-secondary h-full ml-0.5" style="width: 23%;" title="Technical: 88%"></div>
+<div class="bg-surface-tint h-full ml-0.5" style="width: 25%;" title="Hospitality: 100%"></div>
+<div class="bg-tertiary h-full ml-0.5" style="width: 24%;" title="Liaison: 100%"></div>
+</div>
+<div class="grid grid-cols-2 gap-x-3 gap-y-1 pt-1 font-label-sm text-label-sm text-on-surface-variant">
+<div class="flex items-center justify-between">
+<span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-primary-container"></span>Security</span>
+<span class="font-semibold text-primary">100%</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-secondary"></span>Technical</span>
+<span class="font-semibold text-secondary">88% (1 sync)</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-surface-tint"></span>Hospitality</span>
+<span class="font-semibold text-primary">100%</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-tertiary"></span>Liaison</span>
+<span class="font-semibold text-primary">100%</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Incident / Broadcast Quick Dispatch Module -->
+<section class="bg-surface-container-lowest rounded-xl p-4 custom-editorial-border space-y-3 shadow-sm border-l-4 border-l-secondary">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-xl" data-icon="campaign">campaign</span>
+<h2 class="font-title-sm text-title-sm text-primary font-bold">Operational Announcement Broadcast</h2>
+</div>
+<span class="font-label-sm text-label-sm text-secondary bg-secondary-fixed/50 px-2 py-0.5 rounded">All Leads</span>
+</div>
+<!-- Quick Dispatch Composer Simulation -->
+<div class="space-y-2">
+<div class="relative">
+<input class="w-full bg-surface-container-low border border-tertiary/20 rounded-lg py-2 pl-3 pr-20 text-body-sm font-body-sm focus:outline-none focus:ring-2 focus:ring-primary-container focus:border-transparent placeholder:text-outline" placeholder="Type operational ping to push to volunteer leads..." type="text"/>
+<button class="absolute right-1 top-1 bottom-1 bg-secondary hover:bg-tertiary text-on-secondary px-3 rounded text-label-sm font-label-sm font-semibold flex items-center gap-1 transition-colors">
+<span>Send</span>
+<span class="material-symbols-outlined text-xs" data-icon="send">send</span>
+</button>
+</div>
+<!-- Recent Broadcast Accordion / Card -->
+<div class="p-2.5 bg-surface-container-high/60 rounded-lg border border-secondary/20 flex items-start gap-2.5">
+<span class="material-symbols-outlined text-secondary text-base mt-0.5" data-icon="notifications_active">notifications_active</span>
+<div class="flex-1 space-y-0.5">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm font-bold text-tertiary">Active Field Advisory</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">2m ago</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface leading-snug">
+              “Keynote running 15 min over. Hold lunch gate release until 13:45.”
+            </p>
+<span class="font-label-sm text-label-sm text-secondary italic block pt-0.5">— Event Director</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Departmental Leads & Roster (Grouped List) -->
+<section class="space-y-3">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-sm text-headline-sm text-primary font-semibold">Departmental Leads &amp; Roster</h2>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">5 Operational Units</span>
+</div>
+<div class="space-y-3">
+<!-- Lead 1: Meera S. -->
+<article class="bg-surface-container-lowest rounded-xl p-3.5 custom-editorial-border space-y-2.5 shadow-sm">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-2.5">
+<img alt="Meera S. portrait" class="w-11 h-11 rounded-full object-cover custom-green-border" data-alt="Editorial portrait of Indian female logistics director Meera S with sleek tied hair and lanyard, wearing a dark forest green structured work jacket outdoors during early afternoon festival setup." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAUWEqa_2-fdC5c4W4Kvw9yik9Fm97J9DoTrXjgcQZZ6srwvkK15Y-MDc-0OS77bo96Uv8e_9iricX9-k8y2Ju0zUBPHaYfuK739YAF00X_NDBOW3mAdA1Zrwq6mRfcx3cUIvLHi0nRo5PlXuCmtv8Ox8wx_dhtIBZgCW_4H7vxDgv6H6kC60tjQ72pSNnYfqRhyVyfPQZs6MdZ7Dsj52kkV-_qnqsfzv9NXcpxhiewd49W4r-FMo"/>
+<div>
+<div class="flex items-center gap-1.5">
+<h3 class="font-title-md text-title-md text-primary font-bold">Meera S.</h3>
+<span class="text-xs px-1.5 py-0.2 rounded bg-surface-container text-tertiary font-label-sm font-bold border border-tertiary/20">Ch 4</span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary font-medium">Government &amp; Police Liaison</p>
+</div>
+</div>
+<!-- Status Badge -->
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm text-primary font-bold px-2 py-0.5 rounded-full bg-surface-container border border-primary-container">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+              ACTIVE (Gate 1)
+            </span>
+</div>
+<div class="bg-surface-container-low p-2 rounded-lg space-y-1 custom-editorial-border">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider block font-semibold">Active Assignments</span>
+<div class="flex flex-wrap gap-1.5">
+<span class="bg-surface-container-lowest px-2 py-0.5 rounded text-body-sm text-on-surface border border-surface-container-highest">Fire NOC Clearance</span>
+<span class="bg-surface-container-lowest px-2 py-0.5 rounded text-body-sm text-on-surface border border-surface-container-highest">Ward Municipal Papers</span>
+<span class="bg-surface-container-lowest px-2 py-0.5 rounded text-body-sm text-on-surface border border-surface-container-highest">Ambulance Parking Lane</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-1 border-t border-surface-container-highest text-label-sm">
+<span class="text-secondary font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="verified_user">verified_user</span>
+              Clearance &amp; Safety Admin
+            </span>
+<div class="flex items-center gap-2">
+<button class="px-2.5 py-1 rounded bg-surface-container text-primary font-title-sm hover:bg-surface-container-high transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="call">call</span>
+<span>Direct Call</span>
+</button>
+<button class="px-2.5 py-1 rounded bg-primary-container text-surface-container-lowest font-title-sm hover:bg-primary transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="forum">forum</span>
+<span>Ping</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Lead 2: Marcus T. -->
+<article class="bg-surface-container-lowest rounded-xl p-3.5 custom-editorial-border space-y-2.5 shadow-sm">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-2.5">
+<img alt="Marcus T. portrait" class="w-11 h-11 rounded-full object-cover custom-green-border" data-alt="Candid portrait of male technical production lead Marcus T with black headphones around his neck, standing in auditorium backstage lit by soft ambient stage floodlights." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqVHJ1u_7OhjSblyp0mLRJjNpHwk-s6edBSPzEKWBMwKjJiG8rE4F5-hTDBh_n-t5xW2UsRL44QM-Z5Gz1Dl6_c5fm0zCjoZoh9iNB-4vb01yy8zmnqmU0zuM-BnSX-zbcRV-QP17KFJtgmuCzLmaXMw3AFSGVYH0CZqZhF23o_ULaKR6kQCXn8dBC_oHt54fUexM4fo3du_jwn2mAHVo_uWpSXql7MGYHsUNK8OfRevw64_WelWw"/>
+<div>
+<div class="flex items-center gap-1.5">
+<h3 class="font-title-md text-title-md text-primary font-bold">Marcus T.</h3>
+<span class="text-xs px-1.5 py-0.2 rounded bg-surface-container text-tertiary font-label-sm font-bold border border-tertiary/20">Ch 4</span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary font-medium">AV &amp; Technical Director</p>
+</div>
+</div>
+<!-- Status Badge: Pending/Action -->
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm text-tertiary font-bold px-2 py-0.5 rounded-full bg-secondary-fixed border border-secondary">
+<span class="material-symbols-outlined text-xs" data-icon="graphic_eq">graphic_eq</span>
+              ON STAGE (Soundcheck)
+            </span>
+</div>
+<div class="bg-surface-container-low p-2 rounded-lg space-y-1 custom-editorial-border">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider block font-semibold">Active Assignments</span>
+<div class="flex flex-wrap gap-1.5">
+<span class="bg-surface-container-lowest px-2 py-0.5 rounded text-body-sm text-on-surface border border-surface-container-highest">Stage trussing check</span>
+<span class="bg-surface-container-lowest px-2 py-0.5 rounded text-body-sm text-on-surface border border-surface-container-highest">LED wall latency sync</span>
+<span class="bg-surface-container-lowest px-2 py-0.5 rounded text-body-sm text-on-surface border border-surface-container-highest">4 wireless mics</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-1 border-t border-surface-container-highest text-label-sm">
+<span class="text-secondary font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="settings_input_component">settings_input_component</span>
+              Technical Lead
+            </span>
+<div class="flex items-center gap-2">
+<button class="px-2.5 py-1 rounded bg-surface-container text-primary font-title-sm hover:bg-surface-container-high transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="call">call</span>
+<span>Call</span>
+</button>
+<button class="px-2.5 py-1 rounded bg-primary-container text-surface-container-lowest font-title-sm hover:bg-primary transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="forum">forum</span>
+<span>Ping</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Lead 3: Sarah L. -->
+<article class="bg-surface-container-lowest rounded-xl p-3.5 custom-editorial-border space-y-2.5 shadow-sm">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-2.5">
+<img alt="Sarah L. portrait" class="w-11 h-11 rounded-full object-cover custom-green-border" data-alt="Professional studio-style candid of female hospitality lead Sarah L reviewing guest schedules on a tablet in an organized festival reception lobby." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDS_OI19OrPEccFIGBtMGe-Ee-qMoDP_zHMq4rDGRPQuKKxgGNvd-7SMIr-kEhTapeAgXH6eOHsdxscZ7mUOzRL4gxfkKj7nx066g5i-rXAb9dN3JC6_HzQ0RONYkrem1M_iLv50lfh9a1YX7zk0g5P7tpXyguZwXr8E8CoqIhbxEvPjchlTTB-oRwcf4YgCzPV-L2yiZJ8yrUDmVyyLutQ_9heiE27H6JVrSntGygkqG60RghWhLE"/>
+<div>
+<div class="flex items-center gap-1.5">
+<h3 class="font-title-md text-title-md text-primary font-bold">Sarah L.</h3>
+<span class="text-xs px-1.5 py-0.2 rounded bg-surface-container text-tertiary font-label-sm font-bold border border-tertiary/20">Ch 2</span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary font-medium">VIP &amp; Hospitality Coordinator</p>
+</div>
+</div>
+<!-- Status Badge -->
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm text-primary font-bold px-2 py-0.5 rounded-full bg-surface-container border border-primary-container">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+              ACTIVE (Green Room)
+            </span>
+</div>
+<div class="bg-surface-container-low p-2 rounded-lg space-y-1 custom-editorial-border">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider block font-semibold">Active Assignments</span>
+<div class="flex flex-wrap gap-1.5">
+<span class="bg-surface-container-lowest px-2 py-0.5 rounded text-body-sm text-on-surface border border-surface-container-highest">120 VIP Reserved Placards</span>
+<span class="bg-surface-container-lowest px-2 py-0.5 rounded text-body-sm text-on-surface border border-surface-container-highest">Guest Speaker Transport ETA</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-1 border-t border-surface-container-highest text-label-sm">
+<span class="text-secondary font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="star">star</span>
+              Hospitality Lead
+            </span>
+<div class="flex items-center gap-2">
+<button class="px-2.5 py-1 rounded bg-surface-container text-primary font-title-sm hover:bg-surface-container-high transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="call">call</span>
+<span>Call</span>
+</button>
+<button class="px-2.5 py-1 rounded bg-primary-container text-surface-container-lowest font-title-sm hover:bg-primary transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="forum">forum</span>
+<span>Ping</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Lead 4: Dev K. -->
+<article class="bg-surface-container-lowest rounded-xl p-3.5 custom-editorial-border space-y-2.5 shadow-sm">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-2.5">
+<img alt="Dev K. portrait" class="w-11 h-11 rounded-full object-cover custom-green-border" data-alt="Editorial portrait of South Asian male facility manager Dev K wearing glasses and a minimalist badge lanyard in a courtyard setting under morning diffused light." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXVaaeGUUXl-gzZuDyrZuzaKzx9eVLVab-qgl4-ZKmCCO_3t_b6LbhqzVXIw9T2B9pMsrVGaKLkSJNm_3S1hG6oH38qf0Caf5HI8OhdwdIraHnLIKKf7vOROr-Q4zNTnNJlJq0UdtauWBXBcnk4x3JzpPG9iWfnMXCWgU6YLwmkJURimZpWipzX84nrVeilA2pfMdFTlkouUEvc34WmA0KYiuHKj998BLrwu7bqnpGVhvQmkTkvlk"/>
+<div>
+<div class="flex items-center gap-1.5">
+<h3 class="font-title-md text-title-md text-primary font-bold">Dev K.</h3>
+<span class="text-xs px-1.5 py-0.2 rounded bg-surface-container text-tertiary font-label-sm font-bold border border-tertiary/20">Ch 3</span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary font-medium">Sanitation &amp; Food Operations</p>
+</div>
+</div>
+<!-- Status Badge -->
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm text-primary font-bold px-2 py-0.5 rounded-full bg-surface-container border border-primary-container">
+<span class="material-symbols-outlined text-xs" data-icon="task_alt">task_alt</span>
+              VERIFIED (Courtyard)
+            </span>
+</div>
+<div class="bg-surface-container-low p-2 rounded-lg space-y-1 custom-editorial-border">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider block font-semibold">Active Assignments</span>
+<div class="flex flex-wrap gap-1.5">
+<span class="bg-surface-container-lowest px-2 py-0.5 rounded text-body-sm text-on-surface border border-surface-container-highest">Caterer Intake &amp; Temp Log</span>
+<span class="bg-surface-container-lowest px-2 py-0.5 rounded text-body-sm text-on-surface border border-surface-container-highest">6 Waste Segregation Bins</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-1 border-t border-surface-container-highest text-label-sm">
+<span class="text-secondary font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="restaurant">restaurant</span>
+              Logistics Admin
+            </span>
+<div class="flex items-center gap-2">
+<button class="px-2.5 py-1 rounded bg-surface-container text-primary font-title-sm hover:bg-surface-container-high transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="call">call</span>
+<span>Call</span>
+</button>
+<button class="px-2.5 py-1 rounded bg-primary-container text-surface-container-lowest font-title-sm hover:bg-primary transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="forum">forum</span>
+<span>Ping</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Card 5: Volunteer Student Cohort -->
+<article class="bg-surface-container-lowest rounded-xl p-3.5 custom-editorial-border space-y-2.5 shadow-sm">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-2.5">
+<div class="w-11 h-11 rounded-full bg-surface-container flex items-center justify-center border border-primary-container/30 text-primary">
+<span class="material-symbols-outlined text-2xl" data-icon="groups">groups</span>
+</div>
+<div>
+<h3 class="font-title-md text-title-md text-primary font-bold">Volunteer Student Cohort</h3>
+<p class="font-body-sm text-body-sm text-secondary font-medium">12 Members • Lead: Rohan V.</p>
+</div>
+</div>
+<!-- Status Badge -->
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm text-tertiary font-bold px-2 py-0.5 rounded-full bg-secondary-fixed border border-secondary">
+<span class="material-symbols-outlined text-xs" data-icon="group_work">group_work</span>
+              CHECKED IN (8/12 active)
+            </span>
+</div>
+<div class="bg-surface-container-low p-2 rounded-lg space-y-1 custom-editorial-border">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider block font-semibold">Assigned Tasks</span>
+<div class="flex flex-wrap gap-1.5">
+<span class="bg-surface-container-lowest px-2 py-0.5 rounded text-body-sm text-on-surface border border-surface-container-highest">Campus Wayfinding (4 desks)</span>
+<span class="bg-surface-container-lowest px-2 py-0.5 rounded text-body-sm text-on-surface border border-surface-container-highest">Entry wristbands</span>
+<span class="bg-surface-container-lowest px-2 py-0.5 rounded text-body-sm text-on-surface border border-surface-container-highest">Auditorium crowd pacing</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-1 border-t border-surface-container-highest text-label-sm">
+<span class="text-secondary font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="visibility">visibility</span>
+              View-Only Volunteer Tier
+            </span>
+<div class="flex items-center gap-2">
+<button class="px-2.5 py-1 rounded bg-primary-container text-surface-container-lowest font-title-sm hover:bg-primary transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="chat">chat</span>
+<span>Cohort Chat</span>
+</button>
+</div>
+</div>
+</article>
+</div>
+</section>
+<!-- Role-Based Access Control / Privacy Notice -->
+<section class="bg-surface-container-high/60 rounded-xl p-3.5 custom-editorial-border flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary text-xl mt-0.5" data-icon="lock">lock</span>
+<div class="space-y-1 text-body-sm">
+<h3 class="font-title-sm text-title-sm text-tertiary font-bold">Scoped Permissions Active</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+          Student volunteers have view-only access to run-sheet tasks; financial budget sheets and vendor contracts remain restricted to Event Director and Liaison Leads.
+        </p>
+</div>
+</section>
+</main>
+<!-- BottomNavBar Component (from Shared Components JSON) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 px-space-xs bg-surface dark:bg-inverse-surface border-t border-surface-container-highest dark:border-outline-variant shadow-lg md:hidden">
+<!-- Tab 1: Overview -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant py-1 px-3 hover:bg-surface-container-low dark:hover:bg-surface-variant transition-colors duration-150 active:scale-95" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="dashboard">dashboard</span>
+<span class="font-label-sm text-label-sm tracking-tight mt-0.5">Overview</span>
+</a>
+<!-- Tab 2: AI Planner -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant py-1 px-3 hover:bg-surface-container-low dark:hover:bg-surface-variant transition-colors duration-150 active:scale-95" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="auto_awesome">auto_awesome</span>
+<span class="font-label-sm text-label-sm tracking-tight mt-0.5">AI Planner</span>
+</a>
+<!-- Tab 3: Schedule -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant py-1 px-3 hover:bg-surface-container-low dark:hover:bg-surface-variant transition-colors duration-150 active:scale-95" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="event_note">event_note</span>
+<span class="font-label-sm text-label-sm tracking-tight mt-0.5">Schedule</span>
+</a>
+<!-- Tab 4: Budget -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant py-1 px-3 hover:bg-surface-container-low dark:hover:bg-surface-variant transition-colors duration-150 active:scale-95" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="payments">payments</span>
+<span class="font-label-sm text-label-sm tracking-tight mt-0.5">Budget</span>
+</a>
+<!-- Tab 5: Live Mode (ACTIVE STATE FOR OPERATIONS RUNTIME) -->
+<a class="flex flex-col items-center justify-center text-primary dark:text-inverse-primary font-semibold py-1 px-3 rounded-lg bg-surface-container dark:bg-primary-container active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="sensors" data-weight="fill" style="font-variation-settings: 'FILL' 1;">sensors</span>
+<span class="font-label-sm text-label-sm tracking-tight mt-0.5">Live Mode</span>
+</a>
+</nav>
+</body></html>

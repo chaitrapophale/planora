@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Planora - Tasks &amp; Timeline</title>
+<!-- Material Symbols Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Editorial Serif and Technical Sans Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "error-container": "#ffdad6",
+            "on-primary-fixed-variant": "#274e3c",
+            "primary": "#032f1e",
+            "surface-container-high": "#f3e6dc",
+            "on-primary": "#ffffff",
+            "tertiary": "#392313",
+            "primary-fixed": "#c0edd3",
+            "on-error": "#ffffff",
+            "on-tertiary-fixed-variant": "#5b412f",
+            "secondary-fixed": "#ffdbd0",
+            "error": "#ba1a1a",
+            "on-secondary-container": "#794737",
+            "surface-container-low": "#fef1e7",
+            "inverse-surface": "#362f29",
+            "outline": "#717973",
+            "on-primary-container": "#88b29b",
+            "on-surface": "#201a15",
+            "inverse-on-surface": "#fceee4",
+            "on-primary-fixed": "#002114",
+            "surface-variant": "#ede0d6",
+            "secondary-container": "#feb9a4",
+            "surface-bright": "#fff8f4",
+            "surface-container": "#f9ece2",
+            "tertiary-fixed": "#ffdcc6",
+            "secondary": "#855140",
+            "inverse-primary": "#a5d0b8",
+            "surface-tint": "#3f6653",
+            "on-background": "#201a15",
+            "tertiary-fixed-dim": "#e5bfa8",
+            "secondary-fixed-dim": "#fab7a1",
+            "on-error-container": "#93000a",
+            "surface-container-highest": "#ede0d6",
+            "surface-dim": "#e4d8ce",
+            "on-tertiary-container": "#c5a18b",
+            "primary-container": "#1d4533",
+            "primary-fixed-dim": "#a5d0b8",
+            "on-secondary": "#ffffff",
+            "surface-container-lowest": "#ffffff",
+            "on-secondary-fixed-variant": "#693a2b",
+            "surface": "#fff8f4",
+            "on-tertiary": "#ffffff",
+            "outline-variant": "#c1c8c2",
+            "on-surface-variant": "#414844",
+            "tertiary-container": "#513827",
+            "on-tertiary-fixed": "#2b1708",
+            "on-secondary-fixed": "#341005",
+            "background": "#fff8f4"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "margin": "2rem",
+            "space-sm": "0.5rem",
+            "space-xl": "2.5rem",
+            "space-lg": "1.5rem",
+            "margin-mobile": "1rem",
+            "space-md": "1rem",
+            "gutter": "1.5rem",
+            "space-xs": "0.25rem",
+            "gutter-mobile": "1rem"
+          },
+          "fontFamily": {
+            "display-lg-mobile": ["Newsreader"],
+            "headline-lg-mobile": ["Newsreader"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "display-lg": ["Newsreader"],
+            "body-md": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "title-md": ["Plus Jakarta Sans"],
+            "title-sm": ["Plus Jakarta Sans"],
+            "headline-lg": ["Newsreader"],
+            "label-md": ["Plus Jakarta Sans"],
+            "headline-sm": ["Newsreader"],
+            "headline-md": ["Newsreader"],
+            "title-lg": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "display-lg-mobile": ["34px", { "lineHeight": "42px", "letterSpacing": "-0.01em", "fontWeight": "500" }],
+            "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "fontWeight": "400" }],
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "500" }],
+            "body-md": ["14px", { "lineHeight": "22px", "fontWeight": "400" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.06em", "fontWeight": "700" }],
+            "body-lg": ["16px", { "lineHeight": "26px", "fontWeight": "400" }],
+            "title-md": ["16px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "title-sm": ["14px", { "lineHeight": "20px", "fontWeight": "600" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+            "title-lg": ["18px", { "lineHeight": "26px", "fontWeight": "700" }]
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-surface-container-low text-tertiary font-body-md text-body-md antialiased min-h-full flex flex-col selection:bg-secondary-container selection:text-tertiary">
+<!-- Top App Bar (Shared Component Anchor) -->
+<header class="bg-surface w-full px-margin-mobile md:px-margin flex items-center justify-between h-16 sticky top-0 z-40 shadow-sm border-b border-surface-container-highest">
+<div class="flex items-center gap-3">
+<div class="font-headline-sm text-headline-sm font-semibold tracking-tight text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-2xl" data-icon="explore">explore</span>
+<span>Planora</span>
+</div>
+<!-- Event Switcher Badge -->
+<div class="hidden sm:flex items-center gap-2 bg-surface-container-lowest px-2.5 py-1 rounded border border-secondary/20">
+<span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+<span class="font-title-sm text-title-sm text-tertiary font-semibold">TechSpark 2025</span>
+<span class="font-label-sm text-label-sm bg-surface-container-high px-1.5 py-0.5 rounded text-secondary font-bold">OCT 24</span>
+</div>
+</div>
+<!-- Right Utility Cluster -->
+<div class="flex items-center gap-3">
+<!-- Search & Filters -->
+<button aria-label="Search tasks" class="w-9 h-9 flex items-center justify-center rounded text-tertiary hover:bg-surface-container-high transition-colors duration-150" type="button">
+<span class="material-symbols-outlined text-xl" data-icon="search">search</span>
+</button>
+<button aria-label="Filter matrix" class="w-9 h-9 flex items-center justify-center rounded text-tertiary hover:bg-surface-container-high transition-colors duration-150 relative" type="button">
+<span class="material-symbols-outlined text-xl" data-icon="tune">tune</span>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-secondary"></span>
+</button>
+<!-- Event Director Trailing Avatar -->
+<div class="flex items-center gap-2 pl-2 border-l border-surface-container-highest">
+<img class="w-8 h-8 rounded-full object-cover border border-primary-container" data-alt="A refined portrait of an experienced female event operations director with neat tied hair, wearing a structured dark olive blazer inside a warm architectural studio with soft ambient parchment lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfCT9J26gOZLicccYMz7LAIee4pGRCNqLuE-Gs5aGWuOjNCL-aiNkNRi9m8wjacyKvlSS4NmxLGUT97mtV9CvmroiCejArZH2yAazKGhA8xljx561Q1L-d8Oq87S6DNSxMv34RXgdEgDbgEW2aXKyd0iht-9ioicglCXPwu6yyhCawI1XkUaJhwno-sjxOaZS-we1-4hAXInHUo8stRppAWEiw929PfET8RKVmIyXcxFyHblMsy-8"/>
+</div>
+</div>
+</header>
+<!-- Mobile Event Pill Bar (Sub-header) -->
+<div class="sm:hidden bg-surface-container px-margin-mobile py-2 flex items-center justify-between border-b border-surface-container-highest">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span>
+<span class="font-title-sm text-title-sm text-tertiary font-semibold">TechSpark 2025</span>
+</div>
+<span class="font-label-sm text-label-sm bg-surface-container-high px-2 py-0.5 rounded text-secondary font-bold">OCT 24 • MAIN HALL</span>
+</div>
+<!-- Main Canvas Container -->
+<main class="flex-1 w-full max-w-7xl mx-auto px-margin-mobile md:px-margin pt-6 pb-24 md:pb-16 flex flex-col gap-6">
+<!-- Header & View Switcher Section -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider font-bold">Operations &amp; Run-Sheet</span>
+<span class="text-xs text-outline-variant">•</span>
+<span class="font-label-sm text-label-sm text-primary font-bold">Live Execution Mode</span>
+</div>
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-tertiary tracking-tight">Tasks &amp; Production Timeline</h1>
+</div>
+<!-- View Switcher Tabs -->
+<div class="flex bg-surface-container p-1 rounded border border-secondary/15 max-w-fit">
+<button class="px-4 py-1.5 rounded bg-primary-container text-surface-container-lowest font-title-sm text-title-sm font-semibold flex items-center gap-1.5 shadow-sm" type="button">
+<span class="material-symbols-outlined text-base" data-icon="format_list_bulleted">format_list_bulleted</span>
+<span>List View</span>
+</button>
+<button class="px-4 py-1.5 rounded text-tertiary hover:bg-surface-container-high font-title-sm text-title-sm font-medium flex items-center gap-1.5 transition-colors" type="button">
+<span class="material-symbols-outlined text-base" data-icon="view_timeline">view_timeline</span>
+<span>Schedule / Run-Sheet</span>
+</button>
+<button class="px-4 py-1.5 rounded text-tertiary hover:bg-surface-container-high font-title-sm text-title-sm font-medium flex items-center gap-1.5 transition-colors" type="button">
+<span class="material-symbols-outlined text-base" data-icon="calendar_month">calendar_month</span>
+<span>Calendar</span>
+</button>
+</div>
+</div>
+<!-- AI Schedule Insight Banner (Style Guidance: AI Planning Prompt Bubbles) -->
+<div class="bg-secondary-container/30 border-l-4 border-primary-container p-4 rounded-r border-t border-r border-b border-secondary/15 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+<div class="flex items-start gap-3.5">
+<div class="w-8 h-8 rounded bg-primary-container text-surface-container-lowest flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-lg" data-icon="auto_awesome">auto_awesome</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<h2 class="font-headline-sm text-headline-sm text-tertiary">Dependency Bottleneck Identified</h2>
+<span class="bg-secondary-container text-tertiary font-label-sm text-label-sm px-1.5 py-0.5 rounded font-bold">HIGH RISK</span>
+</div>
+<p class="font-body-md text-body-md text-tertiary/90 mt-0.5">
+            Stage Audio Setup must conclude before Soundcheck (2h direct clash on Arena Deck 1).
+          </p>
+</div>
+</div>
+<div class="flex items-center gap-2 shrink-0 self-end md:self-auto">
+<button class="bg-surface-container-lowest border border-primary-container font-title-sm text-title-sm text-tertiary px-3 py-1.5 rounded hover:bg-surface-container transition-colors" type="button">
+          Review Clashes
+        </button>
+<button class="bg-primary-container hover:bg-primary font-title-sm text-title-sm text-surface-container-lowest px-4 py-1.5 rounded flex items-center gap-1.5 transition-colors shadow-sm" type="button">
+<span class="material-symbols-outlined text-sm" data-icon="auto_fix_high">auto_fix_high</span>
+<span>Auto-Adjust Schedule</span>
+</button>
+</div>
+</div>
+<!-- Filter Pills Row -->
+<div class="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
+<button class="px-3.5 py-1.5 rounded-full bg-primary-container text-surface-container-lowest font-label-sm text-label-sm flex items-center gap-2 shrink-0 shadow-sm" type="button">
+<span>ALL</span>
+<span class="bg-surface-container-lowest/20 px-1.5 py-0.2 rounded-full">36</span>
+</button>
+<button class="px-3.5 py-1.5 rounded-full bg-surface-container-lowest border border-secondary/20 hover:border-secondary text-tertiary font-label-sm text-label-sm flex items-center gap-2 shrink-0 transition-colors" type="button">
+<span class="w-2 h-2 rounded-full bg-error"></span>
+<span>OVERDUE</span>
+<span class="bg-secondary-container text-tertiary px-1.5 py-0.2 rounded-full font-bold">2</span>
+</button>
+<button class="px-3.5 py-1.5 rounded-full bg-surface-container-lowest border border-secondary/20 hover:border-secondary text-tertiary font-label-sm text-label-sm flex items-center gap-2 shrink-0 transition-colors" type="button">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span>
+<span>TODAY</span>
+<span class="bg-surface-container-high text-tertiary px-1.5 py-0.2 rounded-full font-bold">8</span>
+</button>
+<button class="px-3.5 py-1.5 rounded-full bg-surface-container-lowest border border-secondary/20 hover:border-secondary text-tertiary font-label-sm text-label-sm flex items-center gap-2 shrink-0 transition-colors" type="button">
+<span class="material-symbols-outlined text-xs text-secondary" data-icon="pending">pending</span>
+<span>PENDING SIGN-OFF</span>
+<span class="bg-surface-container-high text-tertiary px-1.5 py-0.2 rounded-full font-bold">3</span>
+</button>
+<div class="h-4 w-px bg-surface-container-highest mx-1"></div>
+<button class="text-tertiary font-label-sm text-label-sm hover:text-primary flex items-center gap-1 shrink-0 px-2 py-1" type="button">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+<span>Custom Filter</span>
+</button>
+</div>
+<!-- Main Operational Workspace Grid (Bento Structure) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+<!-- Left Column: Tasks Engine (8 Cols) -->
+<div class="lg:col-span-8 flex flex-col gap-6">
+<!-- SECTION 1: URGENT & OVERDUE -->
+<section class="flex flex-col gap-3">
+<div class="flex items-center justify-between border-b border-secondary/15 pb-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-error text-lg" data-icon="warning">warning</span>
+<h3 class="font-label-sm text-label-sm text-tertiary uppercase tracking-wider font-bold">URGENT &amp; OVERDUE (2)</h3>
+</div>
+<span class="font-body-sm text-body-sm text-error font-medium">Critical production blockers</span>
+</div>
+<div class="flex flex-col gap-3">
+<!-- Overdue Card 1 -->
+<div class="bg-surface-container-lowest rounded border border-secondary/20 p-4 hover:border-secondary/50 transition-all flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div class="flex items-start gap-3">
+<input class="mt-1 w-4 h-4 rounded text-primary-container border-secondary/30 focus:ring-primary-container" type="checkbox"/>
+<div class="space-y-1">
+<div class="flex flex-wrap items-center gap-2">
+<h4 class="font-title-md text-title-md text-tertiary font-semibold">Police &amp; Fire Safety NOC Verification</h4>
+<span class="font-label-sm text-label-sm bg-secondary-container text-tertiary px-2 py-0.5 rounded uppercase font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="schedule">schedule</span>
+                      Pending Verification
+                    </span>
+</div>
+<div class="flex flex-wrap items-center gap-y-1 gap-x-4 text-tertiary/80 font-body-sm text-body-sm">
+<span class="flex items-center gap-1 text-error font-semibold">
+<span class="material-symbols-outlined text-sm" data-icon="alarm">alarm</span>
+                      Today 11:00 AM (Overdue 45m)
+                    </span>
+<span class="flex items-center gap-1.5">
+<span class="w-5 h-5 rounded-full bg-surface-container-high text-tertiary flex items-center justify-center font-bold text-[10px]">MS</span>
+<span>Meera S. (Govt Liaison)</span>
+</span>
+<span class="text-outline-variant">#NOC-802</span>
+</div>
+</div>
+</div>
+<!-- Quick Action -->
+<div class="flex items-center gap-2 shrink-0 pl-7 md:pl-0">
+<button class="w-full md:w-auto px-3.5 py-1.5 rounded bg-secondary-container text-tertiary font-title-sm text-title-sm font-semibold hover:bg-secondary-fixed transition-colors flex items-center justify-center gap-1.5 border border-secondary/20" type="button">
+<span class="material-symbols-outlined text-sm" data-icon="notifications_active">notifications_active</span>
+<span>Fast Reminder</span>
+</button>
+</div>
+</div>
+<!-- Overdue Card 2 -->
+<div class="bg-surface-container-lowest rounded border border-secondary/20 p-4 hover:border-secondary/50 transition-all flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div class="flex items-start gap-3">
+<input class="mt-1 w-4 h-4 rounded text-primary-container border-secondary/30 focus:ring-primary-container" type="checkbox"/>
+<div class="space-y-1">
+<div class="flex flex-wrap items-center gap-2">
+<h4 class="font-title-md text-title-md text-tertiary font-semibold">Generator 50kVA Fuel Top-up</h4>
+<span class="font-label-sm text-label-sm bg-tertiary text-surface-container-lowest px-2 py-0.5 rounded uppercase font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="bolt">bolt</span>
+                      High Priority
+                    </span>
+</div>
+<div class="flex flex-wrap items-center gap-y-1 gap-x-4 text-tertiary/80 font-body-sm text-body-sm">
+<span class="flex items-center gap-1 text-tertiary font-semibold">
+<span class="material-symbols-outlined text-sm" data-icon="timer">timer</span>
+                      Deadline: 1:00 PM (In 15 mins)
+                    </span>
+<span class="flex items-center gap-1.5">
+<span class="w-5 h-5 rounded-full bg-surface-container-high text-tertiary flex items-center justify-center font-bold text-[10px]">KT</span>
+<span>Karan T. (Logistics)</span>
+</span>
+<span class="text-outline-variant">Sub-station B</span>
+</div>
+</div>
+</div>
+<!-- Quick Action -->
+<div class="flex items-center gap-2 shrink-0 pl-7 md:pl-0">
+<button class="w-full md:w-auto px-3.5 py-1.5 rounded border border-primary-container text-tertiary hover:bg-surface-container-high font-title-sm text-title-sm font-semibold transition-colors flex items-center justify-center gap-1" type="button">
+<span class="material-symbols-outlined text-sm" data-icon="call">call</span>
+<span>Direct Ping</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 2: TODAY'S PRODUCTION RUN -->
+<section class="flex flex-col gap-3">
+<div class="flex items-center justify-between border-b border-secondary/15 pb-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container text-lg" data-icon="schedule">schedule</span>
+<h3 class="font-label-sm text-label-sm text-tertiary uppercase tracking-wider font-bold">TODAY'S PRODUCTION RUN (8)</h3>
+</div>
+<span class="font-body-sm text-body-sm text-secondary font-medium">Execution Sequence</span>
+</div>
+<div class="flex flex-col gap-3">
+<!-- Production Run Card 1 -->
+<div class="bg-surface-container-lowest rounded border border-secondary/20 p-4 hover:border-secondary/50 transition-all flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div class="flex items-start gap-3">
+<div class="mt-1 w-5 h-5 rounded bg-primary-container text-surface-container-lowest flex items-center justify-center">
+<span class="material-symbols-outlined text-sm" data-icon="check">check</span>
+</div>
+<div class="space-y-1">
+<div class="flex flex-wrap items-center gap-2">
+<h4 class="font-title-md text-title-md text-tertiary font-semibold line-through text-outline">Stage Truss Lighting Rigging</h4>
+<span class="font-label-sm text-label-sm bg-surface-container-high text-primary-container border border-primary-container px-2 py-0.5 rounded font-bold">
+                      DONE
+                    </span>
+</div>
+<div class="flex flex-wrap items-center gap-y-1 gap-x-4 text-tertiary/80 font-body-sm text-body-sm">
+<span class="flex items-center gap-1 font-medium">
+<span class="material-symbols-outlined text-sm" data-icon="schedule">schedule</span>
+                      02:00 PM
+                    </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="group">group</span>
+                      Rigging Crew (8 pax)
+                    </span>
+<span class="flex items-center gap-1 text-primary-container font-semibold">
+<span class="material-symbols-outlined text-xs" data-icon="link">link</span>
+                      2 dependencies satisfied
+                    </span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-2 shrink-0 pl-8 md:pl-0">
+<span class="font-label-sm text-label-sm text-outline uppercase font-semibold">Signed by Tech Director</span>
+</div>
+</div>
+<!-- Production Run Card 2 -->
+<div class="bg-surface-container-lowest rounded border border-secondary/20 p-4 hover:border-secondary/50 transition-all flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div class="flex items-start gap-3 flex-1">
+<input class="mt-1 w-4 h-4 rounded text-primary-container border-secondary/30 focus:ring-primary-container" type="checkbox"/>
+<div class="space-y-2 w-full">
+<div class="flex flex-wrap items-center justify-between gap-2 pr-4">
+<h4 class="font-title-md text-title-md text-tertiary font-semibold">Green Room Hospitality Hampers</h4>
+<span class="font-label-sm text-label-sm bg-secondary-fixed text-tertiary font-bold px-2 py-0.5 rounded">
+                      IN PROGRESS (75%)
+                    </span>
+</div>
+<!-- Progress Bar -->
+<div class="w-full max-w-md bg-surface-container-highest h-2 rounded-full overflow-hidden">
+<div class="bg-primary-container h-full rounded-full" style="width: 75%"></div>
+</div>
+<div class="flex flex-wrap items-center gap-y-1 gap-x-4 text-tertiary/80 font-body-sm text-body-sm">
+<span class="flex items-center gap-1 text-tertiary font-medium">
+<span class="material-symbols-outlined text-sm" data-icon="schedule">schedule</span>
+                      03:30 PM
+                    </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="person">person</span>
+                      Hospitality Lead (Sarah &amp; Team)
+                    </span>
+<span class="text-secondary font-medium">6 of 8 VIP rooms loaded</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-2 shrink-0 pl-7 md:pl-0">
+<button class="w-full md:w-auto px-3 py-1.5 rounded border border-secondary/20 text-tertiary hover:bg-surface-container-high font-title-sm text-title-sm font-medium transition-colors" type="button">
+                  View Items
+                </button>
+</div>
+</div>
+<!-- Production Run Card 3 (Additional context row) -->
+<div class="bg-surface-container-lowest rounded border border-secondary/20 p-4 hover:border-secondary/50 transition-all flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div class="flex items-start gap-3">
+<input class="mt-1 w-4 h-4 rounded text-primary-container border-secondary/30 focus:ring-primary-container" type="checkbox"/>
+<div class="space-y-1">
+<div class="flex flex-wrap items-center gap-2">
+<h4 class="font-title-md text-title-md text-tertiary font-semibold">Main Stage LED Wall Calibration</h4>
+<span class="font-label-sm text-label-sm bg-surface-container-high text-tertiary px-2 py-0.5 rounded font-bold">
+                      UP NEXT
+                    </span>
+</div>
+<div class="flex flex-wrap items-center gap-y-1 gap-x-4 text-tertiary/80 font-body-sm text-body-sm">
+<span class="flex items-center gap-1 text-tertiary font-medium">
+<span class="material-symbols-outlined text-sm" data-icon="schedule">schedule</span>
+                      04:15 PM
+                    </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="display_settings">display_settings</span>
+                      AV Production Unit
+                    </span>
+<span class="text-outline">Requires 40kW lock</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-2 shrink-0 pl-7 md:pl-0">
+<button class="text-tertiary hover:text-primary-container p-1 rounded" type="button">
+<span class="material-symbols-outlined text-lg" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 3: AI DEADLINE SUGGESTION (Editorial Stationery Component) -->
+<section class="bg-surface-container-low border border-secondary/20 rounded p-4 relative overflow-hidden">
+<div class="absolute -right-6 -bottom-6 text-secondary/10 pointer-events-none">
+<span class="material-symbols-outlined text-9xl" data-icon="auto_awesome">auto_awesome</span>
+</div>
+<div class="flex items-start gap-3 relative z-10">
+<div class="w-7 h-7 rounded bg-secondary-container text-tertiary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-base" data-icon="sparkles" data-weight="fill" style="font-variation-settings: 'FILL' 1;">arrow_back_ios_new</span>
+</div>
+<div class="flex-1 space-y-2">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-secondary uppercase font-bold tracking-wider">AI DEADLINE OPTIMIZATION</span>
+<span class="font-body-sm text-body-sm text-outline">Confidence 94%</span>
+</div>
+<p class="font-body-md text-body-md text-tertiary">
+                Move <strong class="font-semibold text-primary">Caterer Tasting</strong> to <span class="underline decoration-secondary/40 font-medium">Oct 22 at 3:00 PM</span> to prevent rehearsal clash with keynote speakers in Main Auditorium.
+              </p>
+<div class="flex items-center gap-2 pt-1">
+<button class="px-3.5 py-1.5 rounded bg-primary-container hover:bg-primary text-surface-container-lowest font-title-sm text-title-sm font-semibold transition-colors flex items-center gap-1" type="button">
+<span>Accept Suggestion</span>
+</button>
+<button class="px-3 py-1.5 rounded bg-transparent hover:bg-surface-container-high border border-secondary/20 text-tertiary font-title-sm text-title-sm transition-colors" type="button">
+                  Dismiss
+                </button>
+<span class="text-xs text-outline ml-2 hidden sm:inline">Will update 4 calendar subscriptions</span>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Column: Context Rail & Production Snapshot (4 Cols) -->
+<div class="lg:col-span-4 flex flex-col gap-6">
+<!-- Live Delay Monitor Component -->
+<div class="bg-tertiary text-surface-bright rounded p-4 space-y-3 shadow-sm border border-tertiary-container">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary-container animate-ping"></span>
+<span class="font-label-sm text-label-sm tracking-wider uppercase font-bold text-secondary-container">LIVE RUN MONITOR</span>
+</div>
+<span class="font-body-sm text-body-sm bg-tertiary-container px-2 py-0.5 rounded text-surface-variant font-medium">Stage 01</span>
+</div>
+<div>
+<div class="font-display-lg-mobile text-display-lg-mobile font-headline-sm text-surface-container-lowest tracking-tight">
+              +14 <span class="text-xl text-secondary-container font-sans font-normal">min offset</span>
+</div>
+<p class="font-body-sm text-body-sm text-surface-variant mt-1">
+              Delayed soundcheck push shifted technical run-down. Floor staff auto-alerted.
+            </p>
+</div>
+<div class="pt-2 border-t border-tertiary-container flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-surface-variant">Floor Re-routing</span>
+<button class="px-2.5 py-1 rounded bg-secondary-container text-tertiary font-title-sm text-title-sm font-bold hover:bg-secondary-fixed transition-colors" type="button">
+              Deploy Catch-up Plan
+            </button>
+</div>
+</div>
+<!-- Venue Schedule Milestone Track -->
+<div class="bg-surface-container-lowest rounded border border-secondary/20 p-5 space-y-4">
+<div class="flex items-center justify-between border-b border-surface-container-highest pb-3">
+<h3 class="font-headline-sm text-headline-sm text-tertiary">Run-of-Show Gates</h3>
+<span class="font-label-sm text-label-sm bg-surface-container px-2 py-0.5 rounded text-secondary font-bold">TODAY</span>
+</div>
+<div class="relative pl-6 space-y-6 before:content-[''] before:absolute before:left-2 before:top-2 before:bottom-2 before:w-0.5 before:bg-surface-container-highest">
+<!-- Gate 1: Finished -->
+<div class="relative">
+<span class="absolute -left-[23px] top-0.5 w-4 h-4 rounded-full bg-primary-container text-surface-container-lowest flex items-center justify-center ring-4 ring-surface-container-lowest">
+<span class="material-symbols-outlined text-[10px]" data-icon="check">check</span>
+</span>
+<div>
+<span class="font-label-sm text-label-sm text-outline font-bold">09:00 AM • GATE 01</span>
+<p class="font-title-sm text-title-sm text-tertiary font-semibold">Vendor Freight Load-in</p>
+<p class="font-body-sm text-body-sm text-tertiary/70">Dock A &amp; B verified clear</p>
+</div>
+</div>
+<!-- Gate 2: Active -->
+<div class="relative">
+<span class="absolute -left-[23px] top-0.5 w-4 h-4 rounded-full bg-secondary text-surface-container-lowest flex items-center justify-center ring-4 ring-surface-container-lowest animate-pulse">
+<span class="w-1.5 h-1.5 rounded-full bg-surface-container-lowest"></span>
+</span>
+<div>
+<span class="font-label-sm text-label-sm text-secondary font-bold">01:30 PM • GATE 02</span>
+<p class="font-title-sm text-title-sm text-tertiary font-semibold">Acoustic Balance &amp; Sound Check</p>
+<p class="font-body-sm text-body-sm text-tertiary/70">Lead audio engineer on console</p>
+</div>
+</div>
+<!-- Gate 3: Pending -->
+<div class="relative">
+<span class="absolute -left-[23px] top-0.5 w-4 h-4 rounded-full bg-surface-container-highest text-tertiary flex items-center justify-center ring-4 ring-surface-container-lowest">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+</span>
+<div>
+<span class="font-label-sm text-label-sm text-outline font-bold">05:00 PM • GATE 03</span>
+<p class="font-title-sm text-title-sm text-tertiary font-semibold">VIP Doors &amp; Press Preview</p>
+<p class="font-body-sm text-body-sm text-tertiary/70">Security sweep pending NOC release</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Operational Team On-Site Availability -->
+<div class="bg-surface-container-lowest rounded border border-secondary/20 p-5 space-y-3">
+<div class="flex items-center justify-between">
+<h3 class="font-title-md text-title-md text-tertiary font-semibold">Station Chiefs (Radio Ch. 4)</h3>
+<span class="font-body-sm text-body-sm text-primary-container font-semibold">5 Active</span>
+</div>
+<div class="divide-y divide-surface-container-highest">
+<div class="py-2.5 flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<span class="w-7 h-7 rounded-full bg-primary-container text-surface-container-lowest flex items-center justify-center font-bold text-xs">MS</span>
+<div>
+<div class="font-title-sm text-title-sm text-tertiary leading-tight">Meera S.</div>
+<div class="font-body-sm text-body-sm text-outline">Liaison • Admin Hub</div>
+</div>
+</div>
+<span class="w-2 h-2 rounded-full bg-primary-container"></span>
+</div>
+<div class="py-2.5 flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<span class="w-7 h-7 rounded-full bg-secondary text-surface-container-lowest flex items-center justify-center font-bold text-xs">KT</span>
+<div>
+<div class="font-title-sm text-title-sm text-tertiary leading-tight">Karan T.</div>
+<div class="font-body-sm text-body-sm text-outline">Logistics • Sub-station</div>
+</div>
+</div>
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+</div>
+<div class="py-2.5 flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<span class="w-7 h-7 rounded-full bg-tertiary text-surface-container-lowest flex items-center justify-center font-bold text-xs">RC</span>
+<div>
+<div class="font-title-sm text-title-sm text-tertiary leading-tight">Rigging Crew</div>
+<div class="font-body-sm text-body-sm text-outline">Stage Arena</div>
+</div>
+</div>
+<span class="w-2 h-2 rounded-full bg-primary-container"></span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Contextual Floating Action Button (+ New Task) -->
+<div class="fixed bottom-20 md:bottom-8 right-6 z-40">
+<button class="flex items-center gap-2.5 bg-primary-container hover:bg-primary text-surface-container-lowest px-5 py-3 rounded-full shadow-lg border border-primary-container/20 active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-xl" data-icon="add">add</span>
+<span class="font-title-sm text-title-sm font-semibold tracking-wide">+ New Task</span>
+</button>
+</div>
+<!-- Bottom Navigation Bar (Shared Component Anchor) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 px-space-xs bg-surface shadow-md border-t border-surface-container-highest">
+<!-- Destination 1: Overview -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-1 px-3 hover:bg-surface-container-low transition-colors duration-150 active:scale-95" href="#">
+<span class="material-symbols-outlined text-2xl" data-icon="dashboard">dashboard</span>
+<span class="text-label-sm font-label-sm mt-0.5">Overview</span>
+</a>
+<!-- Destination 2: AI Planner -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-1 px-3 hover:bg-surface-container-low transition-colors duration-150 active:scale-95" href="#">
+<span class="material-symbols-outlined text-2xl" data-icon="auto_awesome">auto_awesome</span>
+<span class="text-label-sm font-label-sm mt-0.5">AI Planner</span>
+</a>
+<!-- Destination 3: Schedule (ACTIVE AS MANDATED BY USER PROMPT & PAGE RELEVANCE) -->
+<a class="flex flex-col items-center justify-center text-primary font-semibold py-1 px-3 rounded-lg bg-surface-container active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined text-2xl" data-icon="event_note" data-weight="fill" style="font-variation-settings: 'FILL' 1;">event_note</span>
+<span class="text-label-sm font-label-sm mt-0.5">Schedule</span>
+</a>
+<!-- Destination 4: Budget -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-1 px-3 hover:bg-surface-container-low transition-colors duration-150 active:scale-95" href="#">
+<span class="material-symbols-outlined text-2xl" data-icon="payments">payments</span>
+<span class="text-label-sm font-label-sm mt-0.5">Budget</span>
+</a>
+<!-- Destination 5: Live Mode -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-1 px-3 hover:bg-surface-container-low transition-colors duration-150 active:scale-95" href="#">
+<span class="material-symbols-outlined text-2xl" data-icon="sensors">sensors</span>
+<span class="text-label-sm font-label-sm mt-0.5">Live Mode</span>
+</a>
+</nav>
+</body></html>

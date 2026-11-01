@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Planora - Food &amp; Supplies</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Fonts: Newsreader and Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS with forms & container-queries -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "tertiary-container": "#513827",
+            "error-container": "#ffdad6",
+            "surface-dim": "#e4d8ce",
+            "on-surface": "#201a15",
+            "inverse-on-surface": "#fceee4",
+            "on-tertiary-container": "#c5a18b",
+            "tertiary": "#392313",
+            "on-tertiary-fixed": "#2b1708",
+            "surface-container-high": "#f3e6dc",
+            "on-secondary-fixed": "#341005",
+            "on-tertiary": "#ffffff",
+            "secondary": "#855140",
+            "surface-bright": "#fff8f4",
+            "on-tertiary-fixed-variant": "#5b412f",
+            "on-secondary-fixed-variant": "#693a2b",
+            "primary-fixed": "#c0edd3",
+            "on-error": "#ffffff",
+            "surface": "#fff8f4",
+            "secondary-fixed": "#ffdbd0",
+            "inverse-primary": "#a5d0b8",
+            "primary-container": "#1d4533",
+            "surface-container-low": "#fef1e7",
+            "primary": "#032f1e",
+            "surface-container-highest": "#ede0d6",
+            "surface-tint": "#3f6653",
+            "secondary-fixed-dim": "#fab7a1",
+            "on-primary-fixed": "#002114",
+            "background": "#fff8f4",
+            "on-primary-container": "#88b29b",
+            "on-primary-fixed-variant": "#274e3c",
+            "on-error-container": "#93000a",
+            "secondary-container": "#feb9a4",
+            "on-secondary": "#ffffff",
+            "inverse-surface": "#362f29",
+            "surface-container-lowest": "#ffffff",
+            "on-primary": "#ffffff",
+            "tertiary-fixed-dim": "#e5bfa8",
+            "outline-variant": "#c1c8c2",
+            "surface-container": "#f9ece2",
+            "tertiary-fixed": "#ffdcc6",
+            "on-secondary-container": "#794737",
+            "surface-variant": "#ede0d6",
+            "outline": "#717973",
+            "error": "#ba1a1a",
+            "on-surface-variant": "#414844",
+            "primary-fixed-dim": "#a5d0b8",
+            "on-background": "#201a15"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "margin": "2rem",
+            "gutter-mobile": "1rem",
+            "space-lg": "1.5rem",
+            "margin-mobile": "1rem",
+            "space-xl": "2.5rem",
+            "gutter": "1.5rem",
+            "space-sm": "0.5rem",
+            "space-md": "1rem",
+            "space-xs": "0.25rem"
+          },
+          "fontFamily": {
+            "display-lg-mobile": ["Newsreader"],
+            "headline-lg-mobile": ["Newsreader"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "headline-lg": ["Newsreader"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "title-lg": ["Plus Jakarta Sans"],
+            "headline-sm": ["Newsreader"],
+            "display-lg": ["Newsreader"],
+            "title-md": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "title-sm": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "headline-md": ["Newsreader"]
+          },
+          "fontSize": {
+            "display-lg-mobile": ["34px", { "lineHeight": "42px", "letterSpacing": "-0.01em", "fontWeight": "500" }],
+            "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "fontWeight": "400" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "body-lg": ["16px", { "lineHeight": "26px", "fontWeight": "400" }],
+            "title-lg": ["18px", { "lineHeight": "26px", "fontWeight": "700" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "500" }],
+            "title-md": ["16px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.06em", "fontWeight": "700" }],
+            "title-sm": ["14px", { "lineHeight": "20px", "fontWeight": "600" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "body-md": ["14px", { "lineHeight": "22px", "fontWeight": "400" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .hairline-border {
+      border: 1px solid rgba(94, 49, 34, 0.12);
+    }
+    .stationery-rule {
+      border-bottom: 1px solid rgba(94, 49, 34, 0.08);
+    }
+    /* Tabular figures for exact numeral scans */
+    .tabular-nums {
+      font-variant-numeric: tabular-nums;
+    }
+    /* Hide scrollbars for crisp horizontal slider */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface antialiased font-body-md text-body-md pb-28 selection:bg-secondary-container selection:text-tertiary">
+<!-- Shared Component: TopAppBar (Mobile view configured) -->
+<header class="sticky top-0 z-40 bg-surface/95 backdrop-blur-md border-b border-surface-container-highest flex items-center justify-between h-16 px-margin-mobile">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[24px]">explore</span>
+<span class="font-headline-sm text-headline-sm font-semibold tracking-tight text-primary">Planora</span>
+</div>
+<!-- Event Switcher Pill -->
+<div class="flex items-center gap-1.5 bg-surface-container-lowest px-2.5 py-1 rounded-full hairline-border shadow-xs">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="font-title-sm text-title-sm text-tertiary">TechSpark 2025</span>
+<span class="material-symbols-outlined text-secondary text-[16px]">arrow_drop_down</span>
+</div>
+<!-- Trailing Avatar -->
+<div class="relative flex-shrink-0">
+<img alt="Event Director profile photo" class="w-9 h-9 rounded-full object-cover hairline-border ring-1 ring-primary/20" data-alt="Close-up portrait of an Indian female event coordinator wearing professional muted earthy linens, looking confident against a clean, warm lit university hall interior with botanical accents, editorial photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMwLES2FzMuH78yZZj_qecgr64b8yyvsJbn93jiF2H6fiN1-26p9dYjNcolvvvoxilObyxw-SnE7OkVA44hYkTQi3tIwezamKm9q_8OeGkBAXgmhM-cctj-Scww35OHVkSJ-Woge-8Z6snZODeHwOb7BN4eaK32-PBA9TvtCV2kmqFOTgO4zJw9ToaZF4cgN1WYoLgfuKcskZzOT5ZkPqFPs8Ynr8bUP1tjBa6btNEi5nJErMzsl4"/>
+<span class="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-primary border-2 border-surface rounded-full"></span>
+</div>
+</header>
+<!-- Main Canvas Container -->
+<main class="px-margin-mobile pt-4 space-y-5 max-w-md mx-auto">
+<!-- Screen Title & Context Action Header -->
+<section class="space-y-3">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-secondary tracking-widest uppercase">RESOURCE LOGISTICS &amp; CATERING</span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-surface-container hairline-border text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[13px] text-primary">pin_drop</span>
+          Mumbai Campus
+        </span>
+</div>
+<div class="flex items-baseline justify-between">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-primary font-bold">Food &amp; Supplies Management</h1>
+</div>
+<!-- Action Cluster -->
+<div class="flex items-center gap-2 pt-1">
+<button class="flex-1 bg-primary text-surface-container-low font-title-sm text-title-sm py-2 px-3 rounded-lg flex items-center justify-center gap-1.5 shadow-sm active:scale-95 transition-transform duration-150">
+<span class="material-symbols-outlined text-[18px]">add</span>
+<span>Add Item / PO</span>
+</button>
+<button class="bg-surface-container-lowest hairline-border text-secondary font-title-sm text-title-sm py-2 px-3.5 rounded-lg flex items-center justify-center gap-1.5 hover:bg-surface-container-low active:scale-95 transition-transform duration-150">
+<span class="material-symbols-outlined text-[18px]">ios_share</span>
+<span>Export Shopping List</span>
+</button>
+</div>
+</section>
+<!-- AI Quantity Calculator & Headcount Sync Banner (Editorial Tactility Card) -->
+<section class="relative overflow-hidden rounded-lg bg-[#F9D2BA]/30 p-3.5 border-l-4 border-l-primary-container hairline-border">
+<div class="flex items-start justify-between gap-2">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[18px]" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<span class="font-label-sm text-label-sm text-primary uppercase font-bold tracking-wide">Planora Smart Consumption Engine</span>
+</div>
+<span class="inline-flex items-center px-1.5 py-0.5 rounded bg-primary text-surface font-label-sm text-[10px]">SYNCED 500 PAX</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface mt-2 text-justify">
+        Based on <strong class="font-semibold text-primary">500 Pax attendance</strong> across 13 hours: Recommend <strong class="font-semibold text-primary">45 20L water dispensers</strong> (3.6L/attendee avg in Mumbai humidity) and <strong class="font-semibold text-primary">520 snack boxes</strong> (including 5% buffer). 85 vegetarian, 15% vegan/jain dietary tags flagged.
+      </p>
+<div class="mt-3 flex items-center justify-between pt-2 stationery-rule">
+<div class="flex items-center gap-1 text-on-surface-variant text-label-sm font-label-sm">
+<span class="material-symbols-outlined text-[14px] text-secondary">thermostat</span>
+<span>31°C · High Humidity Index</span>
+</div>
+<button class="inline-flex items-center gap-1 bg-primary-container text-surface-container-low px-2.5 py-1 rounded text-label-sm font-label-sm hover:opacity-95 active:scale-95 transition-all">
+<span>Apply Auto-Calculated Quotas</span>
+<span class="material-symbols-outlined text-[14px]">done_all</span>
+</button>
+</div>
+</section>
+<!-- Summary Metric Cards (2x2 Grid) -->
+<section class="grid grid-cols-2 gap-2.5">
+<!-- Total Budget -->
+<div class="bg-surface-container-lowest p-3 rounded-lg hairline-border flex flex-col justify-between">
+<div class="flex items-center justify-between text-secondary">
+<span class="font-label-sm text-label-sm uppercase">Total Supply Budget</span>
+<span class="material-symbols-outlined text-[16px]">payments</span>
+</div>
+<div class="mt-2">
+<div class="font-headline-sm text-headline-sm text-primary tabular-nums font-bold">₹65,000</div>
+<span class="inline-block mt-0.5 font-label-sm text-label-sm text-secondary">Allocated (Fest Fund)</span>
+</div>
+</div>
+<!-- Procured / Delivered -->
+<div class="bg-surface-container-lowest p-3 rounded-lg hairline-border flex flex-col justify-between">
+<div class="flex items-center justify-between text-secondary">
+<span class="font-label-sm text-label-sm uppercase">Procured / Staged</span>
+<span class="material-symbols-outlined text-[16px]">local_shipping</span>
+</div>
+<div class="mt-2">
+<div class="flex items-baseline gap-1.5">
+<span class="font-headline-sm text-headline-sm text-primary tabular-nums font-bold">68%</span>
+<span class="font-label-sm text-label-sm text-primary font-semibold">On Track</span>
+</div>
+<!-- Progress bar -->
+<div class="w-full bg-surface-container-high h-1.5 rounded-full mt-1.5 overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 68%;"></div>
+</div>
+</div>
+</div>
+<!-- Critical Shortages -->
+<div class="bg-surface-container-lowest p-3 rounded-lg border border-secondary-container flex flex-col justify-between relative overflow-hidden">
+<div class="flex items-center justify-between text-secondary">
+<span class="font-label-sm text-label-sm uppercase text-secondary">Shortages</span>
+<span class="material-symbols-outlined text-[16px] text-secondary">warning</span>
+</div>
+<div class="mt-2">
+<div class="font-headline-sm text-headline-sm text-secondary font-bold tabular-nums">1 Urgent</div>
+<span class="inline-block mt-0.5 font-label-sm text-label-sm text-secondary font-medium">Jain meal boxes (Short 12)</span>
+</div>
+<div class="absolute right-0 top-0 bottom-0 w-1 bg-secondary"></div>
+</div>
+<!-- Equipment Checked -->
+<div class="bg-surface-container-lowest p-3 rounded-lg hairline-border flex flex-col justify-between">
+<div class="flex items-center justify-between text-secondary">
+<span class="font-label-sm text-label-sm uppercase">Equipment Verified</span>
+<span class="material-symbols-outlined text-[16px]">inventory</span>
+</div>
+<div class="mt-2">
+<div class="font-headline-sm text-headline-sm text-primary tabular-nums font-bold">14/16</div>
+<span class="inline-block mt-0.5 font-label-sm text-label-sm text-on-surface-variant">2 Missing Cables</span>
+</div>
+</div>
+</section>
+<!-- Tab Switcher (Horizontal scrollable pill cluster) -->
+<nav class="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-1">
+<button class="bg-primary text-surface-container-low px-3 py-1.5 rounded-lg font-title-sm text-title-sm whitespace-nowrap shadow-xs">
+        Food &amp; Catering
+      </button>
+<button class="bg-surface-container text-on-surface-variant hover:text-primary px-3 py-1.5 rounded-lg font-title-sm text-title-sm whitespace-nowrap hairline-border">
+        AV &amp; Hardware
+      </button>
+<button class="bg-surface-container text-on-surface-variant hover:text-primary px-3 py-1.5 rounded-lg font-title-sm text-title-sm whitespace-nowrap hairline-border">
+        Signage &amp; Decor
+      </button>
+<button class="bg-surface-container text-on-surface-variant hover:text-primary px-3 py-1.5 rounded-lg font-title-sm text-title-sm whitespace-nowrap hairline-border">
+        First Aid &amp; Waste
+      </button>
+</nav>
+<!-- Section A: Meal & Refreshment Deliveries -->
+<section class="space-y-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[20px]">restaurant</span>
+<h2 class="font-title-lg text-title-lg text-primary">Meal &amp; Refreshment Deliveries</h2>
+</div>
+<span class="font-label-sm text-label-sm text-secondary tabular-nums">3 POs</span>
+</div>
+<!-- Card 1: Student Participant Snack Boxes -->
+<div class="bg-surface-container-lowest rounded-lg p-3.5 hairline-border space-y-3 shadow-xs">
+<div class="flex items-start justify-between gap-2">
+<div>
+<div class="flex items-center gap-1.5">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-label-sm font-label-sm bg-surface-container text-primary border border-primary/20">
+<span class="material-symbols-outlined text-[13px]">schedule</span>
+                CONFIRMED DELIVERY (15:00)
+              </span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface font-bold mt-1.5">Student Participant Snack Boxes</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Vendor: Royal Flavors Catering · PO #TS-8841</p>
+</div>
+<span class="font-headline-sm text-headline-sm text-primary tabular-nums font-semibold">₹35,000</span>
+</div>
+<!-- Breakdown Badges -->
+<div class="p-2 bg-surface-container-low rounded hairline-border space-y-1.5">
+<div class="flex items-center justify-between text-body-sm font-body-sm">
+<span class="text-on-surface-variant">Quota: 500 Pax Total</span>
+<span class="font-medium text-tertiary">Lead: Dev K.</span>
+</div>
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-surface-container-lowest text-primary font-label-sm text-label-sm border border-primary/20">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span> 400 Regular Veg
+            </span>
+<span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-secondary-fixed text-tertiary font-label-sm text-label-sm border border-secondary/20">
+<span class="material-symbols-outlined text-[12px] text-secondary">priority_high</span> 75 Jain Meals
+            </span>
+<span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm border border-outline-variant">
+              25 Vegan
+            </span>
+</div>
+</div>
+<div class="flex items-center gap-2 pt-1">
+<button class="flex-1 py-1.5 px-3 rounded hairline-border bg-surface-container text-primary font-title-sm text-title-sm flex items-center justify-center gap-1 hover:bg-surface-container-high">
+<span class="material-symbols-outlined text-[16px]">call</span>
+            Call Caterer
+          </button>
+<button class="flex-1 py-1.5 px-3 rounded bg-primary text-surface font-title-sm text-title-sm flex items-center justify-center gap-1 hover:bg-primary-container">
+<span class="material-symbols-outlined text-[16px]">verified</span>
+            Verify Seal &amp; Temp
+          </button>
+</div>
+</div>
+<!-- Card 2: VIP Green Room High Tea -->
+<div class="bg-surface-container-lowest rounded-lg p-3.5 hairline-border space-y-3">
+<div class="flex items-start justify-between gap-2">
+<div>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-label-sm font-label-sm bg-primary/10 text-primary border border-primary/20">
+<span class="material-symbols-outlined text-[13px]">check_circle</span>
+              DELIVERED &amp; STAGED
+            </span>
+<h3 class="font-title-md text-title-md text-on-surface font-bold mt-1.5">VIP Green Room High Tea &amp; Artisanal Platters</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Vendor: Bombay Deli · Verified by Sarah L.</p>
+</div>
+<span class="font-headline-sm text-headline-sm text-primary tabular-nums font-semibold">₹10,000</span>
+</div>
+<div class="text-body-sm font-body-sm text-on-surface-variant bg-surface-container-low p-2 rounded hairline-border flex items-center justify-between">
+<span>35 platters with iced cooler boxes &amp; tea urns</span>
+<span class="text-primary font-label-sm text-label-sm font-bold">ROOM 104</span>
+</div>
+</div>
+<!-- Card 3: Drinking Water & Electrolyte Stations -->
+<div class="bg-surface-container-lowest rounded-lg p-3.5 hairline-border space-y-3">
+<div class="flex items-start justify-between gap-2">
+<div>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-label-sm font-label-sm bg-secondary-fixed text-on-secondary-fixed font-semibold">
+<span class="material-symbols-outlined text-[13px]">hourglass_empty</span>
+              INSPECTION PENDING
+            </span>
+<h3 class="font-title-md text-title-md text-on-surface font-bold mt-1.5">Drinking Water &amp; Electrolyte Stations</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Vendor: Aquasure Bulk · Quad &amp; Main Stage</p>
+</div>
+<span class="font-headline-sm text-headline-sm text-primary tabular-nums font-semibold">₹12,400</span>
+</div>
+<div class="space-y-1">
+<div class="flex justify-between font-body-sm text-body-sm">
+<span class="text-on-surface-variant">Bubblers Deployed: 40/45</span>
+<span class="text-secondary font-medium">5 Stored at Sub-station A</span>
+</div>
+<div class="w-full bg-surface-container-high h-1.5 rounded-full overflow-hidden">
+<div class="bg-secondary h-full rounded-full" style="width: 88%;"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section B: Hardware, Supplies & Equipment Inventory Checklist -->
+<section class="space-y-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[20px]">handyman</span>
+<h2 class="font-title-lg text-title-lg text-primary">Supplies &amp; Equipment Checklist</h2>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">14/16 Verified</span>
+</div>
+<div class="bg-surface-container-lowest rounded-lg hairline-border divide-y divide-surface-container-highest">
+<!-- Checklist Item 1 -->
+<div class="p-3 flex items-center justify-between">
+<div class="flex items-start gap-2.5">
+<div class="w-5 h-5 rounded hairline-border bg-primary flex items-center justify-center text-surface-container-low mt-0.5">
+<span class="material-symbols-outlined text-[15px]">check</span>
+</div>
+<div>
+<p class="font-title-sm text-title-sm text-on-surface font-semibold">Handheld Walkie-Talkies (VHF Ch. 4)</p>
+<div class="flex items-center gap-2 mt-0.5 text-body-sm font-body-sm text-on-surface-variant">
+<span>Qty: 12 Units</span>
+<span>•</span>
+<span class="text-primary font-medium">Lead: Karan T.</span>
+</div>
+</div>
+</div>
+<span class="px-2 py-0.5 bg-surface-container rounded font-label-sm text-label-sm text-primary border border-primary/20">
+            Rented (Safe)
+          </span>
+</div>
+<!-- Checklist Item 2 (Alert) -->
+<div class="p-3 bg-secondary-fixed/20 flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<div class="flex items-start gap-2.5">
+<div class="w-5 h-5 rounded border-2 border-secondary bg-surface flex items-center justify-center mt-0.5">
+<span class="material-symbols-outlined text-[14px] text-secondary">priority_high</span>
+</div>
+<div>
+<p class="font-title-sm text-title-sm text-tertiary font-bold">Heavy-Duty 3-Pin Extension Cords (30m)</p>
+<div class="flex items-center gap-2 mt-0.5 text-body-sm font-body-sm text-secondary">
+<span>Qty: 8 Units</span>
+<span>•</span>
+<span class="font-semibold text-secondary">6/8 Checked</span>
+</div>
+</div>
+</div>
+<span class="px-2 py-0.5 bg-secondary text-surface rounded font-label-sm text-label-sm uppercase">
+              Action Req
+            </span>
+</div>
+<div class="ml-7 flex items-center gap-1 text-label-sm font-label-sm text-secondary">
+<span class="material-symbols-outlined text-[13px]">error_outline</span>
+<span>2 missing near Main Quad Stage sound desk</span>
+</div>
+</div>
+<!-- Checklist Item 3 -->
+<div class="p-3 flex items-center justify-between">
+<div class="flex items-start gap-2.5">
+<div class="w-5 h-5 rounded hairline-border bg-primary flex items-center justify-center text-surface-container-low mt-0.5">
+<span class="material-symbols-outlined text-[15px]">check</span>
+</div>
+<div>
+<p class="font-title-sm text-title-sm text-on-surface font-semibold">Rain Tarpaulins (Weather Contingency)</p>
+<div class="flex items-center gap-2 mt-0.5 text-body-sm font-body-sm text-on-surface-variant">
+<span>Qty: 4 Heavy Sheets</span>
+<span>•</span>
+<span>Sub-station B</span>
+</div>
+</div>
+</div>
+<span class="px-2 py-0.5 bg-surface-container text-on-surface-variant rounded font-label-sm text-label-sm">
+            Staged
+          </span>
+</div>
+</div>
+</section>
+<!-- Tactical Quick Action Floating Dock (Prior to Nav) -->
+<div class="pt-2 flex items-center gap-2">
+<button class="flex-1 bg-surface-container-lowest hairline-border text-secondary py-2.5 px-3 rounded-lg flex items-center justify-center gap-1.5 font-title-sm text-title-sm shadow-xs active:scale-95 transition-transform duration-150">
+<span class="material-symbols-outlined text-[18px]">report_problem</span>
+<span>Report Shortage</span>
+</button>
+<button class="flex-1 bg-primary text-surface-container-low py-2.5 px-3 rounded-lg flex items-center justify-center gap-1.5 font-title-sm text-title-sm shadow-sm active:scale-95 transition-transform duration-150">
+<span class="material-symbols-outlined text-[18px]">qr_code_scanner</span>
+<span>Log Delivery / Scan QR</span>
+</button>
+</div>
+</main>
+<!-- Shared Component: BottomNavBar (Active State: Schedule) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 px-space-xs bg-surface dark:bg-inverse-surface border-t border-surface-container-highest dark:border-outline-variant">
+<!-- Tab 1: Overview -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant py-1 px-3 hover:bg-surface-container-low dark:hover:bg-surface-variant transition-colors duration-150 active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined text-[22px]">dashboard</span>
+<span class="font-label-sm text-label-sm mt-0.5">Overview</span>
+</a>
+<!-- Tab 2: AI Planner -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant py-1 px-3 hover:bg-surface-container-low dark:hover:bg-surface-variant transition-colors duration-150 active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined text-[22px]">auto_awesome</span>
+<span class="font-label-sm text-label-sm mt-0.5">AI Planner</span>
+</a>
+<!-- Tab 3: Schedule (ACTIVE AS REQUESTED) -->
+<a class="flex flex-col items-center justify-center text-primary dark:text-inverse-primary font-semibold py-1 px-3 rounded-lg bg-surface-container dark:bg-primary-container active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">event_note</span>
+<span class="font-label-sm text-label-sm mt-0.5">Schedule</span>
+</a>
+<!-- Tab 4: Budget -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant py-1 px-3 hover:bg-surface-container-low dark:hover:bg-surface-variant transition-colors duration-150 active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined text-[22px]">payments</span>
+<span class="font-label-sm text-label-sm mt-0.5">Budget</span>
+</a>
+<!-- Tab 5: Live Mode -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant py-1 px-3 hover:bg-surface-container-low dark:hover:bg-surface-variant transition-colors duration-150 active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined text-[22px]">sensors</span>
+<span class="font-label-sm text-label-sm mt-0.5">Live Mode</span>
+</a>
+</nav>
+</body></html>

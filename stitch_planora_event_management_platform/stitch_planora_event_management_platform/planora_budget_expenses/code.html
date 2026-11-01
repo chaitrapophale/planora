@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Planora — Budget &amp; Expenses (TechSpark 2025)</title>
+<!-- Google Fonts: Newsreader & Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 with Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "error-container": "#ffdad6",
+            "on-primary-fixed-variant": "#274e3c",
+            "primary": "#032f1e",
+            "surface-container-high": "#f3e6dc",
+            "on-primary": "#ffffff",
+            "tertiary": "#392313",
+            "primary-fixed": "#c0edd3",
+            "on-error": "#ffffff",
+            "on-tertiary-fixed-variant": "#5b412f",
+            "secondary-fixed": "#ffdbd0",
+            "error": "#ba1a1a",
+            "on-secondary-container": "#794737",
+            "surface-container-low": "#fef1e7",
+            "inverse-surface": "#362f29",
+            "outline": "#717973",
+            "on-primary-container": "#88b29b",
+            "on-surface": "#201a15",
+            "inverse-on-surface": "#fceee4",
+            "on-primary-fixed": "#002114",
+            "surface-variant": "#ede0d6",
+            "secondary-container": "#feb9a4",
+            "surface-bright": "#fff8f4",
+            "surface-container": "#f9ece2",
+            "tertiary-fixed": "#ffdcc6",
+            "secondary": "#855140",
+            "inverse-primary": "#a5d0b8",
+            "surface-tint": "#3f6653",
+            "on-background": "#201a15",
+            "tertiary-fixed-dim": "#e5bfa8",
+            "secondary-fixed-dim": "#fab7a1",
+            "on-error-container": "#93000a",
+            "surface-container-highest": "#ede0d6",
+            "surface-dim": "#e4d8ce",
+            "on-tertiary-container": "#c5a18b",
+            "primary-container": "#1d4533",
+            "primary-fixed-dim": "#a5d0b8",
+            "on-secondary": "#ffffff",
+            "surface-container-lowest": "#ffffff",
+            "on-secondary-fixed-variant": "#693a2b",
+            "surface": "#fff8f4",
+            "on-tertiary": "#ffffff",
+            "outline-variant": "#c1c8c2",
+            "on-surface-variant": "#414844",
+            "tertiary-container": "#513827",
+            "on-tertiary-fixed": "#2b1708",
+            "on-secondary-fixed": "#341005",
+            "background": "#fff8f4"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "margin": "2rem",
+            "space-sm": "0.5rem",
+            "space-xl": "2.5rem",
+            "space-lg": "1.5rem",
+            "margin-mobile": "1rem",
+            "space-md": "1rem",
+            "gutter": "1.5rem",
+            "space-xs": "0.25rem",
+            "gutter-mobile": "1rem"
+          },
+          "fontFamily": {
+            "display-lg-mobile": ["Newsreader"],
+            "headline-lg-mobile": ["Newsreader"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "display-lg": ["Newsreader"],
+            "body-md": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "title-md": ["Plus Jakarta Sans"],
+            "title-sm": ["Plus Jakarta Sans"],
+            "headline-lg": ["Newsreader"],
+            "label-md": ["Plus Jakarta Sans"],
+            "headline-sm": ["Newsreader"],
+            "headline-md": ["Newsreader"],
+            "title-lg": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "display-lg-mobile": ["34px", { "lineHeight": "42px", "letterSpacing": "-0.01em", "fontWeight": "500" }],
+            "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "fontWeight": "400" }],
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "500" }],
+            "body-md": ["14px", { "lineHeight": "22px", "fontWeight": "400" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.06em", "fontWeight": "700" }],
+            "body-lg": ["16px", { "lineHeight": "26px", "fontWeight": "400" }],
+            "title-md": ["16px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "title-sm": ["14px", { "lineHeight": "20px", "fontWeight": "600" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+            "title-lg": ["18px", { "lineHeight": "26px", "fontWeight": "700" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .custom-border-hairline {
+      border: 1px solid rgba(94, 49, 34, 0.12);
+    }
+    .custom-border-green {
+      border: 1px solid rgba(29, 69, 51, 0.2);
+    }
+  </style>
+</head>
+<body class="bg-surface-container-low text-on-surface antialiased min-h-screen pb-32 font-body-md selection:bg-secondary-container selection:text-tertiary">
+<!-- ================= TOP APP BAR (Shared Component Anchor) ================= -->
+<header class="sticky top-0 z-40 bg-surface dark:bg-inverse-surface border-b border-surface-container-highest dark:border-outline-variant">
+<div class="w-full px-margin-mobile md:px-margin flex items-center justify-between h-16">
+<!-- Brand & Leading Icon -->
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center text-primary dark:text-inverse-primary border border-outline-variant/30">
+<span class="material-symbols-outlined" data-icon="explore">explore</span>
+</div>
+<div>
+<span class="font-headline-sm text-headline-sm font-semibold tracking-tight text-primary dark:text-inverse-primary">Planora</span>
+<span class="hidden md:inline-block text-label-sm font-label-sm text-secondary px-2 py-0.5 rounded-full bg-surface-container-high ml-2 border border-secondary-container/40">Fiscal Studio</span>
+</div>
+</div>
+<!-- Event Switcher & Headline context -->
+<div class="flex items-center gap-3">
+<div class="flex items-center gap-2 bg-surface-container-lowest px-3 py-1.5 rounded-lg border border-secondary-container/60 shadow-xs">
+<span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+<span class="text-body-sm font-title-sm text-tertiary">TechSpark 2025</span>
+<span class="material-symbols-outlined text-secondary" style="font-size: 16px;">expand_more</span>
+</div>
+<!-- Trailing Avatar -->
+<div class="w-9 h-9 rounded-full bg-secondary-container text-tertiary flex items-center justify-center font-bold text-title-sm border border-secondary/30" title="Event Director profile photo">
+          ED
+        </div>
+</div>
+</div>
+</header>
+<!-- ================= MAIN CONTENT CANVAS ================= -->
+<main class="w-full max-w-7xl mx-auto px-margin-mobile md:px-margin pt-space-lg space-y-space-lg">
+<!-- Screen Headline & Sub-Bar -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-3">
+<div>
+<div class="flex items-center gap-2 text-label-sm font-label-sm text-secondary uppercase tracking-widest">
+<span>Financial Operations</span>
+<span>•</span>
+<span class="text-primary-container font-bold">Ledger Mode</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-tertiary tracking-tight mt-1">
+          Budget &amp; Expenses
+        </h1>
+</div>
+<!-- Quick Action / Currency Status -->
+<div class="flex items-center gap-2 self-start md:self-auto">
+<span class="text-label-sm font-label-sm px-2.5 py-1 rounded bg-surface-container border border-secondary-container/50 text-secondary">
+          BASE CURRENCY: INR (₹)
+        </span>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-lowest border border-primary-container/30 text-primary-container font-title-sm text-body-sm flex items-center gap-1.5 hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-primary-container" data-icon="file_download" style="font-size: 18px;">file_download</span>
+          Export Audit
+        </button>
+</div>
+</div>
+<!-- ================= FISCAL SUMMARY CARD (Bento Grid Header) ================= -->
+<section class="bg-surface-container-lowest rounded-xl p-space-md md:p-space-lg custom-border-hairline shadow-xs space-y-space-md">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 border-b border-surface-container pb-space-md">
+<div>
+<span class="text-label-sm font-label-sm text-secondary tracking-wider block">CONSOLIDATED EVENT CEILING</span>
+<div class="flex items-baseline gap-2 mt-0.5">
+<span class="font-headline-lg text-headline-lg text-tertiary">₹2,00,000</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant">Allocated Total Capital</span>
+</div>
+</div>
+<!-- Metric KPI Cards -->
+<div class="grid grid-cols-3 gap-2 md:gap-4 divide-x divide-surface-container">
+<div class="px-2 md:px-3">
+<span class="text-label-sm font-label-sm text-on-surface-variant block">SPENT TO DATE</span>
+<span class="text-title-lg font-title-lg text-secondary block mt-0.5">₹1,42,000</span>
+<span class="text-label-sm font-label-sm font-bold text-secondary-container/90 px-1.5 py-0.2 rounded bg-tertiary inline-block mt-1">71% Utilized</span>
+</div>
+<div class="px-2 md:px-3">
+<span class="text-label-sm font-label-sm text-on-surface-variant block">COMMITTED / POS</span>
+<span class="text-title-lg font-title-lg text-tertiary block mt-0.5">₹35,000</span>
+<span class="text-label-sm font-label-sm text-secondary block mt-1">17.5% Pending</span>
+</div>
+<div class="px-2 md:px-3">
+<span class="text-label-sm font-label-sm text-primary-container font-bold block">REMAINING BUFFER</span>
+<span class="text-title-lg font-title-lg text-primary-container block mt-0.5 font-bold">₹23,000</span>
+<span class="text-label-sm font-label-sm text-primary-container bg-surface-container px-1.5 py-0.5 rounded border border-primary-container/20 inline-block mt-1">11.5% Liquid</span>
+</div>
+</div>
+</div>
+<!-- Multi-Segment Visual Progress Bar -->
+<div>
+<div class="flex items-center justify-between text-label-sm font-label-sm mb-2">
+<div class="flex items-center gap-4">
+<span class="flex items-center gap-1.5 text-secondary">
+<span class="w-3 h-3 rounded-xs bg-[#5E3122]"></span> Spent (71%)
+            </span>
+<span class="flex items-center gap-1.5 text-on-secondary-container">
+<span class="w-3 h-3 rounded-xs bg-[#feb9a4]"></span> Committed / POs (17.5%)
+            </span>
+<span class="flex items-center gap-1.5 text-primary-container font-semibold">
+<span class="w-3 h-3 rounded-xs bg-[#1D4533]"></span> Remaining Buffer (11.5%)
+            </span>
+</div>
+<span class="text-on-surface-variant font-body-sm hidden md:inline">Ledger accurate to 12 mins ago</span>
+</div>
+<!-- The Multi-segmented bar -->
+<div class="w-full h-4 bg-surface-container rounded-lg overflow-hidden flex p-0.5 border border-surface-container-highest">
+<div class="h-full bg-tertiary rounded-l-xs transition-all duration-500" style="width: 71%" title="Spent: ₹1,42,000"></div>
+<div class="h-full bg-secondary-container transition-all duration-500" style="width: 17.5%" title="Committed: ₹35,000"></div>
+<div class="h-full bg-primary-container rounded-r-xs transition-all duration-500" style="width: 11.5%" title="Buffer: ₹23,000"></div>
+</div>
+</div>
+</section>
+<!-- ================= AI COST OPTIMIZER WIDGET ================= -->
+<section class="rounded-xl p-space-md md:p-space-lg bg-secondary-container/25 border-l-4 border-l-primary-container custom-border-hairline relative overflow-hidden">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+<div class="flex items-start gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-lowest flex items-center justify-center text-primary-container shadow-xs flex-shrink-0 mt-0.5 border border-primary-container/20">
+<span class="material-symbols-outlined text-primary-container" data-icon="auto_awesome" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<div class="space-y-1">
+<div class="flex items-center gap-2">
+<span class="text-label-sm font-label-sm text-primary-container font-bold uppercase tracking-wider">Planora AI Recommendation</span>
+<span class="bg-surface-container-lowest text-secondary text-label-sm font-label-sm px-2 py-0.5 rounded border border-secondary-container/50">Savings Alert</span>
+</div>
+<p class="font-headline-sm text-headline-sm text-tertiary">
+              Sound &amp; Lighting exceeded initial quota by ₹12,000.
+            </p>
+<p class="text-body-md font-body-md text-on-surface-variant">
+              Reallocate ₹10,000 from unused <span class="font-semibold text-tertiary">Print Marketing buffer</span> to balance ledger without impacting stage operations.
+            </p>
+</div>
+</div>
+<div class="flex-shrink-0 sm:self-center pl-13 sm:pl-0">
+<button class="bg-primary-container hover:bg-primary text-surface-container-lowest font-title-sm text-body-sm px-4 py-2.5 rounded-lg transition-transform active:scale-95 shadow-sm flex items-center gap-2 whitespace-nowrap">
+<span class="material-symbols-outlined" data-icon="balance" style="font-size: 18px;">balance</span>
+            Apply Rebalance
+          </button>
+</div>
+</div>
+</section>
+<!-- ================= CATEGORY BREAKDOWN CARDS (Bento Grid) ================= -->
+<section class="space-y-space-sm">
+<div class="flex items-center justify-between">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-tertiary">Category Allocations</h2>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Live quota tracking against departmental constraints</p>
+</div>
+<button class="text-label-md font-label-md text-primary-container hover:underline flex items-center gap-1">
+          Adjust Limits
+          <span class="material-symbols-outlined" style="font-size: 16px;">arrow_forward</span>
+</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+<!-- Card 1: Sound & AV Production (Overbudget Alert) -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md custom-border-hairline flex flex-col justify-between space-y-3 relative overflow-hidden group hover:border-secondary transition-colors">
+<div class="space-y-2">
+<div class="flex items-center justify-between">
+<span class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined" data-icon="volume_up" style="font-size: 18px;">volume_up</span>
+</span>
+<span class="inline-flex items-center gap-1 text-label-sm font-label-sm px-2 py-0.5 rounded bg-secondary-container text-tertiary border border-secondary">
+<span class="material-symbols-outlined" data-icon="warning" style="font-size: 14px;">warning</span>
+                124% OVERBUDGET
+              </span>
+</div>
+<div>
+<h3 class="font-title-md text-title-md text-tertiary">Sound &amp; AV Production</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Main stage line array &amp; Trussing</p>
+</div>
+</div>
+<div class="space-y-2 pt-2 border-t border-surface-container">
+<div class="flex justify-between items-baseline">
+<span class="text-title-lg font-title-lg text-tertiary font-bold">₹62,000</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant">/ ₹50,000</span>
+</div>
+<!-- Progress Bar -->
+<div class="w-full h-2 rounded bg-surface-container overflow-hidden">
+<div class="h-full bg-secondary" style="width: 100%;"></div>
+</div>
+<div class="flex justify-between text-label-sm font-label-sm text-error">
+<span>Excess: +₹12,000</span>
+<span>Need Action</span>
+</div>
+</div>
+</div>
+<!-- Card 2: Food & Beverage (On Track) -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md custom-border-hairline flex flex-col justify-between space-y-3 relative overflow-hidden group hover:border-primary-container transition-colors">
+<div class="space-y-2">
+<div class="flex items-center justify-between">
+<span class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined" data-icon="restaurant" style="font-size: 18px;">restaurant</span>
+</span>
+<span class="inline-flex items-center gap-1 text-label-sm font-label-sm px-2 py-0.5 rounded bg-surface-container text-primary-container border border-primary-container/30">
+<span class="material-symbols-outlined" data-icon="check_circle" style="font-size: 14px;">check_circle</span>
+                75% ON TRACK
+              </span>
+</div>
+<div>
+<h3 class="font-title-md text-title-md text-tertiary">Food &amp; Beverage</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">500 Pax Lunch + VIP Greenroom</p>
+</div>
+</div>
+<div class="space-y-2 pt-2 border-t border-surface-container">
+<div class="flex justify-between items-baseline">
+<span class="text-title-lg font-title-lg text-tertiary font-bold">₹45,000</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant">/ ₹60,000</span>
+</div>
+<!-- Progress Bar -->
+<div class="w-full h-2 rounded bg-surface-container overflow-hidden">
+<div class="h-full bg-primary-container" style="width: 75%;"></div>
+</div>
+<div class="flex justify-between text-label-sm font-label-sm text-primary-container">
+<span>Remaining: ₹15,000</span>
+<span>Buffer Safe</span>
+</div>
+</div>
+</div>
+<!-- Card 3: Stage Decor & Warli Art (On Track) -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md custom-border-hairline flex flex-col justify-between space-y-3 relative overflow-hidden group hover:border-primary-container transition-colors">
+<div class="space-y-2">
+<div class="flex items-center justify-between">
+<span class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined" data-icon="palette" style="font-size: 18px;">palette</span>
+</span>
+<span class="inline-flex items-center gap-1 text-label-sm font-label-sm px-2 py-0.5 rounded bg-surface-container text-primary-container border border-primary-container/30">
+<span class="material-symbols-outlined" data-icon="check_circle" style="font-size: 14px;">check_circle</span>
+                80% ON TRACK
+              </span>
+</div>
+<div>
+<h3 class="font-title-md text-title-md text-tertiary">Stage Decor &amp; Warli Art</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Backdrops, podiums, floral</p>
+</div>
+</div>
+<div class="space-y-2 pt-2 border-t border-surface-container">
+<div class="flex justify-between items-baseline">
+<span class="text-title-lg font-title-lg text-tertiary font-bold">₹20,000</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant">/ ₹25,000</span>
+</div>
+<!-- Progress Bar -->
+<div class="w-full h-2 rounded bg-surface-container overflow-hidden">
+<div class="h-full bg-primary-container" style="width: 80%;"></div>
+</div>
+<div class="flex justify-between text-label-sm font-label-sm text-primary-container">
+<span>Remaining: ₹5,000</span>
+<span>PO Approved</span>
+</div>
+</div>
+</div>
+<!-- Card 4: Safety, EMT & Licenses (Locked) -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md custom-border-hairline flex flex-col justify-between space-y-3 relative overflow-hidden group">
+<div class="space-y-2">
+<div class="flex items-center justify-between">
+<span class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined" data-icon="health_and_safety" style="font-size: 18px;">health_and_safety</span>
+</span>
+<span class="inline-flex items-center gap-1 text-label-sm font-label-sm px-2 py-0.5 rounded bg-surface-container-high text-tertiary border border-outline-variant">
+<span class="material-symbols-outlined" data-icon="lock" style="font-size: 14px;">lock</span>
+                100% LOCKED
+              </span>
+</div>
+<div>
+<h3 class="font-title-md text-title-md text-tertiary">Safety, EMT &amp; Licenses</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Fire NOC, ambulance standby</p>
+</div>
+</div>
+<div class="space-y-2 pt-2 border-t border-surface-container">
+<div class="flex justify-between items-baseline">
+<span class="text-title-lg font-title-lg text-tertiary font-bold">₹15,000</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant">/ ₹15,000</span>
+</div>
+<!-- Progress Bar -->
+<div class="w-full h-2 rounded bg-surface-container overflow-hidden">
+<div class="h-full bg-outline" style="width: 100%;"></div>
+</div>
+<div class="flex justify-between text-label-sm font-label-sm text-on-surface-variant">
+<span>Zero Delta</span>
+<span>Disbursed</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ================= RECENT EXPENSE LEDGER ================= -->
+<section class="space-y-space-sm">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-tertiary">Recent Expense Ledger</h2>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Audited payment receipts and real-time disbursements</p>
+</div>
+<div class="flex items-center gap-2">
+<div class="relative">
+<input class="bg-surface-container-lowest border border-tertiary/20 text-on-surface text-body-sm rounded-lg pl-8 pr-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-primary-container focus:ring-offset-1 focus:ring-offset-secondary-container" placeholder="Search payee or PO#" type="text"/>
+<span class="material-symbols-outlined absolute left-2.5 top-2 text-secondary" data-icon="search" style="font-size: 16px;">search</span>
+</div>
+<button class="px-2.5 py-1.5 rounded-lg bg-surface-container-lowest border border-outline-variant text-tertiary text-body-sm hover:bg-surface-container flex items-center gap-1">
+<span class="material-symbols-outlined" data-icon="filter_list" style="font-size: 18px;">filter_list</span>
+            Filter
+          </button>
+</div>
+</div>
+<!-- Ledger Table (Editorial Fine-Line Stationery Style) -->
+<div class="bg-surface-container-lowest rounded-xl custom-border-hairline overflow-hidden shadow-xs">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low border-b border-surface-container-highest">
+<th class="py-3 px-4 text-label-sm font-label-sm text-tertiary tracking-wider">EXPENSE ITEM &amp; VENDOR</th>
+<th class="py-3 px-4 text-label-sm font-label-sm text-tertiary tracking-wider">CATEGORY</th>
+<th class="py-3 px-4 text-label-sm font-label-sm text-tertiary tracking-wider">PAYMENT CHANNEL</th>
+<th class="py-3 px-4 text-label-sm font-label-sm text-tertiary tracking-wider">STATUS &amp; RECEIPT</th>
+<th class="py-3 px-4 text-label-sm font-label-sm text-tertiary tracking-wider text-right">AMOUNT (INR)</th>
+<th class="py-3 px-2 text-label-sm font-label-sm text-tertiary tracking-wider text-center">ACTION</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container text-body-md font-body-md">
+<!-- Row 1: FOH Speaker Rental Advance -->
+<tr class="hover:bg-surface-container/30 transition-colors">
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-surface-container flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined" data-icon="speaker" style="font-size: 18px;">speaker</span>
+</div>
+<div>
+<span class="font-title-sm text-title-sm text-tertiary block">FOH Speaker Rental Advance</span>
+<span class="text-body-sm text-on-surface-variant flex items-center gap-1">
+                        Vendor: <span class="font-medium text-secondary">SoundWave Pro</span> • PO-2025-081
+                      </span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4 text-body-sm text-tertiary">
+                  Sound &amp; AV
+                </td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-label-sm font-label-sm bg-surface-container text-tertiary border border-surface-container-highest">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+                    Paid via NEFT
+                  </span>
+</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center gap-1 text-label-sm font-label-sm text-primary-container font-semibold">
+<span class="material-symbols-outlined" data-icon="receipt_long" style="font-size: 16px;">receipt_long</span>
+                    Receipt Attached (PDF)
+                  </span>
+</td>
+<td class="py-3.5 px-4 text-right font-title-md text-title-md text-tertiary font-bold tracking-tight">
+                  ₹25,000
+                </td>
+<td class="py-3.5 px-2 text-center">
+<button class="p-1 hover:bg-surface-container rounded text-on-surface-variant hover:text-tertiary">
+<span class="material-symbols-outlined" data-icon="more_vert" style="font-size: 18px;">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Row 2: Water Dispenser Refills -->
+<tr class="hover:bg-surface-container/30 transition-colors">
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-surface-container flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined" data-icon="water_drop" style="font-size: 18px;">water_drop</span>
+</div>
+<div>
+<span class="font-title-sm text-title-sm text-tertiary block">Water Dispenser Refills (40 Cans)</span>
+<span class="text-body-sm text-on-surface-variant flex items-center gap-1">
+                        Logistics &amp; Hospitality • Inv #WD-491
+                      </span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4 text-body-sm text-tertiary">
+                  Food &amp; Beverage
+                </td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-label-sm font-label-sm bg-surface-container text-tertiary border border-surface-container-highest">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                    Paid Cash
+                  </span>
+</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center gap-1 text-label-sm font-label-sm text-primary-container bg-surface-container px-2 py-0.5 rounded border border-primary-container/20">
+<span class="material-symbols-outlined" data-icon="verified" style="font-size: 14px;">verified</span>
+                    Verified
+                  </span>
+</td>
+<td class="py-3.5 px-4 text-right font-title-md text-title-md text-tertiary font-bold tracking-tight">
+                  ₹2,400
+                </td>
+<td class="py-3.5 px-2 text-center">
+<button class="p-1 hover:bg-surface-container rounded text-on-surface-variant hover:text-tertiary">
+<span class="material-symbols-outlined" data-icon="more_vert" style="font-size: 18px;">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Row 3: Live EMT Ambulance Standby Deposit -->
+<tr class="hover:bg-surface-container/30 transition-colors">
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-surface-container flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined" data-icon="medical_services" style="font-size: 18px;">medical_services</span>
+</div>
+<div>
+<span class="font-title-sm text-title-sm text-tertiary block">EMT Ambulance Standby Deposit</span>
+<span class="text-body-sm text-on-surface-variant flex items-center gap-1">
+                        Vendor: <span class="font-medium text-secondary">CityCare Trauma</span> • PO-2025-062
+                      </span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4 text-body-sm text-tertiary">
+                  Safety &amp; EMT
+                </td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-label-sm font-label-sm bg-surface-container text-tertiary border border-surface-container-highest">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+                    Paid via UPI
+                  </span>
+</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center gap-1 text-label-sm font-label-sm text-primary-container bg-surface-container px-2 py-0.5 rounded border border-primary-container/20">
+<span class="material-symbols-outlined" data-icon="verified" style="font-size: 14px;">verified</span>
+                    Verified
+                  </span>
+</td>
+<td class="py-3.5 px-4 text-right font-title-md text-title-md text-tertiary font-bold tracking-tight">
+                  ₹15,000
+                </td>
+<td class="py-3.5 px-2 text-center">
+<button class="p-1 hover:bg-surface-container rounded text-on-surface-variant hover:text-tertiary">
+<span class="material-symbols-outlined" data-icon="more_vert" style="font-size: 18px;">more_vert</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Ledger Footer Summary -->
+<div class="p-3 bg-surface-container-low border-t border-surface-container flex items-center justify-between text-body-sm text-on-surface-variant">
+<span>Showing 3 verified ledger lines of 18 entries</span>
+<a class="text-primary-container font-semibold hover:underline flex items-center gap-1 text-label-sm" href="#">
+            Open Full Ledger
+            <span class="material-symbols-outlined" style="font-size: 14px;">launch</span>
+</a>
+</div>
+</div>
+</section>
+</main>
+<!-- ================= STICKY ACTION BUTTON (Log Expense CTA) ================= -->
+<div class="fixed bottom-20 right-4 md:right-8 z-30">
+<button class="flex items-center gap-2.5 bg-primary-container hover:bg-primary text-surface-container-lowest px-5 py-3 rounded-xl shadow-lg border border-primary-fixed/20 transition-all duration-200 active:scale-95 group">
+<span class="material-symbols-outlined text-surface-container-lowest" data-icon="add" style="font-size: 20px;">add</span>
+<span class="font-title-sm text-body-md tracking-wide font-bold">Log Expense / Upload Receipt</span>
+</button>
+</div>
+<!-- ================= BOTTOM NAVIGATION BAR (Shared Component Anchor) ================= -->
+<!-- Contextual Active: 'Budget' matches user's Fiscal Management intent -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 px-space-xs bg-surface dark:bg-inverse-surface border-t border-surface-container-highest dark:border-outline-variant shadow-md">
+<!-- Destination 1: Overview -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant py-1 px-3 hover:bg-surface-container-low dark:hover:bg-surface-variant transition-colors duration-150 active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-label-sm font-label-sm">Overview</span>
+</a>
+<!-- Destination 2: AI Planner -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant py-1 px-3 hover:bg-surface-container-low dark:hover:bg-surface-variant transition-colors duration-150 active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="auto_awesome">auto_awesome</span>
+<span class="text-label-sm font-label-sm">AI Planner</span>
+</a>
+<!-- Destination 3: Schedule -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant py-1 px-3 hover:bg-surface-container-low dark:hover:bg-surface-variant transition-colors duration-150 active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="event_note">event_note</span>
+<span class="text-label-sm font-label-sm">Schedule</span>
+</a>
+<!-- Destination 4: Budget (ACTIVE) -->
+<a aria-current="page" class="flex flex-col items-center justify-center text-primary dark:text-inverse-primary font-semibold py-1 px-3 rounded-lg bg-surface-container dark:bg-primary-container active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="payments" style="font-variation-settings: 'FILL' 1;">payments</span>
+<span class="text-label-sm font-label-sm">Budget</span>
+</a>
+<!-- Destination 5: Live Mode -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant py-1 px-3 hover:bg-surface-container-low dark:hover:bg-surface-variant transition-colors duration-150 active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="sensors">sensors</span>
+<span class="text-label-sm font-label-sm">Live Mode</span>
+</a>
+</nav>
+</body></html>

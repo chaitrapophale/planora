@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Planora - Settings &amp; Regional Preferences</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Newsreader (Editorial Serif) & Plus Jakarta Sans (Clean Modern Geometric Sans) -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS with Container Queries and Forms Plugin -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "tertiary-container": "#513827",
+            "error-container": "#ffdad6",
+            "surface-dim": "#e4d8ce",
+            "on-surface": "#201a15",
+            "inverse-on-surface": "#fceee4",
+            "on-tertiary-container": "#c5a18b",
+            "tertiary": "#392313",
+            "on-tertiary-fixed": "#2b1708",
+            "surface-container-high": "#f3e6dc",
+            "on-secondary-fixed": "#341005",
+            "on-tertiary": "#ffffff",
+            "secondary": "#855140",
+            "surface-bright": "#fff8f4",
+            "on-tertiary-fixed-variant": "#5b412f",
+            "on-secondary-fixed-variant": "#693a2b",
+            "primary-fixed": "#c0edd3",
+            "on-error": "#ffffff",
+            "surface": "#fff8f4",
+            "secondary-fixed": "#ffdbd0",
+            "inverse-primary": "#a5d0b8",
+            "primary-container": "#1d4533",
+            "surface-container-low": "#fef1e7",
+            "primary": "#032f1e",
+            "surface-container-highest": "#ede0d6",
+            "surface-tint": "#3f6653",
+            "secondary-fixed-dim": "#fab7a1",
+            "on-primary-fixed": "#002114",
+            "background": "#fff8f4",
+            "on-primary-container": "#88b29b",
+            "on-primary-fixed-variant": "#274e3c",
+            "on-error-container": "#93000a",
+            "secondary-container": "#feb9a4",
+            "on-secondary": "#ffffff",
+            "inverse-surface": "#362f29",
+            "surface-container-lowest": "#ffffff",
+            "on-primary": "#ffffff",
+            "tertiary-fixed-dim": "#e5bfa8",
+            "outline-variant": "#c1c8c2",
+            "surface-container": "#f9ece2",
+            "tertiary-fixed": "#ffdcc6",
+            "on-secondary-container": "#794737",
+            "surface-variant": "#ede0d6",
+            "outline": "#717973",
+            "error": "#ba1a1a",
+            "on-surface-variant": "#414844",
+            "primary-fixed-dim": "#a5d0b8",
+            "on-background": "#201a15"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "margin": "2rem",
+            "gutter-mobile": "1rem",
+            "space-lg": "1.5rem",
+            "margin-mobile": "1rem",
+            "space-xl": "2.5rem",
+            "gutter": "1.5rem",
+            "space-sm": "0.5rem",
+            "space-md": "1rem",
+            "space-xs": "0.25rem"
+          },
+          "fontFamily": {
+            "display-lg-mobile": ["Newsreader", "serif"],
+            "headline-lg-mobile": ["Newsreader", "serif"],
+            "body-sm": ["Plus Jakarta Sans", "sans-serif"],
+            "headline-lg": ["Newsreader", "serif"],
+            "body-lg": ["Plus Jakarta Sans", "sans-serif"],
+            "title-lg": ["Plus Jakarta Sans", "sans-serif"],
+            "headline-sm": ["Newsreader", "serif"],
+            "display-lg": ["Newsreader", "serif"],
+            "title-md": ["Plus Jakarta Sans", "sans-serif"],
+            "label-sm": ["Plus Jakarta Sans", "sans-serif"],
+            "title-sm": ["Plus Jakarta Sans", "sans-serif"],
+            "label-md": ["Plus Jakarta Sans", "sans-serif"],
+            "body-md": ["Plus Jakarta Sans", "sans-serif"],
+            "headline-md": ["Newsreader", "serif"]
+          },
+          "fontSize": {
+            "display-lg-mobile": ["34px", { "lineHeight": "42px", "letterSpacing": "-0.01em", "fontWeight": "500" }],
+            "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "fontWeight": "400" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "body-lg": ["16px", { "lineHeight": "26px", "fontWeight": "400" }],
+            "title-lg": ["18px", { "lineHeight": "26px", "fontWeight": "700" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "500" }],
+            "title-md": ["16px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.06em", "fontWeight": "700" }],
+            "title-sm": ["14px", { "lineHeight": "20px", "fontWeight": "600" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "body-md": ["14px", { "lineHeight": "22px", "fontWeight": "400" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    /* Subtle parchment textured glow */
+    body {
+      background-color: #fff8f4;
+      color: #201a15;
+      -webkit-font-smoothing: antialiased;
+    }
+    .fine-line-border {
+      border: 1px solid rgba(94, 49, 34, 0.12);
+    }
+    .toggle-checkbox:checked {
+      right: 0;
+      background-color: #1d4533;
+    }
+    .toggle-checkbox:checked + .toggle-label {
+      background-color: #c0edd3;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface antialiased flex justify-center min-h-screen">
+<!-- Mobile Frame Container (Max 440px width simulating mobile viewport) -->
+<div class="w-full max-w-md bg-surface flex flex-col min-h-screen relative pb-24 shadow-sm border-x border-surface-container-highest">
+<!-- TOP APP BAR (Shared Component Anchor) -->
+<!-- Prohibiting border-t/border-b per Shell Border Ban rule -->
+<header class="sticky top-0 z-40 bg-surface w-full px-margin-mobile flex items-center justify-between h-16 shadow-[0_1px_3px_rgba(94,49,34,0.05)]">
+<div class="flex items-center gap-2">
+<button aria-label="Explore menu" class="w-9 h-9 rounded-lg flex items-center justify-center text-primary hover:bg-surface-container-high transition-colors active:scale-95 duration-150">
+<span class="material-symbols-outlined text-primary text-[22px]">explore</span>
+</button>
+<span class="font-headline-sm text-headline-sm font-semibold tracking-tight text-primary flex items-center gap-1.5">
+          Planora
+        </span>
+</div>
+<div class="flex items-center gap-2">
+<!-- Event Switcher Pill Indicator -->
+<div class="px-2.5 py-1 rounded-full bg-surface-container fine-line-border flex items-center gap-1.5 text-secondary">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="font-label-sm text-label-sm uppercase font-semibold text-primary">Apex Live</span>
+</div>
+<!-- Trailing Avatar -->
+<button aria-label="Event Director profile photo" class="w-9 h-9 rounded-full overflow-hidden fine-line-border focus:ring-2 focus:ring-primary focus:outline-none">
+<img class="w-full h-full object-cover" data-alt="Sophisticated headshot portrait of Avantika Sharma, an Indian female senior event director wearing elegant forest green linen attire against a warm cream studio backdrop with soft ambient editorial lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6QACscJaMN82cnjf3bXLZkPCG877azkpDLwCUThmgtealxXh2NCou9A3Kwg8mm8rNtZifHOhOdsKjbu5Gko2BtqsQBWEJLSZY1YiZ4_xSzKJX4UaIKUxWmvca2iBvDm8p-nADmaBmDaOGNbH3yGdMx2Ym_0nS36IQoOMdT4sJoNqBe3xMmPgECHAmvgpgH0b2GFolGKHk7WQjftqkliZtnqNNLjAHcfgFn_Iu8kkE2M5duvscz9Y"/>
+</button>
+</div>
+</header>
+<!-- MAIN SCROLLABLE CONTENT CANVAS -->
+<main class="flex-1 px-margin-mobile pt-4 space-y-5">
+<!-- Screen Header with Editorial Typography -->
+<section class="space-y-1">
+<div class="flex items-center justify-between">
+<p class="font-label-sm text-label-sm tracking-wider uppercase text-secondary font-bold">
+            WORKSPACE &amp; SYSTEM PREFERENCES
+          </p>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container text-primary font-label-sm text-label-sm fine-line-border">
+<span class="material-symbols-outlined text-[13px]">tune</span>
+            V2.4
+          </span>
+</div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-primary font-semibold tracking-tight">
+          Settings
+        </h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          Fine-tune agency-level fiscal governance, regional standards, and autonomous AI live-mode triggers.
+        </p>
+</section>
+<!-- 3. User Profile & Organization Card (Bento Card Pattern) -->
+<section class="bg-surface-container-lowest fine-line-border rounded-xl p-space-md shadow-[0_2px_8px_-2px_rgba(29,69,51,0.06)] relative overflow-hidden">
+<div class="absolute -right-6 -bottom-6 w-28 h-28 bg-surface-container-low rounded-full opacity-60 pointer-events-none"></div>
+<div class="flex items-start gap-3.5 relative z-10">
+<div class="relative">
+<img class="w-14 h-14 rounded-xl object-cover fine-line-border shadow-sm" data-alt="Close up editorial portrait photo of Avantika Sharma in an architectural office setting, warm sunlight falling across crisp stationery and parchment binders on the desk, natural high-end luxury aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsZTN755-tOFz2-QYHzXIsl6wOKa6l4SscmAV24LanHYrLD7CWfWYImCuCaHnupemuctQ42JtIAYEB5qvzDjqyxranMHxaCjlq5OwOQfNplVnBsBFXDzJbvkG_WdVVmKjSvOMGvZlWpYUYpYbVcJtdc5JO2SwQQNOo-7wwvV_yPkCiXW7YSpkA7Dm-8xm0fj6lZ_txXASPnOh1uW3CRXmdqPKO-ocb6B3IwRe3_0YIm_jtZJv5QTo"/>
+<span class="absolute -bottom-1 -right-1 w-4 h-4 bg-primary text-on-primary rounded-full flex items-center justify-center text-[10px]" title="Enterprise Admin">
+<span class="material-symbols-outlined text-[10px]">verified</span>
+</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-1.5 flex-wrap">
+<h2 class="font-title-md text-title-md text-primary font-bold truncate">
+                Avantika Sharma
+              </h2>
+</div>
+<p class="font-body-sm text-body-sm text-secondary font-medium truncate">
+              Senior Event Director | Apex Events &amp; Production
+            </p>
+<p class="font-body-sm text-body-sm text-on-surface-variant text-[11px] truncate mt-0.5">
+              avantika@apexevents.in
+            </p>
+</div>
+</div>
+<!-- Plan & Action Sub-tier -->
+<div class="mt-4 pt-3 border-t border-surface-container-highest flex items-center justify-between gap-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px]">badge</span>
+<div>
+<p class="font-label-sm text-label-sm uppercase text-on-surface-variant leading-none">Active Tier</p>
+<p class="font-title-sm text-title-sm text-primary font-semibold mt-0.5">Planora Enterprise (Team of 10)</p>
+</div>
+</div>
+<button class="px-3 py-1.5 rounded-lg border border-primary text-secondary hover:bg-surface-container-high font-label-md text-label-md active:scale-95 transition-all duration-150 flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px]">edit</span>
+            Edit Profile
+          </button>
+</div>
+</section>
+<!-- 4. Section 1: Regional & Financial Localization -->
+<section class="space-y-2.5">
+<div class="flex items-center gap-1.5 text-primary">
+<span class="material-symbols-outlined text-secondary text-[19px]">public</span>
+<h2 class="font-title-sm text-title-sm uppercase font-bold tracking-wider text-secondary">
+            1. Regional &amp; Financial Localization
+          </h2>
+</div>
+<div class="bg-surface-container-lowest fine-line-border rounded-xl p-space-md space-y-3.5 shadow-[0_1px_4px_rgba(94,49,34,0.04)]">
+<!-- Base Currency Selector -->
+<div class="space-y-1">
+<label class="block font-label-sm text-label-sm font-semibold text-on-surface uppercase">
+              Base Financial Currency
+            </label>
+<div class="relative">
+<select class="w-full bg-surface-container-lowest fine-line-border rounded-lg py-2.5 pl-3 pr-9 font-body-md text-body-md text-primary font-medium focus:ring-2 focus:ring-primary focus:outline-none appearance-none">
+<option selected="">INR (₹) - Indian Rupee</option>
+<option>AED (د.إ) - UAE Dirham</option>
+<option>USD ($) - US Dollar</option>
+<option>GBP (£) - British Pound</option>
+<option>EUR (€) - Euro</option>
+</select>
+<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-secondary">
+<span class="material-symbols-outlined text-[18px]">expand_more</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-[11px] text-on-surface-variant">Used as ledger master currency across all multi-vendor contracts.</p>
+</div>
+<!-- Timezone & Fiscal Grid -->
+<div class="grid grid-cols-1 gap-3 pt-1">
+<div class="space-y-1">
+<label class="block font-label-sm text-label-sm font-semibold text-on-surface uppercase">
+                Default Timezone
+              </label>
+<div class="flex items-center gap-2 p-2.5 bg-surface-container-low rounded-lg fine-line-border">
+<span class="material-symbols-outlined text-primary text-[18px]">schedule</span>
+<span class="font-body-md text-body-md text-primary font-medium">Asia/Kolkata (IST - GMT +5:30)</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-2">
+<div class="space-y-1">
+<label class="block font-label-sm text-label-sm font-semibold text-on-surface uppercase truncate">
+                  Tax &amp; Fiscal Format
+                </label>
+<div class="p-2.5 bg-surface-container-low rounded-lg fine-line-border truncate">
+<span class="font-body-sm text-body-sm text-primary font-semibold block truncate">GST (18% Tax)</span>
+<span class="text-[10px] text-secondary font-label-sm block uppercase truncate">Central + State</span>
+</div>
+</div>
+<div class="space-y-1">
+<label class="block font-label-sm text-label-sm font-semibold text-on-surface uppercase truncate">
+                  Date Format
+                </label>
+<div class="p-2.5 bg-surface-container-low rounded-lg fine-line-border flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-primary font-semibold font-mono">DD/MM/YYYY</span>
+<span class="material-symbols-outlined text-secondary text-[16px]">calendar_today</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 5. Section 2: GenAI Planning Engine Configuration -->
+<section class="space-y-2.5">
+<div class="flex items-center justify-between text-primary">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-secondary text-[19px]">auto_awesome</span>
+<h2 class="font-title-sm text-title-sm uppercase font-bold tracking-wider text-secondary">
+              2. GenAI Planning Engine
+            </h2>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm uppercase font-bold">
+            Adaptive
+          </span>
+</div>
+<!-- AI Editorial Insight Banner -->
+<div class="p-3 bg-secondary-container/30 border-l-[3px] border-primary rounded-r-lg space-y-1">
+<div class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[16px]">psychology</span>
+<span class="font-headline-sm text-[14px] font-semibold text-primary">Copilot Floor Heuristics Active</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant text-[11px] leading-relaxed">
+            The neural scheduler cross-examines Mumbai traffic patterns, sound curfews, and crew fatigue cycles during live run-of-show.
+          </p>
+</div>
+<div class="bg-surface-container-lowest fine-line-border rounded-xl p-space-md space-y-3.5 shadow-[0_1px_4px_rgba(94,49,34,0.04)]">
+<!-- Toggle: Autonomous Rebalancing -->
+<div class="flex items-start justify-between gap-3">
+<div class="space-y-0.5">
+<label class="font-title-sm text-title-sm text-primary font-bold cursor-pointer" for="toggle-rebalancing">
+                AI Autonomous Rebalancing
+              </label>
+<p class="font-body-sm text-body-sm text-on-surface-variant text-[11px] leading-snug">
+                Allow AI to auto-propose schedule adaptations when delay exceeds 15 minutes.
+              </p>
+</div>
+<!-- Custom Styled Switch -->
+<label class="relative inline-flex items-center cursor-pointer shrink-0 mt-0.5">
+<input checked="" class="sr-only peer" id="toggle-rebalancing" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-surface-container-highest after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-container"></div>
+</label>
+</div>
+<!-- Vendor Model Dropdown -->
+<div class="space-y-1 pt-1 border-t border-surface-container-highest">
+<label class="block font-label-sm text-label-sm font-semibold text-on-surface uppercase">
+              Vendor Estimate Benchmark Model
+            </label>
+<div class="relative">
+<select class="w-full bg-surface-container-lowest fine-line-border rounded-lg py-2 pl-3 pr-8 font-body-sm text-body-sm text-primary font-medium focus:ring-2 focus:ring-primary focus:outline-none appearance-none">
+<option selected="">Mumbai &amp; Western India Average Cost Index</option>
+<option>Delhi NCR Luxury Hospitality Index</option>
+<option>Bengaluru Tech &amp; Convention Standard</option>
+<option>Goa Destination Wedding Matrix</option>
+</select>
+<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2.5 text-secondary">
+<span class="material-symbols-outlined text-[18px]">arrow_drop_down</span>
+</div>
+</div>
+</div>
+<!-- Toggle: Budget Guardrails -->
+<div class="flex items-start justify-between gap-3 pt-1 border-t border-surface-container-highest">
+<div class="space-y-0.5">
+<label class="font-title-sm text-title-sm text-primary font-bold cursor-pointer" for="toggle-guardrails">
+                Strict Budget Guardrails
+              </label>
+<p class="font-body-sm text-body-sm text-on-surface-variant text-[11px] leading-snug">
+                Require 2-factor approval if PO exceeds departmental ceiling.
+              </p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer shrink-0 mt-0.5">
+<input checked="" class="sr-only peer" id="toggle-guardrails" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-surface-container-highest after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-container"></div>
+</label>
+</div>
+</div>
+</section>
+<!-- 6. Section 3: Operational & Live Mode Notifications -->
+<section class="space-y-2.5">
+<div class="flex items-center gap-1.5 text-primary">
+<span class="material-symbols-outlined text-secondary text-[19px]">sensors</span>
+<h2 class="font-title-sm text-title-sm uppercase font-bold tracking-wider text-secondary">
+            3. Operational &amp; Live Mode Alerts
+          </h2>
+</div>
+<div class="bg-surface-container-lowest fine-line-border rounded-xl p-space-md space-y-3.5 shadow-[0_1px_4px_rgba(94,49,34,0.04)] divide-y divide-surface-container-highest">
+<!-- Critical Overdue WhatsApp -->
+<div class="flex items-center justify-between gap-3 pt-0">
+<div class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-primary text-[20px] mt-0.5">notifications_active</span>
+<div>
+<p class="font-title-sm text-title-sm text-primary font-semibold">Critical Overdue Alerts</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant text-[11px]">Instant SMS/WhatsApp dispatch to Leads</p>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer shrink-0">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-surface-container-highest after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-container"></div>
+</label>
+</div>
+<!-- Live Radio VHF Sync -->
+<div class="flex items-center justify-between gap-3 pt-3">
+<div class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-secondary text-[20px] mt-0.5">cell_tower</span>
+<div>
+<p class="font-title-sm text-title-sm text-primary font-semibold">Live Radio Sync Link</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant text-[11px]">Broadcast cues to VHF Ch. 4 (Stage Ops)</p>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer shrink-0">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-surface-container-highest after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-container"></div>
+</label>
+</div>
+<!-- Sound Curfew Warnings -->
+<div class="flex items-center justify-between gap-3 pt-3">
+<div class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-secondary text-[20px] mt-0.5">volume_off</span>
+<div>
+<p class="font-title-sm text-title-sm text-primary font-semibold">Sound Curfew Warning</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant text-[11px]">Alert 30 mins before 22:00 IST cutoff</p>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer shrink-0">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-surface-container-highest after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-container"></div>
+</label>
+</div>
+</div>
+</section>
+<!-- 7. Section 4: Data Security, Role Permissions & Backup -->
+<section class="space-y-2.5">
+<div class="flex items-center gap-1.5 text-primary">
+<span class="material-symbols-outlined text-secondary text-[19px]">shield_person</span>
+<h2 class="font-title-sm text-title-sm uppercase font-bold tracking-wider text-secondary">
+            4. Security &amp; Permissions
+          </h2>
+</div>
+<div class="bg-surface-container-lowest fine-line-border rounded-xl p-space-md space-y-4 shadow-[0_1px_4px_rgba(94,49,34,0.04)]">
+<!-- Scoped Volunteer Privacy -->
+<div class="flex items-start justify-between gap-3">
+<div class="space-y-0.5">
+<p class="font-title-sm text-title-sm text-primary font-bold">Scoped Volunteer Privacy</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant text-[11px]">
+                Hide vendor pricing and confidential VIP phone numbers from general crew.
+              </p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer shrink-0 mt-0.5">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-surface-container-highest after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-container"></div>
+</label>
+</div>
+<!-- Cloud Backup Status -->
+<div class="p-3 bg-surface-container-low rounded-lg fine-line-border flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]" style="font-variation-settings: 'FILL' 1;">cloud_done</span>
+<div>
+<p class="font-title-sm text-[12px] font-bold text-primary">Cloud Sync Active</p>
+<p class="font-body-sm text-[10px] text-on-surface-variant">Last backup 4 mins ago • Mumbai AWS</p>
+</div>
+</div>
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-semibold bg-primary-fixed text-on-primary-fixed uppercase tracking-wider">
+              Secure
+            </span>
+</div>
+<!-- Export Button -->
+<button class="w-full py-2.5 px-3 rounded-lg border border-primary text-secondary hover:bg-surface-container-high font-label-md text-label-md font-semibold transition-all duration-150 flex items-center justify-center gap-2 active:scale-[0.98]">
+<span class="material-symbols-outlined text-[17px]">download</span>
+            Export Workspace Data (JSON / ZIP)
+          </button>
+</div>
+</section>
+<!-- 8. App Version & Legal + Danger Zone -->
+<section class="space-y-3 pt-2">
+<!-- Danger Zone Sign Out Button -->
+<button class="w-full py-2.5 px-4 rounded-lg border border-secondary text-secondary hover:bg-error-container/20 font-label-md text-label-md font-semibold transition-all duration-150 flex items-center justify-center gap-2 active:scale-95">
+<span class="material-symbols-outlined text-[18px]">logout</span>
+          Sign Out of Apex Events
+        </button>
+<div class="text-center space-y-1.5 py-2">
+<p class="font-body-sm text-body-sm text-[11px] text-on-surface-variant font-medium">
+            Planora v2.4.1 (Build 408) • Enterprise Multi-Tenant Edition
+          </p>
+<div class="flex items-center justify-center gap-3 text-[10px] font-label-sm text-secondary uppercase font-semibold">
+<a class="hover:underline" href="#">Terms of Service</a>
+<span>•</span>
+<a class="hover:underline" href="#">Privacy Policy</a>
+<span>•</span>
+<a class="hover:underline" href="#">Emergency Compliance Standards</a>
+</div>
+</div>
+</section>
+</main>
+<!-- BOTTOM NAVIGATION BAR (Shared Component Anchor) -->
+<!-- Prohibiting border-t/border-b per Shell Border Ban rule; using shadow-[0_-2px_10px_rgba(94,49,34,0.06)] -->
+<nav aria-label="Main Navigation" class="fixed bottom-0 left-0 right-0 max-w-md mx-auto z-50 bg-surface h-16 flex justify-around items-center px-space-xs shadow-[0_-2px_10px_rgba(94,49,34,0.06)]">
+<!-- Overview (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-1 px-3 hover:bg-surface-container-low transition-colors duration-150 active:scale-95" href="#">
+<span class="material-symbols-outlined text-[20px]">dashboard</span>
+<span class="font-label-sm text-label-sm mt-0.5">Overview</span>
+</a>
+<!-- AI Planner (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-1 px-3 hover:bg-surface-container-low transition-colors duration-150 active:scale-95" href="#">
+<span class="material-symbols-outlined text-[20px]">auto_awesome</span>
+<span class="font-label-sm text-label-sm mt-0.5">AI Planner</span>
+</a>
+<!-- Schedule (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-1 px-3 hover:bg-surface-container-low transition-colors duration-150 active:scale-95" href="#">
+<span class="material-symbols-outlined text-[20px]">event_note</span>
+<span class="font-label-sm text-label-sm mt-0.5">Schedule</span>
+</a>
+<!-- Budget (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-1 px-3 hover:bg-surface-container-low transition-colors duration-150 active:scale-95" href="#">
+<span class="material-symbols-outlined text-[20px]">payments</span>
+<span class="font-label-sm text-label-sm mt-0.5">Budget</span>
+</a>
+<!-- Live Mode (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-1 px-3 hover:bg-surface-container-low transition-colors duration-150 active:scale-95" href="#">
+<span class="material-symbols-outlined text-[20px]">sensors</span>
+<span class="font-label-sm text-label-sm mt-0.5">Live Mode</span>
+</a>
+</nav>
+</div>
+</body></html>

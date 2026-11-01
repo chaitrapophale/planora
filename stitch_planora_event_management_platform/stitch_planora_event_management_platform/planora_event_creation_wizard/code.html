@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Planora - Event Creation Wizard</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "error-container": "#ffdad6",
+            "on-primary-fixed-variant": "#274e3c",
+            "primary": "#032f1e",
+            "surface-container-high": "#f3e6dc",
+            "on-primary": "#ffffff",
+            "tertiary": "#392313",
+            "primary-fixed": "#c0edd3",
+            "on-error": "#ffffff",
+            "on-tertiary-fixed-variant": "#5b412f",
+            "secondary-fixed": "#ffdbd0",
+            "error": "#ba1a1a",
+            "on-secondary-container": "#794737",
+            "surface-container-low": "#fef1e7",
+            "inverse-surface": "#362f29",
+            "outline": "#717973",
+            "on-primary-container": "#88b29b",
+            "on-surface": "#201a15",
+            "inverse-on-surface": "#fceee4",
+            "on-primary-fixed": "#002114",
+            "surface-variant": "#ede0d6",
+            "secondary-container": "#feb9a4",
+            "surface-bright": "#fff8f4",
+            "surface-container": "#f9ece2",
+            "tertiary-fixed": "#ffdcc6",
+            "secondary": "#855140",
+            "inverse-primary": "#a5d0b8",
+            "surface-tint": "#3f6653",
+            "on-background": "#201a15",
+            "tertiary-fixed-dim": "#e5bfa8",
+            "secondary-fixed-dim": "#fab7a1",
+            "on-error-container": "#93000a",
+            "surface-container-highest": "#ede0d6",
+            "surface-dim": "#e4d8ce",
+            "on-tertiary-container": "#c5a18b",
+            "primary-container": "#1d4533",
+            "primary-fixed-dim": "#a5d0b8",
+            "on-secondary": "#ffffff",
+            "surface-container-lowest": "#ffffff",
+            "on-secondary-fixed-variant": "#693a2b",
+            "surface": "#fff8f4",
+            "on-tertiary": "#ffffff",
+            "outline-variant": "#c1c8c2",
+            "on-surface-variant": "#414844",
+            "tertiary-container": "#513827",
+            "on-tertiary-fixed": "#2b1708",
+            "on-secondary-fixed": "#341005",
+            "background": "#fff8f4"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "margin": "2rem",
+            "space-sm": "0.5rem",
+            "space-xl": "2.5rem",
+            "space-lg": "1.5rem",
+            "margin-mobile": "1rem",
+            "space-md": "1rem",
+            "gutter": "1.5rem",
+            "space-xs": "0.25rem",
+            "gutter-mobile": "1rem"
+          },
+          "fontFamily": {
+            "display-lg-mobile": ["Newsreader"],
+            "headline-lg-mobile": ["Newsreader"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "display-lg": ["Newsreader"],
+            "body-md": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "title-md": ["Plus Jakarta Sans"],
+            "title-sm": ["Plus Jakarta Sans"],
+            "headline-lg": ["Newsreader"],
+            "label-md": ["Plus Jakarta Sans"],
+            "headline-sm": ["Newsreader"],
+            "headline-md": ["Newsreader"],
+            "title-lg": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "display-lg-mobile": ["34px", { "lineHeight": "42px", "letterSpacing": "-0.01em", "fontWeight": "500" }],
+            "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "fontWeight": "400" }],
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "500" }],
+            "body-md": ["14px", { "lineHeight": "22px", "fontWeight": "400" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.06em", "fontWeight": "700" }],
+            "body-lg": ["16px", { "lineHeight": "26px", "fontWeight": "400" }],
+            "title-md": ["16px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "title-sm": ["14px", { "lineHeight": "20px", "fontWeight": "600" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+            "title-lg": ["18px", { "lineHeight": "26px", "fontWeight": "700" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    /* Architectural tactile lines and subtle custom styles */
+    .tactile-border {
+      border: 1px solid rgba(94, 49, 34, 0.12);
+    }
+    .tactile-border-green {
+      border: 1px solid rgba(29, 69, 51, 0.2);
+    }
+    .custom-scroll::-webkit-scrollbar {
+      display: none;
+    }
+    .custom-scroll {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="bg-surface-container-low text-on-surface antialiased font-body-md text-body-md flex flex-col min-h-screen selection:bg-secondary-container selection:text-tertiary">
+<!-- TOP APP BAR (Shared Component Execution) -->
+<header class="sticky top-0 z-40 bg-surface w-full px-margin-mobile md:px-margin flex items-center justify-between h-16 shadow-[0_1px_3px_rgba(94,49,34,0.05)]">
+<div class="flex items-center gap-3">
+<button aria-label="Go Back" class="w-9 h-9 flex items-center justify-center rounded-lg text-primary hover:bg-surface-container-high transition-colors active:scale-95" type="button">
+<span class="material-symbols-outlined text-[22px]">arrow_back</span>
+</button>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[24px]">explore</span>
+<span class="font-headline-sm text-headline-sm font-semibold tracking-tight text-primary">Planora</span>
+</div>
+</div>
+<!-- Wizard Quick Step Pill & Save Draft Action -->
+<div class="flex items-center gap-3">
+<span class="hidden sm:inline-block px-2.5 py-1 rounded bg-secondary-container/40 text-secondary text-label-sm font-label-sm">
+        DRAFT #P-2025
+      </span>
+<button class="px-3 py-1.5 rounded-lg border border-primary-container text-tertiary font-title-sm text-title-sm hover:bg-surface-container transition-colors active:scale-95 flex items-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-[16px] text-tertiary">bookmark</span>
+<span>Save Draft</span>
+</button>
+</div>
+</header>
+<!-- SUB-HEADER: WIZARD STEPPERS -->
+<div class="bg-surface-bright border-b border-surface-container-highest px-margin-mobile py-3.5">
+<div class="max-w-2xl mx-auto">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-1.5">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary">Step 2 of 4</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span class="font-title-sm text-title-sm text-tertiary font-bold">Scale &amp; Logistics</span>
+</div>
+<span class="text-label-sm font-label-sm font-bold text-primary-container">50% Completed</span>
+</div>
+<!-- Segmented Multi-Step Indicator Bar -->
+<div class="grid grid-cols-4 gap-1.5 w-full">
+<!-- Step 1: Done -->
+<div class="h-1.5 rounded-full bg-primary-container"></div>
+<!-- Step 2: Active -->
+<div class="h-1.5 rounded-full bg-secondary-container relative overflow-hidden">
+<div class="absolute inset-y-0 left-0 bg-primary-container w-3/4 rounded-full"></div>
+</div>
+<!-- Step 3: Pending -->
+<div class="h-1.5 rounded-full bg-surface-container-high"></div>
+<!-- Step 4: Pending -->
+<div class="h-1.5 rounded-full bg-surface-container-high"></div>
+</div>
+<!-- Compact Text Ribbon for Steps -->
+<div class="hidden sm:flex justify-between items-center mt-2 px-0.5 text-label-sm font-label-sm text-on-surface-variant">
+<span class="flex items-center gap-1 text-primary-container font-semibold"><span class="material-symbols-outlined text-[13px]" style="font-variation-settings: 'FILL' 1;">check_circle</span> 1. Core Info</span>
+<span class="font-bold text-primary-container">2. Scale &amp; Logistics</span>
+<span class="text-outline">3. Requirements</span>
+<span class="text-outline">4. Team &amp; Safety</span>
+</div>
+</div>
+</div>
+<!-- MAIN WIZARD CONTENT CANVAS -->
+<main class="flex-1 w-full max-w-2xl mx-auto px-margin-mobile py-5 pb-36 space-y-5">
+<!-- Title & Context Area -->
+<div class="space-y-1">
+<div class="flex items-center justify-between">
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-tertiary font-semibold tracking-tight">
+          Event Scale &amp; Fiscal Boundaries
+        </h1>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+        Specify attendance tier, runtime parameters, and financial allocation to train the AI logistical model.
+      </p>
+</div>
+<!-- CURRENT EVENT CONTEXT BANNER (Tactile Parchment Frame) -->
+<div class="bg-surface-container-lowest rounded-xl p-3.5 tactile-border flex items-center justify-between shadow-[0_2px_8px_-2px_rgba(94,49,34,0.06)]">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-secondary-container/40 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-[22px]">festival</span>
+</div>
+<div>
+<span class="text-label-sm font-label-sm text-secondary block uppercase">Primary Type</span>
+<span class="font-title-sm text-title-sm text-tertiary font-semibold">College Cultural Fest</span>
+</div>
+</div>
+<button class="flex items-center gap-1 text-label-md font-label-md text-primary font-semibold px-2.5 py-1 rounded-lg bg-surface-container hover:bg-surface-container-high transition-colors" type="button">
+<span class="material-symbols-outlined text-[15px]">edit</span>
+<span>Edit</span>
+</button>
+</div>
+<!-- AI PROMPT RECOMMENDATION CALLOUT (Editorial Left Green Anchor) -->
+<div class="rounded-xl bg-secondary-container/20 border-l-[3px] border-primary-container p-4 space-y-2.5 shadow-[0_2px_10px_rgba(29,69,51,0.04)]">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container text-[18px]">auto_awesome</span>
+<h2 class="font-headline-sm text-headline-sm text-tertiary font-semibold">Planora Synthesizer Recommendation</h2>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+        Based on historic youth cultural festivals in Mumbai colleges, setting a baseline at <strong class="text-tertiary font-semibold">500 Pax</strong> with a ₹2,00,000 threshold leaves approximately <strong class="text-tertiary font-semibold">₹400 per attendee</strong> for audio-visual rig, stages, and security permits.
+      </p>
+<div class="flex items-center gap-2 pt-1">
+<button class="text-label-sm font-label-sm uppercase bg-primary-container text-on-primary px-2.5 py-1 rounded flex items-center gap-1 hover:bg-primary transition-all" type="button">
+<span class="material-symbols-outlined text-[13px]">bolt</span> Apply Smart Defaults
+        </button>
+</div>
+</div>
+<!-- SECTION 1: TARGET AUDIENCE / PAX SELECTION -->
+<div class="bg-surface-container-lowest rounded-xl p-4.5 tactile-border space-y-3 shadow-[0_1px_4px_rgba(94,49,34,0.04)]">
+<div class="flex items-center justify-between">
+<label class="font-title-sm text-title-sm text-tertiary font-bold flex items-center gap-1.5">
+<span class="material-symbols-outlined text-secondary text-[18px]">groups</span>
+          Target Audience (Pax)
+        </label>
+<span class="text-label-sm font-label-sm text-primary-container font-semibold bg-surface-container-high px-2 py-0.5 rounded">
+          Required
+        </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+        Select anticipated headcount to calibrate egress, first-aid quotas, and acoustics.
+      </p>
+<!-- Quick Pax Chips Selector -->
+<div class="grid grid-cols-5 gap-2 pt-1">
+<button class="py-2.5 px-2 rounded border border-surface-container-highest bg-surface-container-low text-tertiary font-title-sm text-title-sm text-center hover:bg-surface-container transition-all" type="button">
+          100
+        </button>
+<button class="py-2.5 px-2 rounded border border-surface-container-highest bg-surface-container-low text-tertiary font-title-sm text-title-sm text-center hover:bg-surface-container transition-all" type="button">
+          250
+        </button>
+<!-- Active 500 Pax Chip -->
+<button class="py-2.5 px-2 rounded bg-secondary-container border border-secondary text-tertiary font-title-sm text-title-sm font-bold text-center shadow-sm relative ring-2 ring-primary-container/20" type="button">
+          500
+          <span class="block text-[10px] uppercase font-bold tracking-tighter text-secondary leading-none mt-0.5">Pax</span>
+</button>
+<button class="py-2.5 px-2 rounded border border-surface-container-highest bg-surface-container-low text-tertiary font-title-sm text-title-sm text-center hover:bg-surface-container transition-all" type="button">
+          1,000
+        </button>
+<button class="py-2.5 px-2 rounded border border-surface-container-highest bg-surface-container-low text-tertiary font-title-sm text-title-sm text-center hover:bg-surface-container transition-all flex flex-col items-center justify-center" type="button">
+<span class="material-symbols-outlined text-[16px] text-secondary">tune</span>
+<span class="text-[10px] font-semibold text-secondary">Custom</span>
+</button>
+</div>
+<!-- Capacity density indicator note -->
+<div class="flex items-center gap-2 pt-1 text-label-sm font-label-sm text-secondary">
+<span class="material-symbols-outlined text-[15px] text-secondary">info</span>
+<span>Estimated floor density: 1.4 m² per attendee (Compliant with Quad standard).</span>
+</div>
+</div>
+<!-- SECTION 2: EVENT SCHEDULE & VENUE DETAILS -->
+<div class="bg-surface-container-lowest rounded-xl p-4.5 tactile-border space-y-4 shadow-[0_1px_4px_rgba(94,49,34,0.04)]">
+<h3 class="font-title-sm text-title-sm text-tertiary font-bold flex items-center gap-1.5">
+<span class="material-symbols-outlined text-secondary text-[18px]">calendar_month</span>
+        Time Horizon &amp; Venue Ground
+      </h3>
+<!-- Date & Hours Card -->
+<div class="rounded-lg p-3 bg-surface-container-low tactile-border space-y-1.5">
+<div class="flex items-center justify-between">
+<span class="text-label-sm font-label-sm uppercase text-secondary font-bold">Scheduled Timeline</span>
+<span class="text-label-sm font-label-sm text-primary-container font-semibold bg-primary-fixed/30 px-2 py-0.5 rounded border border-primary-container/20">1 Day Fest</span>
+</div>
+<div class="flex items-center gap-2.5 text-tertiary">
+<span class="material-symbols-outlined text-[20px] text-primary-container">schedule</span>
+<span class="font-title-sm text-title-sm font-semibold">Oct 24, 2025 • 09:00 AM - 10:00 PM</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">13 continuous operational hours (Curfew strictness: Moderate).</p>
+</div>
+<!-- Venue Location Card with Map Indicator -->
+<div class="space-y-2">
+<label class="text-label-sm font-label-sm uppercase text-secondary font-bold block">Assigned Venue</label>
+<div class="rounded-lg overflow-hidden tactile-border bg-surface-bright">
+<div class="relative h-28 w-full bg-surface-container-high overflow-hidden flex items-end">
+<!-- Simulated Architectural Campus Blueprint/Map texture -->
+<img class="absolute inset-0 w-full h-full object-cover opacity-60" data-alt="A stylized, high-contrast architectural floor plan and aerial schematic blueprint of a historic college courtyard quadrangle surrounded by gothic stone arcades. Light cream parchment backdrop with crisp botanical forest green and warm terracotta drafting lines depicting zones for outdoor staging, sound consoles, and food kiosks under diffused morning ambient light." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmKC6FOioVj9cSz3znFgMGuW2tLvUOU3dd8_U5BohZpXIr2KOh7PwhGehv6IveJiS3Gm1sYpGCkPsdbu7MBfupHSh3RaTIZRwnRH-a-duxLjXtiazRPXuASaSEbX1bD80Mp5FraYzljJ7i_oFO91aCRqz76_FuQ3ChZq00oINFn3Veb9Upf9T7UzOrMcBWcpTYbtWWQI_lEF4pf9HLdF8ukP_PnMLG9JY4HKuFW-ZMJffXeckdyFA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+<div class="relative z-10 p-2.5 text-white flex items-center justify-between w-full">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-secondary-container text-[18px]" style="font-variation-settings: 'FILL' 1;">location_on</span>
+<span class="font-title-sm text-title-sm text-white drop-shadow-sm">South Mumbai, Maharashtra</span>
+</div>
+<span class="text-label-sm font-label-sm bg-black/40 backdrop-blur-md px-2 py-0.5 rounded text-white border border-white/20">Open Quad</span>
+</div>
+</div>
+<div class="p-3 flex items-center justify-between">
+<div>
+<p class="font-title-sm text-title-sm text-tertiary font-bold">St. Xavier's Grand Quad</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">5 Mahapalika Marg, Dhobi Talao, Mumbai 400001</p>
+</div>
+<button aria-label="Change Venue" class="w-8 h-8 rounded-lg flex items-center justify-center bg-surface-container hover:bg-surface-container-high text-tertiary transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">swap_horiz</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- SECTION 3: TOTAL TARGET BUDGET & AI ALLOCATION PREVIEW -->
+<div class="bg-surface-container-lowest rounded-xl p-4.5 tactile-border space-y-4 shadow-[0_1px_4px_rgba(94,49,34,0.04)]">
+<div class="flex items-center justify-between">
+<label class="font-title-sm text-title-sm text-tertiary font-bold flex items-center gap-1.5" for="budget-input">
+<span class="material-symbols-outlined text-secondary text-[18px]">payments</span>
+          Total Target Budget
+        </label>
+<span class="text-label-sm font-label-sm uppercase text-secondary font-bold">Baseline Cap</span>
+</div>
+<!-- Currency & Numeric Input Group -->
+<div class="flex rounded-lg overflow-hidden tactile-border focus-within:ring-2 focus-within:ring-primary-container focus-within:ring-offset-2 focus-within:ring-offset-secondary-container transition-all">
+<div class="bg-surface-container px-3.5 flex items-center border-r border-surface-container-highest">
+<span class="text-title-sm font-title-sm text-tertiary font-bold">INR (₹)</span>
+</div>
+<input class="w-full bg-surface-container-lowest px-4 py-3 font-headline-sm text-headline-sm text-tertiary font-semibold focus:outline-none border-0" id="budget-input" placeholder="Enter fiscal ceiling" type="text" value="2,00,000"/>
+<div class="bg-surface-container-lowest px-3 flex items-center">
+<span class="material-symbols-outlined text-outline text-[20px]">check_circle</span>
+</div>
+</div>
+<!-- AI Budget Breakdown Estimate Suggestion Preview -->
+<div class="rounded-lg bg-surface-container-low p-3.5 border border-surface-container-highest space-y-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary-container">query_stats</span>
+<span class="font-title-sm text-title-sm text-tertiary font-semibold">AI Estimated Fiscal Allocation</span>
+</div>
+<span class="text-label-sm font-label-sm text-on-surface-variant font-mono">100% of ₹2.00L</span>
+</div>
+<!-- Visual Stacked Bar -->
+<div class="h-2 w-full rounded-full bg-surface-container-high overflow-hidden flex">
+<div class="bg-primary-container" style="width: 42%;" title="Audio, Video &amp; Stage: 42%"></div>
+<div class="bg-secondary" style="width: 25%;" title="Production &amp; Stalls: 25%"></div>
+<div class="bg-secondary-container" style="width: 18%;" title="Licenses &amp; Security: 18%"></div>
+<div class="bg-outline-variant" style="width: 15%;" title="Contingency: 15%"></div>
+</div>
+<!-- Breakdown Metric Micro-Table -->
+<div class="grid grid-cols-2 gap-2 text-label-sm font-label-sm">
+<div class="flex items-center justify-between p-1.5 rounded bg-surface-container-lowest/80 border border-surface-container-highest/60">
+<span class="flex items-center gap-1 text-on-surface-variant">
+<span class="w-2 h-2 rounded-full bg-primary-container inline-block"></span> AV &amp; Stage (42%)
+            </span>
+<span class="font-bold text-tertiary font-mono">₹84,000</span>
+</div>
+<div class="flex items-center justify-between p-1.5 rounded bg-surface-container-lowest/80 border border-surface-container-highest/60">
+<span class="flex items-center gap-1 text-on-surface-variant">
+<span class="w-2 h-2 rounded-full bg-secondary inline-block"></span> Production (25%)
+            </span>
+<span class="font-bold text-tertiary font-mono">₹50,000</span>
+</div>
+<div class="flex items-center justify-between p-1.5 rounded bg-surface-container-lowest/80 border border-surface-container-highest/60">
+<span class="flex items-center gap-1 text-on-surface-variant">
+<span class="w-2 h-2 rounded-full bg-secondary-container inline-block"></span> Permits &amp; Safety (18%)
+            </span>
+<span class="font-bold text-tertiary font-mono">₹36,000</span>
+</div>
+<div class="flex items-center justify-between p-1.5 rounded bg-surface-container-lowest/80 border border-surface-container-highest/60">
+<span class="flex items-center gap-1 text-on-surface-variant">
+<span class="w-2 h-2 rounded-full bg-outline-variant inline-block"></span> Buffer Reserve (15%)
+            </span>
+<span class="font-bold text-tertiary font-mono">₹30,000</span>
+</div>
+</div>
+</div>
+</div>
+<!-- SECTION 4: LOGISTICS SWITCHES & TOGGLES -->
+<div class="bg-surface-container-lowest rounded-xl p-4.5 tactile-border space-y-3.5 shadow-[0_1px_4px_rgba(94,49,34,0.04)]">
+<div class="flex items-center justify-between">
+<h3 class="font-title-sm text-title-sm text-tertiary font-bold flex items-center gap-1.5">
+<span class="material-symbols-outlined text-secondary text-[18px]">build_circle</span>
+          Operational Demands &amp; Site Clearances
+        </h3>
+<span class="text-label-sm font-label-sm text-secondary uppercase font-bold">3 Active</span>
+</div>
+<!-- Toggle 1: Outdoor Stage Required (Checked) -->
+<div class="flex items-start justify-between p-3 rounded-lg bg-surface-bright tactile-border">
+<div class="space-y-0.5 pr-3">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary-container text-[18px]">podium</span>
+<p class="font-title-sm text-title-sm text-tertiary font-bold">Outdoor Stage Required</p>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Requires weatherproofing canopy, 40×24 ft decking &amp; generator sync.
+          </p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer shrink-0 mt-0.5">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-surface-bright after:border-outline-variant after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-container"></div>
+</label>
+</div>
+<!-- Toggle 2: Multi-Vendor Food Stalls (Checked) -->
+<div class="flex items-start justify-between p-3 rounded-lg bg-surface-bright tactile-border">
+<div class="space-y-0.5 pr-3">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary-container text-[18px]">storefront</span>
+<p class="font-title-sm text-title-sm text-tertiary font-bold">Multi-Vendor Food Stalls</p>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Adds health inspector clearance checklist, grease trap disposal &amp; water lines.
+          </p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer shrink-0 mt-0.5">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-surface-bright after:border-outline-variant after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-container"></div>
+</label>
+</div>
+<!-- Toggle 3: Late Night Sound Permission Needed (Checked with Soft Warning Pill) -->
+<div class="p-3 rounded-lg bg-surface-bright tactile-border space-y-2">
+<div class="flex items-start justify-between">
+<div class="space-y-0.5 pr-3">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-tertiary text-[18px]">volume_up</span>
+<p class="font-title-sm text-title-sm text-tertiary font-bold">Late Night Sound Permission Needed</p>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Local municipal authority decibel compliance permit past 10:00 PM cutoff.
+            </p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer shrink-0 mt-0.5">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-surface-bright after:border-outline-variant after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-container"></div>
+</label>
+</div>
+<!-- Soft Warning Pill from Style Guidance -->
+<div class="flex items-center gap-1.5 bg-secondary-container/50 border border-secondary/20 px-2.5 py-1.5 rounded-lg text-tertiary">
+<span class="material-symbols-outlined text-[16px] text-secondary">warning</span>
+<span class="text-label-sm font-label-sm font-medium">South Mumbai Ward clearance filing requires 14 business days notice.</span>
+</div>
+</div>
+</div>
+</main>
+<!-- DOCKED BOTTOM ACTION BAR (Sticky Wizard Navigation) -->
+<div class="fixed bottom-16 left-0 w-full z-40 bg-surface-bright/95 backdrop-blur-md px-margin-mobile py-3 shadow-[0_-4px_12px_rgba(94,49,34,0.06)] border-t border-surface-container-highest">
+<div class="max-w-2xl mx-auto flex items-center justify-between gap-3">
+<!-- Back Secondary Button -->
+<button class="w-1/3 py-2.5 px-4 rounded-lg border border-primary-container text-tertiary font-title-sm text-title-sm text-center hover:bg-surface-container transition-all active:scale-95 flex items-center justify-center gap-1" type="button">
+<span class="material-symbols-outlined text-[18px]">chevron_left</span>
+<span>Back</span>
+</button>
+<!-- Continue to Requirements Primary Button -->
+<button class="w-2/3 py-2.5 px-4 rounded-lg bg-primary-container text-on-primary font-title-sm text-title-sm font-bold text-center hover:bg-primary shadow-sm transition-all active:scale-95 flex items-center justify-center gap-1.5" type="button">
+<span>Continue to Requirements</span>
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- BOTTOM NAVIGATION BAR (Shared Component Execution) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 px-space-xs bg-surface shadow-[0_-2px_10px_rgba(94,49,34,0.04)]">
+<!-- Item 1: Overview -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-1 px-3 hover:bg-surface-container-low transition-colors duration-150 active:scale-95" href="#">
+<span class="material-symbols-outlined text-[20px]">dashboard</span>
+<span class="text-label-sm font-label-sm mt-0.5">Overview</span>
+</a>
+<!-- Item 2: AI Planner (Active State for Creation Wizard context) -->
+<a class="flex flex-col items-center justify-center text-primary font-semibold py-1 px-3 rounded-lg bg-surface-container hover:bg-surface-container-low transition-colors duration-150 active:scale-95" href="#">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<span class="text-label-sm font-label-sm mt-0.5">AI Planner</span>
+</a>
+<!-- Item 3: Schedule -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-1 px-3 hover:bg-surface-container-low transition-colors duration-150 active:scale-95" href="#">
+<span class="material-symbols-outlined text-[20px]">event_note</span>
+<span class="text-label-sm font-label-sm mt-0.5">Schedule</span>
+</a>
+<!-- Item 4: Budget -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-1 px-3 hover:bg-surface-container-low transition-colors duration-150 active:scale-95" href="#">
+<span class="material-symbols-outlined text-[20px]">payments</span>
+<span class="text-label-sm font-label-sm mt-0.5">Budget</span>
+</a>
+<!-- Item 5: Live Mode -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-1 px-3 hover:bg-surface-container-low transition-colors duration-150 active:scale-95" href="#">
+<span class="material-symbols-outlined text-[20px]">sensors</span>
+<span class="text-label-sm font-label-sm mt-0.5">Live Mode</span>
+</a>
+</nav>
+</body></html>

@@ -1,0 +1,117 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Official Brand Palette */
+  --primary-forest: #1D4533;
+  --warm-cream: #F7EAE0;
+  --peach: #F9D2BA;
+  --deep-brown: #5E3122;
+  --pure-white: #FFFFFF;
+
+  /* Material Design 3 Tone mappings from Stitch */
+  --surface: #fff8f4;
+  --surface-dim: #e4d8ce;
+  --surface-container-lowest: #ffffff;
+  --surface-container-low: #fef1e7;
+  --surface-container: #f9ece2;
+  --surface-container-high: #f3e6dc;
+  --surface-container-highest: #ede0d6;
+  --on-surface: #201a15;
+  --on-surface-variant: #414844;
+  --outline: #717973;
+  --outline-variant: #c1c8c2;
+  --primary: #032f1e;
+  --primary-container: #1d4533;
+  --on-primary-container: #88b29b;
+  --secondary: #855140;
+  --secondary-container: #feb9a4;
+  --tertiary: #392313;
+  --tertiary-container: #513827;
+  --error: #ba1a1a;
+  --error-container: #ffdad6;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background-color: var(--surface-container-low);
+  color: var(--on-surface);
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, .font-serif, .editorial-heading {
+  font-family: 'Newsreader', serif;
+}
+
+/* Material Symbols configuration */
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  vertical-align: middle;
+}
+
+/* Tactile Fine-Line Borders */
+.fine-border, .tactile-border {
+  border: 1px solid rgba(94, 49, 34, 0.12);
+}
+
+.fine-border-green, .tactile-border-green {
+  border: 1px solid rgba(29, 69, 51, 0.20);
+}
+
+.border-tactile-brown {
+  border-color: rgba(94, 49, 34, 0.14);
+}
+
+.border-tactile-green {
+  border-color: rgba(29, 69, 51, 0.20);
+}
+
+/* Tabular figures for exact numeral and accounting alignment */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Scrollbar suppression */
+.no-scrollbar::-webkit-scrollbar,
+.custom-scroll::-webkit-scrollbar,
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar,
+.custom-scroll,
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Custom animated pulse */
+@keyframes subtle-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(1.15); }
+}
+
+.animate-live-pulse {
+  animation: subtle-pulse 1.8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Architectural blueprint grid */
+.blueprint-grid {
+  background-size: 24px 24px;
+  background-image: 
+    linear-gradient(to right, rgba(94, 49, 34, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(94, 49, 34, 0.05) 1px, transparent 1px);
+}
